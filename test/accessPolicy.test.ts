@@ -21,6 +21,7 @@ function fixture(opts: { dmUsers?: string[]; scopes?: string[] | null; ack?: str
   const calls: Array<{ method: string; args: any }> = [];
   const conversations = new Map<string, any>([['CWRITE', channel('CWRITE')], ['CREAD', channel('CREAD')], ['COUT', channel('COUT', false)], ['GPRIVATE', channel('GPRIVATE', true, true)], ['D1', dm()]]);
   let listed: any[] = [...conversations.values()];
+  const history: any[] = [];
   let file: Record<string, unknown> | undefined = { id: 'F1', channels: ['CREAD'] };
   let opened = 'D1';
   let handler: any;
@@ -30,7 +31,7 @@ function fixture(opts: { dmUsers?: string[]; scopes?: string[] | null; ack?: str
       list: async (args: any) => { calls.push({ method: 'list', args }); return { channels: listed }; },
       info: async (args: any) => { calls.push({ method: 'info', args }); return { channel: conversations.get(args.channel) }; },
       open: async (args: any) => { calls.push({ method: 'open', args }); return { channel: { id: opened } }; },
-      history: record('history', { messages: [] }), replies: record('replies', { messages: [] }),
+      history: record('history', { messages: history }), replies: record('replies', { messages: [] }),
     },
     chat: { postMessage: record('post', { ts: '1.0' }), update: record('edit'), delete: record('delete') },
     reactions: { add: record('react'), remove: record('unreact') },
@@ -48,6 +49,7 @@ function fixture(opts: { dmUsers?: string[]; scopes?: string[] | null; ack?: str
     ...(opts.groupDms ? { groupDms: opts.groupDms } : {}) });
   return {
     adapter, calls, conversations,
+    setHistory(value: any[]) { history.splice(0, history.length, ...value); },
     setListed(value: any[]) { listed = value; }, setFile(value: Record<string, unknown> | undefined) { file = value; },
     setOpened(value: string) { opened = value; },
     async emit(event: any) { handler({ event, ack: async () => {} }); await new Promise((resolve) => setTimeout(resolve, 0)); },
@@ -539,4 +541,22 @@ test('without recipient routing a listed group DM remains readable and writable 
   await h.adapter.sendMessage('CGROUP', 'hello', { threadTs: '1.0' });
   assert.deepEqual(h.calls.filter(c => ['history', 'replies', 'post'].includes(c.method))
     .map(c => [c.method, c.args.channel]), [['history', 'CGROUP'], ['replies', 'CGROUP'], ['post', 'CGROUP']]);
+});
+
+test('delivered group DM location and backscroll identify Group DM without changing channelId', async (t) => {
+  const h = groupFixture();
+  h.setHistory([{ ts: '100.1', user: 'UHUMAN', text: 'earlier message' }]);
+  const host = connectHost(new SlackMcplServer(h.adapter));
+  t.after(async () => { await host.close(); await h.adapter.stop(); });
+  await initialize(host, true);
+  await host.host.sendRequest(method.FEATURE_SETS_UPDATE, { effectiveCapabilities: FULL_GRANT });
+  await until(() => host.hostSaw.some(r => r.method === method.CHANNELS_REGISTER), 'registration');
+  await h.emit({ type: 'message', channel: 'CGROUP', channel_type: 'mpim', user: 'UHUMAN',
+    ts: '200.1', text: '<@UBOT> hello' });
+  await until(() => host.hostSaw.some(r => r.method === method.PUSH_EVENT), 'group DM delivery');
+  const push = host.hostSaw.find(r => r.method === method.PUSH_EVENT)!;
+  const text = (push.params as { payload: { content: Array<{ text: string }> } }).payload.content[0]!.text;
+  assert.match(text, /\[Group DM: mpdm-CGROUP \(workspace\) channelId=CGROUP id=200\.1\]/);
+  assert.match(text, /<backscroll channel="mpdm-CGROUP" group_dm="true" count="1">/);
+  assert.match(text, /id=100\.1\] peer: earlier message/);
 });
