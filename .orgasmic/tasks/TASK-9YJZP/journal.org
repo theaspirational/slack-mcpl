@@ -47,3 +47,19 @@
 :TO_STATE: in_progress
 :EVENT_ID: e6ac0353-6e84-4f73-b0d1-ca676e2b46a3
 :END:
+
+* tx-20261028-theaspirationalslack-ee3a8360-9e91-4ae0-a14a-bfb913ed97dd comment
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-ee3a8360-9e91-4ae0-a14a-bfb913ed97dd
+:TIME:    [2026-10-28 Wed 18:19:21]
+:TYPE:    comment
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-9YJZP
+:REASON: comment
+:ACTOR_UID: 33bd077fdb77f660a533eb5493ebc442
+:EVENT_ID: 0c282767-496a-4013-87b8-f0d00a025ca4
+:END:
+
+Upstream PR opened by the maintainer of this fork's publication step, on the owner's confirmation: https://github.com/anima-research/slack-mcpl/pull/50 — head 7fc1acade0c089d491d77fcf3c182fc88aaa877f, parent upstream main d3e4f7c9d2e4753f276232f07a4f7eb02dae5e34, one commit, tree identical to ebb73ff2 / 8b6ce1d5 (reviewed in three rounds). Fork branch `channel-label-framing`. Fork main unchanged. Remaining: upstream review and merge; pre-existing raw invisible characters in list_channels' JSON `name` field stay out of scope.
