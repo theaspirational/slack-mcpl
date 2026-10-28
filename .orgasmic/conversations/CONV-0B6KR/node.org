@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-0B6KR
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Implement TASK-1735W
+:PROPERTIES:
+:UID: 5a6912f6-b150-5a8c-b192-2afa0c12e5e6
+:ID: CONV-0B6KR
+:PURPOSE: implement
+:OWNER: ["member","tarn2"]
+:PROVIDER: codex
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-1735w
+:RUNS:  run-01M619PS2SZM4Y7PD430H2RJ21
+:CREATED_AT: 2026-10-28T13:03:04Z
+:END:

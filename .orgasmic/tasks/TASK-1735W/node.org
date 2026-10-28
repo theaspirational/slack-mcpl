@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-1735W
 #+orgasmic_version: 2
 
-* BACKLOG TASK-1735W Public fork-vs-upstream table on the synced base (read-only)
+* IN_PROGRESS TASK-1735W Public fork-vs-upstream table on the synced base (read-only)
 :PROPERTIES:
 :UID: d412b11d-d67e-5b5a-87a3-0d148b854d61
 :ID: TASK-1735W
