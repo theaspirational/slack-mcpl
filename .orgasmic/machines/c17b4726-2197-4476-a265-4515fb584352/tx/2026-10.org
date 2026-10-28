@@ -1227,3 +1227,19 @@
 :EFFORT_OVERRIDE: high
 :EVENT_ID:     3cc66c75-0216-4834-b656-6d50714c46e3
 :END:
+
+
+* TX 2026-10-28 Wed 13:45:27 implementer.blocked TASK-1YAJK
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalslack-1cba1abe-2bae-4029-9a92-48f6ef18b3e3
+:TIME:         [2026-10-28 Wed 13:45:27]
+:TYPE:         implementer.blocked
+:ACTOR:        agent.implementer
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:TASK:         TASK-1YAJK
+:REASON:       Case (d) fails on unmodified merged code: group-DM reply authorization performs conversations.info before missing-scope or unlisted-destination refusal; production changes are out of scope.
+:RUN_ID:       run-01M61BNAV1TM73KGTQEED5GNYY
+:WORKTREE:     ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-1yajk
+:EVENT_ID:     a968e5b6-f937-4bb7-8bd0-978ab9700977
+:END:
