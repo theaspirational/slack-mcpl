@@ -3197,3 +3197,53 @@
 :EFFORT_OVERRIDE: high
 :EVENT_ID:     2897335e-f74c-44ce-b479-4c80b9dec326
 :END:
+
+
+* TX 2026-10-28 Wed 19:25:57 manager.dispatch_orphaned TASK-NNEWZ
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalslack-70d63d0c-3c0f-4c01-8162-2f23cd7c431d
+:TIME:         [2026-10-28 Wed 19:25:57]
+:TYPE:         manager.dispatch_orphaned
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:TASK:         TASK-NNEWZ
+:TARGET:       ledgers/theaspirational.slack-mcpl/.orgasmic/tmp/sessions/dispatch-TASK-NNEWZ-implementer-20261028T191820-run-01M61Z5X4QD0ZJ7H2RJHAEBX8R.jsonl
+:REASON:       the dispatched run was lost with the daemon that spawned it
+:RUN_ID:       run-01M61Z5X4QD0ZJ7H2RJHAEBX8R
+:RELEASE_REASON: process_gone: the daemon stopped while the run was live and could not reattach it at boot (run run-01M61Z5X4QD0ZJ7H2RJHAEBX8R cannot be reattached: driver could not prove a live runtime handle); the run record stays interrupted for `orgasmic run recover run-01M61Z5X4QD0ZJ7H2RJHAEBX8R --project theaspirational.slack-mcpl`
+:WORKTREE:     ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-nnewz
+:EVENT_ID:     37fa8168-3f81-4230-9279-716bd22e900e
+:END:
+
+* TX 2026-10-28 Wed 19:26:12 dispatch.outcomes_acked theaspirational.slack-mcpl
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalslack-2c7ce790-9e41-48d5-8d96-826588fd5103
+:TIME:         [2026-10-28 Wed 19:26:12]
+:TYPE:         dispatch.outcomes_acked
+:ACTOR:        alnold
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:REASON:       acknowledged 1 outcome(s)
+:OUTCOME_IDS:  37fa8168-3f81-4230-9279-716bd22e900e
+:ACKED_BY:     member:alnold
+:EVENT_ID:     450f2687-ff7d-4f13-a647-5a96cd610892
+:END:
+
+* TX 2026-10-28 Wed 19:26:12 run.created TASK-NNEWZ
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalslack-6a2b1d13-3957-4d71-b736-bced9c3d56b6
+:TIME:         [2026-10-28 Wed 19:26:12]
+:TYPE:         run.created
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:TASK:         TASK-NNEWZ
+:REASON:       start_recovery_run replacing run run-01M61Z5X4QD0ZJ7H2RJHAEBX8R
+:RUN_ID:       run-01M61ZMA1P05SB5C9573MXZ4CC
+:ORIGIN:       recovery
+:ORIGIN_RUN_ID: run-01M61Z5X4QD0ZJ7H2RJHAEBX8R
+:ACTION:       start_recovery_run
+:KIND:         implementer
+:EVENT_ID:     f242086b-3d46-49e1-8467-cc080c55e761
+:END:
