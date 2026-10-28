@@ -1,0 +1,33 @@
+#+title: orgasmic journal TASK-2XGBG
+#+orgasmic_version: 2
+
+* tx-20261028-theaspirationalslack-c6f760b9-4eed-4c5d-b627-1ee7c8c3d0d8 task.created
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-c6f760b9-4eed-4c5d-b627-1ee7c8c3d0d8
+:TIME:    [2026-10-28 Wed 21:39:55]
+:TYPE:    task.created
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-2XGBG
+:TARGET: .orgasmic/tasks/TASK-2XGBG/node.org
+:REASON: created task TASK-2XGBG
+:EVENT_ID: 0200eea4-23f7-403a-823d-1e598eddcf41
+:REQUEST_REPLAY_V1: {"request_id":"alnold-pr4-task-1/tx","mutation":{"operation":"task.created","project_id":"theaspirational.slack-mcpl","payload_sha256":"154dbf7a735c0aad448f832b4c2027524560ff90d87e092db9ebf91112e03b63"},"mutation_id":"TASK-2XGBG","written_paths":[{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-2XGBG/node.org"},{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-2XGBG/journal.org"}]}
+:END:
+
+* tx-20261028-theaspirationalslack-656e301e-1616-4029-83dd-82627400a709 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-656e301e-1616-4029-83dd-82627400a709
+:TIME:    [2026-10-28 Wed 21:39:59]
+:TYPE:    task.state_transitioned
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-2XGBG
+:TARGET: .orgasmic/tasks/TASK-2XGBG/node.org
+:REASON: Owner said "start" on Telegram.
+:FROM_STATE: backlog
+:TO_STATE: in_progress
+:EVENT_ID: 1452e720-a8df-4ae6-b721-00a10b760d64
+:END:

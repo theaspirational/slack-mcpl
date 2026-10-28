@@ -1,0 +1,19 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-2XGBG
+#+orgasmic_version: 2
+
+* IN_PROGRESS TASK-2XGBG Upstream PR 4: repair #12 thread status with optional typing
+:PROPERTIES:
+:UID: 7b420b84-ab2a-59eb-a23b-cc67465d433d
+:ID: TASK-2XGBG
+:PRIORITY: P2
+:END:
+
+** Description
+Order 4 of docs/FORK-VS-UPSTREAM.md: repair our open upstream PR anima-research/slack-mcpl#12 (thread status). It conflicts with current upstream main, and its review asked for changes on 2026-10-21. The first blocking point: listing `channels.typing` among the uses of `slack.messaging` (src/feature-sets.ts) makes a host that does not grant it lose all messaging (fail-closed derivation). See TASK-H6B2X. The aim is a version of #12 on current upstream main that answers every review point. Local commits only; push and PR update are separate owner decisions.
+
+** Acceptance
+- Rebuilt on current upstream main; all review points on #12 answered or explicitly argued.
+- `channels.typing` optional: a host without it keeps messaging and gets no thread status, with a test that is red before and green after.
+- Tests in upstream's homes; red/green and a mutation; full one-process suite on Node 22.23.3 and 24.22.1; changelog fragment and README as upstream asks.
+- Public-safe text only.
