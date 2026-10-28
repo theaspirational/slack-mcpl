@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-A8X64
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-NNEWZ
+:PROPERTIES:
+:UID: 088b1ed5-3294-5461-9203-53b3f81cccea
+:ID: CONV-A8X64
+:PURPOSE: review
+:OWNER: ["member","alnold"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-nnewz
+:RUNS:  run-01M6211V7E03NQ23BHQXWZ4AXN
+:CREATED_AT: 2026-10-28T19:51:04Z
+:END:

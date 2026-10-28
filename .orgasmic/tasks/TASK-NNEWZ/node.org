@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-NNEWZ
 #+orgasmic_version: 2
 
-* IN_PROGRESS TASK-NNEWZ Fork-vs-upstream table at 685b2deb and an upstream PR plan
+* IN_REVIEW TASK-NNEWZ Fork-vs-upstream table at 685b2deb and an upstream PR plan
 :PROPERTIES:
 :UID: d7ad5b7c-81d8-5500-a85a-d0f384fa5f5a
 :ID: TASK-NNEWZ
