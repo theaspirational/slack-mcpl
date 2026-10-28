@@ -1,0 +1,20 @@
+{
+  "event_count": 390,
+  "tool_call_count": 0,
+  "unparsed_events": 0,
+  "bounded_events": 4,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-38EPN-reviewer-20261028T203426-run-01M623H80EFXVR0QXZWECX8BAH.jsonl",
+    "size_bytes": 521366
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.claude/projects/-home-orgasmic--orgasmic-worktrees-theaspirational-slack-mcpl-task-38epn/4ba93c89-4014-4570-965d-af5b6629553f.jsonl",
+    "session_id": "4ba93c89-4014-4570-965d-af5b6629553f",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [],
+  "narrative_truncated": false
+}
