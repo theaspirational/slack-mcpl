@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-VEDDB
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-0901Y
+:PROPERTIES:
+:UID: ba610f96-5f25-585a-825f-629a3c29c5eb
+:ID: CONV-VEDDB
+:PURPOSE: review
+:OWNER: ["member","tarn2"]
+:PROVIDER: codex
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-0901y
+:RUNS:  run-01M61925GNJ8PDCXW7614NMTMJ
+:CREATED_AT: 2026-10-28T12:51:49Z
+:END:
