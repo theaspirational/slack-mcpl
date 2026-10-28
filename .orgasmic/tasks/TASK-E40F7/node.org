@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-E40F7
 #+orgasmic_version: 2
 
-* DONE TASK-E40F7 Upstream PR: disabled-tool controls via startupSettings
+* IN_PROGRESS TASK-E40F7 Upstream PR: disabled-tool controls via startupSettings
 :PROPERTIES:
 :UID: 2d1193e1-0d91-5792-9657-81eccbfa8efd
 :ID: TASK-E40F7
