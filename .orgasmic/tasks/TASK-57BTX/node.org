@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-57BTX
 #+orgasmic_version: 2
 
-* IN_PROGRESS TASK-57BTX Upstream PR 6 plan: explicit access policy and group DMs, split for upstream
+* IN_REVIEW TASK-57BTX Upstream PR 6 plan: explicit access policy and group DMs, split for upstream
 :PROPERTIES:
 :UID: a5fea4e8-cdbd-58ad-83da-37fcb5b1f1cd
 :ID: TASK-57BTX
