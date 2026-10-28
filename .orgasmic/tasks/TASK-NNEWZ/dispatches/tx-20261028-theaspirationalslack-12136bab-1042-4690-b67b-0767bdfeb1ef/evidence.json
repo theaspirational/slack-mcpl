@@ -1,0 +1,25 @@
+{
+  "event_count": 270,
+  "tool_call_count": 13,
+  "unparsed_events": 0,
+  "bounded_events": 5,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-NNEWZ-implementer-20261028T191820-run-01M61Z5X4QD0ZJ7H2RJHAEBX8R.jsonl",
+    "size_bytes": 803946
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T16-47-21-01a18368-bd07-71e0-b853-5bcc6de7cba6.jsonl",
+    "session_id": "01a18368-bd07-71e0-b853-5bcc6de7cba6",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll refresh the upstream and PR snapshots, then check each planned PR against the new main in a scratch clone. I’ll distinguish clean application from runtime compatibility with the new shared-process test runner."
+    }
+  ],
+  "narrative_truncated": false
+}
