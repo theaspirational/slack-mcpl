@@ -1,0 +1,25 @@
+{
+  "event_count": 74,
+  "tool_call_count": 5,
+  "unparsed_events": 1,
+  "bounded_events": 1,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-1735W-implementer-20261028T131627-run-01M61AF8VS86JJE15H2D5ZVYSW.jsonl",
+    "size_bytes": 103349
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T13-03-05-01a1829b-682b-7fa3-9334-99328175f69a.jsonl",
+    "session_id": "01a1829b-682b-7fa3-9334-99328175f69a",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll update the six access-policy recommendations, distinguish the snapshot’s group-DM denial from the open fork PR, and leave the attachment rows unchanged. Then I’ll make a new commit and rerun the Markdown-only gate."
+    }
+  ],
+  "narrative_truncated": false
+}
