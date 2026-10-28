@@ -540,6 +540,7 @@ test('without recipient routing a listed group DM remains readable and writable 
   await h.adapter.fetchHistory('CGROUP');
   await h.adapter.readThread('CGROUP', '1.0', {});
   await h.adapter.sendMessage('CGROUP', 'hello', { threadTs: '1.0' });
+  await assert.rejects(h.adapter.fetchHistory('CREAD'), /not a confirmed joined channel/);
   assert.deepEqual(h.calls.filter(c => ['history', 'replies', 'post'].includes(c.method))
     .map(c => [c.method, c.args.channel]), [['history', 'CGROUP'], ['replies', 'CGROUP'], ['post', 'CGROUP']]);
 });

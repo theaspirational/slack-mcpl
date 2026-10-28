@@ -259,11 +259,10 @@ put the same ID in `writeChannels` too: a group DM in `groupDms` alone is
 read-only. `list_channels` then lists allowed group DMs (kind `group_dm`, with
 `writable` set accordingly), and their incoming `message.mpim` events arrive as
 channel messages: ambient unless they mention the bot, as in a private channel.
-Group DMs the list doesn't name are neither listed nor delivered. With recipient
-routing, an allowed group DM is admitted as a joined private channel, so its
-messages are delivered only when `readJoinedChannels` is `true`.
+Group DMs the list doesn't name are neither listed nor delivered.
 Outside recipient routing, a listed group DM is readable regardless of
-`readJoinedChannels`, while recipient routing requires `readJoinedChannels: true`.
+`readJoinedChannels`. With recipient routing, an allowed group DM is admitted
+as a joined private channel and requires `readJoinedChannels: true`.
 
 ```json
 {"readJoinedChannels":true,"writeChannels":["CGROUPDM"],"dmUsers":["UOPERATOR"],"groupDms":["CGROUPDM"]}
@@ -272,8 +271,9 @@ Outside recipient routing, a listed group DM is readable regardless of
 An optional `historyMembershipFallbackChannels` list names exact write destinations
 that the operator has independently verified are public.
 The `historyMembershipFallbackChannels` list must never name a group DM.
-If `channels:read` is
-absent, each operation proves fresh membership with a successful bot-token
+Startup refuses an ID listed in both `groupDms` and
+`historyMembershipFallbackChannels`.
+If `channels:read` is absent, each operation proves fresh membership with a successful bot-token
 `conversations.history({ channel, limit: 1 })` call; `fetch_history` and
 `fetch_thread` make it before their first page, and it is not one of their pages.
 A `C` prefix or history success
