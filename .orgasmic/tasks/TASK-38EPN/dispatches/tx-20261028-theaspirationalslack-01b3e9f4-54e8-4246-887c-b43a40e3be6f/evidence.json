@@ -1,0 +1,25 @@
+{
+  "event_count": 202,
+  "tool_call_count": 13,
+  "unparsed_events": 0,
+  "bounded_events": 2,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-38EPN-implementer-20261028T202926-run-01M623834Z41831GXWAHDEFMQ4.jsonl",
+    "size_bytes": 255054
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T20-16-27-01a18428-2bbe-7cd0-8413-30f57cf5f38c.jsonl",
+    "session_id": "01a18428-2bbe-7cd0-8413-30f57cf5f38c",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll reproduce the missing channel name at limit 0, then narrow the guard so metadata lookup still runs. I’ll preserve `parseInt` behavior and clarify the README rather than change existing inputs.The new test reproduces the review finding: after an outbound write, the first inbound mention says `conversation C1` instead of `#general`. It passes after narrowing the history guard.\n\nA mutation that discards the metadata lookup result makes that same test fail again. The boundary test also passes before and after the fix: `0junk` → 0, `7junk` → 7, `1.5` → 1, and `abc` → 50."
+    }
+  ],
+  "narrative_truncated": false
+}
