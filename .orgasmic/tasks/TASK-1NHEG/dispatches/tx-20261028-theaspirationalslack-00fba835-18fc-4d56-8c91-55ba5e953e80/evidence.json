@@ -1,0 +1,25 @@
+{
+  "event_count": 133,
+  "tool_call_count": 7,
+  "unparsed_events": 0,
+  "bounded_events": 1,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-1NHEG-implementer-20261028T204008-run-01M623VP46HVNMVQ7TVV1T067Z.jsonl",
+    "size_bytes": 167063
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T20-16-42-01a18428-669b-7800-b12a-d2384bd0daca.jsonl",
+    "session_id": "01a18428-669b-7800-b12a-d2384bd0daca",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "Preflight confirms the approved commit and a clean tree. I’ll apply the supplied wording, amend only the fragment while preserving commit metadata, then rerun the Node 22 gates and check release folding in a scratch copy.The amendment is complete. The fragment is seven words shorter, all required Node 22 gates passed (605/0), and the bullet folded cleanly in scratch. Only the fragment differs from the approved commit; commit metadata is preserved and the tree is clean."
+    }
+  ],
+  "narrative_truncated": false
+}
