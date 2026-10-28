@@ -1,0 +1,17 @@
+#+title: orgasmic journal TASK-1735W
+#+orgasmic_version: 2
+
+* tx-20261028-theaspirationalslack-c4bd92c4-3c40-43e5-b12d-8c74a16ce5b7 task.created
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-c4bd92c4-3c40-43e5-b12d-8c74a16ce5b7
+:TIME:    [2026-10-28 Wed 13:02:52]
+:TYPE:    task.created
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-1735W
+:TARGET: .orgasmic/tasks/TASK-1735W/node.org
+:REASON: created task TASK-1735W
+:EVENT_ID: 0e6dded1-442c-4bbc-9094-6a4657b0ccc5
+:REQUEST_REPLAY_V1: {"request_id":"tarn-slack-forktable-1/tx","mutation":{"operation":"task.created","project_id":"theaspirational.slack-mcpl","payload_sha256":"29e82cc0822f0fa0e849aba2d6714347e37e92ec4731d03ce93f304448704b27"},"mutation_id":"TASK-1735W","written_paths":[{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-1735W/node.org"},{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-1735W/journal.org"}]}
+:END:

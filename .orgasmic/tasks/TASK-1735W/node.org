@@ -1,0 +1,18 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-1735W
+#+orgasmic_version: 2
+
+* BACKLOG TASK-1735W Public fork-vs-upstream table on the synced base (read-only)
+:PROPERTIES:
+:UID: d412b11d-d67e-5b5a-87a3-0d148b854d61
+:ID: TASK-1735W
+:PRIORITY: P2
+:END:
+
+** Description
+PUBLIC ledger and output: no agent, host, person or private-system names.
+On the synced base b956350d4e77f09df76240439b3d35d512061899 (fork main 3302d700 merged with upstream anima-research/slack-mcpl main 439a81b5, TASK-0901Y), list every fork-only change versus upstream main 439a81b502388ab3a77b4bbb0e62a380e1b50605.
+** Acceptance
+- docs/FORK-VS-UPSTREAM.md: one row per fork-only change (grouped by feature): what it does; whether upstream already has it in another form (cite upstream commit/PR); open upstream PR if any; recommendation send upstream / keep fork-only / drop, with one-line reason.
+- Short section "Which should I use": upstream main is the stable target; the fork carries behavioural fixes on their way upstream.
+- Every claim cites a commit sha or file:line. Read-only analysis plus the one doc commit.
