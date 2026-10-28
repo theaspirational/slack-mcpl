@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-0TM9M
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-KD7DB
+:PROPERTIES:
+:UID: c6d1f77c-ee89-5552-8273-dfcb9065da6f
+:ID: CONV-0TM9M
+:PURPOSE: review
+:OWNER: ["member","alnold"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-kd7db
+:RUNS:  run-01M61JFP3GJX25PCV0VCECGA4Q
+:CREATED_AT: 2026-10-28T15:36:29Z
+:END:

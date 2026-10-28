@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-KD7DB
 #+orgasmic_version: 2
 
-* IN_PROGRESS TASK-KD7DB PR #1 follow-up: fix the three LOW review findings and close the test gaps (branch only)
+* IN_REVIEW TASK-KD7DB PR #1 follow-up: fix the three LOW review findings and close the test gaps (branch only)
 :PROPERTIES:
 :UID: 7ec38305-7361-5261-a92e-50957da21dc1
 :ID: TASK-KD7DB
