@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-38EPN
 #+orgasmic_version: 2
 
-* IN_REVIEW TASK-38EPN Upstream PR: zero automatic backscroll (SLACK_BACKSCROLL_LIMIT=0)
+* DONE TASK-38EPN Upstream PR: zero automatic backscroll (SLACK_BACKSCROLL_LIMIT=0)
 :PROPERTIES:
 :UID: 205d836f-8d70-5743-9a0f-04b5a848301e
 :ID: TASK-38EPN
