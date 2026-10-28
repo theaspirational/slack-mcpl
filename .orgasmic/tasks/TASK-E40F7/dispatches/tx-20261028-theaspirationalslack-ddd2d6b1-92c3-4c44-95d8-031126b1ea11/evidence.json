@@ -1,0 +1,25 @@
+{
+  "event_count": 303,
+  "tool_call_count": 19,
+  "unparsed_events": 0,
+  "bounded_events": 3,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-E40F7-implementer-20261028T210117-run-01M6252D4HQDRXSYTPBZWKD5SF.jsonl",
+    "size_bytes": 489428
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T21-01-17-01a18451-376e-7b01-99c3-6c939b8fcffc.jsonl",
+    "session_id": "01a18451-376e-7b01-99c3-6c939b8fcffc",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I confirmed upstream main is still `d3e4f7c9`. I’m recording Step 0 before coding, then I’ll test the parser, tool visibility and direct-call refusal in both modes, plus the CLI wiring.\n\nThe nine new tests failed on unchanged upstream production code. With the implementation, the focused checks now pass, including the real `src/index.ts` path with Slack SDK boundaries mocked. The production change is limited to three files.\n\nNext I’ll remove the CLI forwarding line temporarily to verify that the wiring test catches it, then run the final committed checks.\n\nCommitted locally as `c1c09cd`. Both Node versions pass all 593 tests, up from 584 upstream tests. The wiring mutation failed exactly one test as intended; fresh install, typecheck, build, changelog fold and CI-regex checks also passed.\n\nI’m completing the evidence report and local dispatch finalization. Nothing was pushed or posted.\n\n"
+    }
+  ],
+  "narrative_truncated": false
+}
