@@ -75,3 +75,18 @@
 :RUN_ID: run-01M61ZMA1P05SB5C9573MXZ4CC
 :EVENT_ID: c81b1678-8a68-4463-b1e8-5a1482815355
 :END:
+
+* tx-20261028-theaspirationalslack-6b8a11b0-2424-4507-a8df-8dcbbc4e87ad conversation.run_released
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-6b8a11b0-2424-4507-a8df-8dcbbc4e87ad
+:TIME:    [2026-10-28 Wed 19:36:13]
+:TYPE:    conversation.run_released
+:ACTOR:   orgasmic
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TARGET: ~/.orgasmic/ledgers/theaspirational.slack-mcpl/.orgasmic/conversations/CONV-2C17Y/node.org
+:REASON: stall_timeout_exceeded: no work evidence for 600s; 2 process(es) under pid 3188112 at 0.1% cpu (work threshold 5.0%)
+:NODE_ID: CONV-2C17Y
+:RUN_ID: run-01M61ZMA1P05SB5C9573MXZ4CC
+:EVENT_ID: f93787e4-b73f-4ec8-892b-164bc9b9f314
+:END:

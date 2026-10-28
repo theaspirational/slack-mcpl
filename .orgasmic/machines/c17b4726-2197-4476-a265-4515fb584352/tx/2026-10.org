@@ -3247,3 +3247,34 @@
 :KIND:         implementer
 :EVENT_ID:     f242086b-3d46-49e1-8467-cc080c55e761
 :END:
+
+
+* TX 2026-10-28 Wed 19:36:14 manager.dispatch_orphaned TASK-NNEWZ
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalslack-d9ba0136-b8be-4c29-b56e-a523a2a0ae86
+:TIME:         [2026-10-28 Wed 19:36:14]
+:TYPE:         manager.dispatch_orphaned
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:TASK:         TASK-NNEWZ
+:REASON:       the dispatched run is gone without a report
+:DISPATCH_TX:  tx-20261028-theaspirationalslack-12136bab-1042-4690-b67b-0767bdfeb1ef
+:RELEASE_REASON: process_gone: the run is not live and no release of it is on record
+:RUN_ID:       run-01M61ZMA1P05SB5C9573MXZ4CC
+:EVENT_ID:     34a9ac53-55c6-44ce-92ee-e13ae98dd9a5
+:END:
+
+* TX 2026-10-28 Wed 19:36:22 dispatch.outcomes_acked theaspirational.slack-mcpl
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalslack-8d9de932-4cce-4c21-9715-668904366da1
+:TIME:         [2026-10-28 Wed 19:36:22]
+:TYPE:         dispatch.outcomes_acked
+:ACTOR:        alnold
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:REASON:       acknowledged 1 outcome(s)
+:OUTCOME_IDS:  34a9ac53-55c6-44ce-92ee-e13ae98dd9a5
+:ACKED_BY:     member:alnold
+:EVENT_ID:     d33097c2-626c-40ee-b234-d1fc42347f5f
+:END:
