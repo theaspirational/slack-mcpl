@@ -1,0 +1,25 @@
+{
+  "event_count": 239,
+  "tool_call_count": 13,
+  "unparsed_events": 0,
+  "bounded_events": 4,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-0901Y-implementer-20261028T125636-run-01M619AXRPNZZVY4Q09BY270A6.jsonl",
+    "size_bytes": 215219
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T12-39-08-01a18285-7a3f-7d70-bf7e-f138bcbdfd19.jsonl",
+    "session_id": "01a18285-7a3f-7d70-bf7e-f138bcbdfd19",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll verify the DM scope-ordering failure, add regressions and show them failing on `e616fe86`, then make a new fix commit. I’ll rerun the build, both full test suites, and the two review probes.The failure is reproduced: on `e616fe86`, missing `chat:write` or `im:read` yields the malformed-text refusal; missing `im:write` already behaves correctly. The fix now checks all three scopes before text validation or DM opening, while retaining the fresh post-open access and exact-peer checks. All three new regressions pass.The fix commit passes the build and both full suites: Node 22 has 768 passes, 25 skips, and no failures; Node 24 passes all 793 tests. The adversarial probe passes all four tests. The parent-comparison probe now shows the same scope-refusal text as the fork parent, with zero Slack calls on the fixed branch."
+    }
+  ],
+  "narrative_truncated": false
+}
