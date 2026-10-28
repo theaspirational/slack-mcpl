@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-SYJYQ
 #+orgasmic_version: 2
 
-* IN_PROGRESS TASK-SYJYQ Upstream PR 5: repair #31 path uploads on current main
+* TODO TASK-SYJYQ Upstream PR 5: repair #31 path uploads on current main
 :PROPERTIES:
 :UID: 89765759-e69c-501e-904e-49271ba026d8
 :ID: TASK-SYJYQ
