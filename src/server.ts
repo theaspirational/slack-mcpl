@@ -41,6 +41,7 @@ import type {
 
 import {
   GaveUp,
+  LONE_SURROGATE,
   SLACK_CLIENT_OPTIONS,
   assertRequestFits,
   fileLeftByUpload,
@@ -65,6 +66,7 @@ import { CapabilityGrant } from './grant.js';
 import { McplRpcError, capabilityDenied } from './errors.js';
 import { explainSlackError } from './slack-errors.js';
 import { associatedFileUrl, attachmentFetchHint } from './file-access.js';
+import { channelShown, mimeShown, nameShown, quotedLabel, senderText, toolResultJson, urlShown } from './framing.js';
 import { CHANNEL_IDS, NOTHING_RETURNED, PARENT_IDS, refuseUnknownArguments } from './history-read.js';
 import {
   fetchAttachmentBytes,
@@ -103,9 +105,6 @@ const MAX_UPLOAD_BASE64 = Math.ceil(MAX_UPLOAD_BYTES / 3) * 4;
  *  can't see any more: Slack's own words are "already been deleted" and "does
  *  not exist, or is not visible to the calling user". */
 const FILE_GONE = ['file_deleted', 'file_not_found'];
-
-/** A UTF-16 surrogate without its pair. */
-const LONE_SURROGATE = /[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?<![\uD800-\uDBFF])[\uDC00-\uDFFF]/;
 
 // Diagnostic file logger — bypasses the host's stderr capture. Set
 // SLACK_MCPL_DEBUG_LOG in the spawn env to a writable absolute path to
@@ -154,7 +153,7 @@ export function locationHeader(loc: {
 }): string {
   const parts: string[] = [];
   if (loc.conversation) parts.push(loc.conversation);
-  if (loc.teamName) parts.push(`(${loc.teamName})`);
+  if (loc.teamName) parts.push(`(${nameShown(loc.teamName)})`);
   if (loc.channelId) parts.push(`channelId=${loc.channelId}`);
   if (loc.threadTs) parts.push(`thread=${loc.threadTs}`);
   parts.push(`id=${loc.messageId}`);
@@ -169,11 +168,12 @@ export function backscrollLine(m: {
   timestamp: Date;
   authorName: string;
   content: string;
-  attachments: Array<{ name: string }>;
+  attachments: Array<{ name: string; mimeType?: string; fetchHint?: string }>;
 }): string {
-  const att = m.attachments.length > 0 ? ` [attachments: ${m.attachments.map((a) => a.name).join(', ')}]` : '';
+  const att = m.attachments.length > 0 ? ` [attachments: ${m.attachments.map((a) =>
+    `${nameShown(a.name)}${a.fetchHint && a.mimeType ? ` (${mimeShown(a.mimeType)})` : ''}${a.fetchHint ?? ''}`).join(', ')}]` : '';
   const thread = m.threadTs ? ` thread=${m.threadTs}` : '';
-  return `[${m.timestamp.toISOString()}${thread} id=${m.id}] ${m.authorName}: ${m.content}${att}`;
+  return `[${m.timestamp.toISOString()}${thread} id=${m.id}] ${nameShown(m.authorName)}${att}: ${senderText(m.content)}`;
 }
 
 /** The `<backscroll>` block given with the first message from a conversation. */
@@ -182,7 +182,7 @@ export function backscrollBlock(
   where: { channelName?: string; isDM: boolean },
 ): string {
   const attrs: string[] = [];
-  if (where.channelName && !where.isDM) attrs.push(`channel="#${where.channelName}"`);
+  if (where.channelName && !where.isDM) attrs.push(`channel=${quotedLabel(`#${where.channelName}`)}`);
   if (where.isDM) attrs.push('dm="true"');
   attrs.push(`count="${messages.length}"`);
   return [`<backscroll ${attrs.join(' ')}>`, ...messages.map(backscrollLine), '</backscroll>'].join('\n');
@@ -309,18 +309,18 @@ export class SlackMcplServer {
     this.lastChannelId = null;
     this.forwarding.clear();
 
-    // The connection emits 'error' for a line that isn't JSON. Unheard,
-    // EventEmitter throws it from the stream's callback, where nothing here
-    // can catch it, and the process exits. Logged instead, so a bad line
-    // costs only itself. (A stream's own error, such as a client's reset,
-    // also reaches mcpl-core's readline interface, which hears none, so it
-    // still ends the process: mcpl-core-ts#11 is that fix.)
+    // The connection emits 'error' for a line that isn't JSON, and for the
+    // stream error that closes it, such as a client's reset. Unheard,
+    // EventEmitter throws it where nothing here can catch it, and the process
+    // exits. Logged instead, so a bad line costs only itself, and a failed
+    // stream only its connection.
     conn.on('error', (err: unknown) => console.error('[slack-mcpl] Connection error:', err));
 
     // A call's time counts from when it reaches this server, not from when
     // this loop takes it up, so a call queued behind others answers in time
-    // too. The connection emits each request as it parses it, before
-    // queueing it for nextMessage() (mcpl-core's routeIncoming).
+    // too. The connection's 'request' listeners hear each request as it's
+    // read, before this loop takes it up from nextMessage() (mcpl-core's
+    // routeIncoming).
     const arrivals = new WeakMap<JsonRpcRequest, number>();
     conn.on('request', (req: JsonRpcRequest) => arrivals.set(req, Date.now()));
 
@@ -704,21 +704,17 @@ export class SlackMcplServer {
         return { content: (result as { _content: ContentBlock[] })._content };
       }
 
+      const content = [textContent(typeof result === 'string' ? result : toolResultJson(result))];
       // Track checkpoints for rollback-enabled tools. The result names the new
       // checkpoint and its parent, the checkpoint before it (MCPL §8.2), so a
       // rollback to the parent deletes what this call posted or uploaded, a
       // process's first call included.
       if (fs === MESSAGING_FEATURE_SET) {
         this.stateTracker.createCheckpoint();
-        return {
-          content: [textContent(typeof result === 'string' ? result : JSON.stringify(result))],
-          state: this.stateTracker.getCheckpointState(),
-        };
+        return { content, state: this.stateTracker.getCheckpointState() };
       }
 
-      return {
-        content: [textContent(typeof result === 'string' ? result : JSON.stringify(result))],
-      };
+      return { content };
     } catch (err) {
       return {
         content: [textContent(explainSlackError(err, { tool: name, args }))],
@@ -943,7 +939,7 @@ export class SlackMcplServer {
         // with the list alone. Types the host has turned off aren't listed
         // or noted, as the tool's description says.
         if (leftOut.length === 0) return listed;
-        return { _content: [textContent(JSON.stringify(listed)), textContent(leftOutNote(leftOut))] };
+        return { _content: [textContent(toolResultJson(listed)), textContent(leftOutNote(leftOut))] };
       }
 
       case 'refresh_channels':
@@ -1711,8 +1707,8 @@ export class SlackMcplServer {
     // An explicit access policy refers to a file by its conversation and ID,
     // never by the URL the message carries.
     const lines = attachments.map((a) =>
-      `- ${a.name} (${a.mimeType})${a.isImage ? ' — image' : ''}` +
-        (this.slack.hasExplicitAccessPolicy ? attachmentFetchHint(channelId, a.fileId) : `, fetchable via fetch_attachment: ${a.path}`),
+      `- ${nameShown(a.name)} (${mimeShown(a.mimeType)})${a.isImage ? ' — image' : ''}` +
+        (this.slack.hasExplicitAccessPolicy ? attachmentFetchHint(channelId, a.fileId) : `, fetchable via fetch_attachment: ${urlShown(a.path)}`),
     );
     return `[attachments: ${attachments.length}]\n${lines.join('\n')}`;
   }
@@ -1843,7 +1839,7 @@ export class SlackMcplServer {
       !this.unsubscribedByAgent.has(msg.channelId) && !this.isChannelSubscribed(msg.channelId);
     const blocks: string[] = [];
     if (autoSubscribe) {
-      const where = meta?.name ? `#${meta.name}` : `conversation ${msg.channelId}`;
+      const where = meta?.name ? channelShown(meta.name) : `conversation ${msg.channelId}`;
       blocks.push(
         `<system>Auto-subscribed to ${where} because you were mentioned. ` +
           `Ambient (non-mention) messages from this conversation will now arrive in your context. ` +
@@ -1868,7 +1864,7 @@ export class SlackMcplServer {
     const channelMcplId = mcplChannelId(msg.channelId);
     const channelIsOpen = this.channelManager.isOpen(channelMcplId);
     // A conversation whose name Slack didn't give is named by its ID.
-    const conversation = !contextChanged ? undefined : msg.isDM ? 'DM' : meta?.name ? `#${meta.name}` : msg.channelId;
+    const conversation = !contextChanged ? undefined : msg.isDM ? 'DM' : meta?.name ? channelShown(meta.name) : msg.channelId;
     const location = locationHeader({
       conversation,
       teamName: contextChanged ? this.slack.teamName : undefined,
@@ -1884,7 +1880,7 @@ export class SlackMcplServer {
       ? `[Slack source user=${msg.authorId} kind=${msg.senderKind} authority=${msg.routing.authority}; ` +
         `${msg.routing.wakeAllowed ? 'addressed to this agent' : 'context only; no response requested'}]\n`
       : '';
-    const renderedContent = `${prefixBlock}${location}${sourceLabel}${msg.authorName}: ${msg.cleanContent}`;
+    const renderedContent = `${prefixBlock}${location}${sourceLabel}${nameShown(msg.authorName)}: ${senderText(msg.cleanContent)}`;
 
     const contentBlocks: ContentBlock[] = [textContent(renderedContent)];
     if (msg.attachments.length > 0) {

@@ -246,3 +246,30 @@ test('policy is opt-in, copied at configuration and immutable after start', asyn
   await h.adapter.start();
   assert.throws(() => h.adapter.configureAccessPolicy(config), /once before start/);
 });
+
+for (const operation of ['send', 'edit'] as const) {
+  test(`${operation}: writability refusals precede malformed text, and authorized malformed text never reaches a write`, async () => {
+    const h = fixture();
+    const write = (id: string) => operation === 'send'
+      ? h.adapter.sendMessage(id, '\ud800x') : h.adapter.editMessage(id, '1.0', '\ud800x');
+    await assert.rejects(write('CREAD'), /Writing to CREAD is not allowed/);
+    await assert.rejects(write('COUT'), /not a confirmed joined channel/);
+    await assert.rejects(write('CWRITE'), /lone UTF-16 surrogate/);
+    assert.deepEqual(h.calls.map(c => c.method), ['info', 'info', 'info']);
+    const missingScope = fixture({ scopes: ['channels:read'] });
+    await assert.rejects(operation === 'send'
+      ? missingScope.adapter.sendMessage('CWRITE', '\ud800x')
+      : missingScope.adapter.editMessage('CWRITE', '1.0', '\ud800x'), /chat:write/);
+    assert.deepEqual(missingScope.calls.map(c => c.method), ['info']);
+  });
+}
+
+test('explicit-policy DM validates text after local authorization and before opening a conversation', async () => {
+  const h = fixture({ dmUsers: ['UALLOWED'] });
+  await assert.rejects(h.adapter.sendDM('UOTHER', '\ud800x'), /not allowed/);
+  await assert.rejects(h.adapter.sendDM('UALLOWED', '\ud800x'), /lone UTF-16 surrogate/);
+  assert.equal(h.calls.length, 0);
+  await h.adapter.sendDM('UALLOWED', 'valid \ud83d\ude00');
+  assert.deepEqual(h.calls.map(c => c.method), ['open', 'info', 'post']);
+  assert.equal(h.calls[2].args.text, 'valid \ud83d\ude00');
+});
