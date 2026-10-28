@@ -1,0 +1,25 @@
+{
+  "event_count": 257,
+  "tool_call_count": 10,
+  "unparsed_events": 1,
+  "bounded_events": 3,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-1YAJK-implementer-20261028T134759-run-01M61C912BCFMKJW9A6VWXJFT6.jsonl",
+    "size_bytes": 254010
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T13-37-15-01a182ba-aefc-76e1-a5b8-188a3d39cfef.jsonl",
+    "session_id": "01a182ba-aefc-76e1-a5b8-188a3d39cfef",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "Preflight matches the round-one commit. I’ll add both corrected reply-denial tests, allowing at most one read-only metadata lookup, then run the three mutation checks and fresh final gates.Both tests pass. All three mutations failed as expected: reversing validation order failed both cases, while bypassing the scope or group allowlist check failed its targeted case with the malformed-text error. Production files are restored, and the tests-only commit is in place. Final gates are running.Final commit: `ed377dd911e0b78d2ad4301486ad852d9c3d04d2`.\n\n- Node 22.23.3: build/typecheck passed; 791 tests passed, 27 skipped.\n- Node 24.22.1: all 818 tests passed; routing files passed 75/75.\n- All three mutation checks failed as expected, then passed after restoration.\n\nThe report is ready, the worktree is clean, and the corrected brief has no unmet criteria."
+    }
+  ],
+  "narrative_truncated": false
+}
