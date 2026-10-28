@@ -1,0 +1,33 @@
+#+title: orgasmic journal TASK-SYJYQ
+#+orgasmic_version: 2
+
+* tx-20261028-theaspirationalslack-b1b0ff8d-add5-4672-a34b-bfc2d35cfbd5 task.created
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-b1b0ff8d-add5-4672-a34b-bfc2d35cfbd5
+:TIME:    [2026-10-28 Wed 22:46:07]
+:TYPE:    task.created
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-SYJYQ
+:TARGET: .orgasmic/tasks/TASK-SYJYQ/node.org
+:REASON: created task TASK-SYJYQ
+:EVENT_ID: b30bacb8-75fe-4bbd-9f9d-a6fe614afc02
+:REQUEST_REPLAY_V1: {"request_id":"alnold-pr5-task-1/tx","mutation":{"operation":"task.created","project_id":"theaspirational.slack-mcpl","payload_sha256":"6f644d1702ecc4da5b4983626e1c3e82a37c52e7f5479824b11446bcb3624eba"},"mutation_id":"TASK-SYJYQ","written_paths":[{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-SYJYQ/node.org"},{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-SYJYQ/journal.org"}]}
+:END:
+
+* tx-20261028-theaspirationalslack-f4a2bc41-b585-4b1a-b983-90929a8433e8 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-f4a2bc41-b585-4b1a-b983-90929a8433e8
+:TIME:    [2026-10-28 Wed 22:46:11]
+:TYPE:    task.state_transitioned
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-SYJYQ
+:TARGET: .orgasmic/tasks/TASK-SYJYQ/node.org
+:REASON: Owner asked to continue overnight by analogy.
+:FROM_STATE: backlog
+:TO_STATE: in_progress
+:EVENT_ID: 7c2eaf7e-b762-4a9b-a7b3-8e01c84c5000
+:END:
