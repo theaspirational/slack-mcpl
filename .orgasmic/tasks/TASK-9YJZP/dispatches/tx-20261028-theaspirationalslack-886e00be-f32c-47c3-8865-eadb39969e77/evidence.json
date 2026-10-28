@@ -1,0 +1,25 @@
+{
+  "event_count": 265,
+  "tool_call_count": 14,
+  "unparsed_events": 0,
+  "bounded_events": 1,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-9YJZP-implementer-20261028T170641-run-01M61QMVBJMQ6ZBJYHTJ5D8TKX.jsonl",
+    "size_bytes": 337139
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T16-39-00-01a18361-14d1-7073-a154-3369ca7d3c94.jsonl",
+    "session_id": "01a18361-14d1-7073-a154-3369ca7d3c94",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "The round-2 preflight SHA matches, and the source confirms the findings. I’ll add the changelog fragment, omit empty workspace suffixes, widen the hostile-name checks, and add the ordinary-channel harness test. Then I’ll verify each test group with temporary mutations and rerun the final gates.The local commit is `13692e01c58dd65ad74496afda351ed96c72d9e6`. Mutation checks produced the expected 4, 8, and 1 failures, respectively; each group passed after byte-for-byte restoration. The changelog addition check also passed. The fresh full-suite gates are still running.All round-2 gates passed: Node 22 finished with 812 passes and 28 existing skips; Node 24 passed all 840 tests. The report includes the diff, changelog text, mutation evidence, and base comparisons. I’m finalizing the local-only commit now."
+    }
+  ],
+  "narrative_truncated": false
+}
