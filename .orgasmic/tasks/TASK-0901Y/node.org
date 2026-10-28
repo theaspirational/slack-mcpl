@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-0901Y
 #+orgasmic_version: 2
 
-* IN_REVIEW TASK-0901Y Merge upstream anima-research/slack-mcpl main (439a81b5) into fork main: resolve, test, review (branch only)
+* IN_PROGRESS TASK-0901Y Merge upstream anima-research/slack-mcpl main (439a81b5) into fork main: resolve, test, review (branch only)
 :PROPERTIES:
 :UID: ce1418d8-a2f9-5eb8-a63d-d9b36fcd14c2
 :ID: TASK-0901Y
