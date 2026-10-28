@@ -1,0 +1,25 @@
+{
+  "event_count": 78,
+  "tool_call_count": 8,
+  "unparsed_events": 1,
+  "bounded_events": 2,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-0901Y-reviewer-20261028T130130-run-01M619KXC32YTD0SNYXHP6DKGW.jsonl",
+    "size_bytes": 159691
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T13-01-31-01a18299-f81f-7532-abed-26743c9e71e8.jsonl",
+    "session_id": "01a18299-f81f-7532-abed-26743c9e71e8",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’m checking the narrow scope-ordering fix and rerunning the original reviewer probes plus the two requested test files. I’ll reuse the recorded build/full-suite receipts rather than rerun them."
+    }
+  ],
+  "narrative_truncated": false
+}

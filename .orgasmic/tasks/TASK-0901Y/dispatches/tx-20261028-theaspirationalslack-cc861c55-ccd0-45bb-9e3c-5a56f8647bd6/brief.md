@@ -1,0 +1,17 @@
+Your worktree is this work chain's shared tree, checked out detached at b956350d4e77f09df76240439b3d35d512061899 — the commit you review. Leave it exactly as you found it: no commits, no edits, no new files (ignored build output is fine). The next round of the chain runs here, and the daemon records anything you leave behind when your dispatch is closed.
+
+Reviewed implementer evidence ($ORGASMIC_REVIEWED_EVIDENCE_DIR): /home/orgasmic/.orgasmic/runs/run-01M619AXRPNZZVY4Q09BY270A6/evidence
+
+PUBLIC repo/ledger: public technical facts only. Read-only re-review; no commits/pushes.
+Re-review TASK-0901Y fix 2: commit b956350d4e77f09df76240439b3d35d512061899 on top of merge e616fe861d14c73618d3bb7513183ec6ffa9ec01 (parents 3302d700c058f9de3a833ab7ee021903dd05cc1c / 439a81b502388ab3a77b4bbb0e62a380e1b50605).
+Review 1 (run-01M61925GNJ8PDCXW7614NMTMJ) rejected with one MEDIUM: explicit-policy sendDM validated text before the chat:write/im:read scope refusals. Verify that fix 2 closes it (scope refusals before assertSendable and conversations.open, fork parent's exact refusal text, post-open fresh access/exact-peer checks intact) and introduces nothing else. Run your own probe: rerun review 1's adversarial-probe.mjs and dm-parent-comparison.mjs from that run's evidence dir on b956350d, plus the accessPolicy and slackAdapter tests. Report HIGH/MEDIUM/LOW with file:line and a verdict approve/reject.
+
+## Gates already passed at this commit
+
+orgasmic recorded these gate runs in the implementer's worktree, each on a clean tree it left clean, at b956350d4e77f09df76240439b3d35d512061899 — the commit your worktree is cut at — or at an ancestor of it whose gate inputs are identical to this commit's: the two trees differ only in paths this project marks as not gate inputs. Read the log instead of running the gate again. Run scoped probes and required gates that lack a reusable receipt. The manager names required gates; project policy also applies. Missing receipts do not assign a full suite.
+
+- `round2-build` — exit 0 — `npm run build` (cwd `.`) — at `b956350d4e77f09df76240439b3d35d512061899` — log `/home/orgasmic/.orgasmic/runs/run-01M619AXRPNZZVY4Q09BY270A6/evidence/gate-round2-build-01M619EDT5WJ817T7W9V4B31TE.log`
+- `round2-parent-comparison` — exit 0 — `node --import tsx /home/orgasmic/.orgasmic/runs/run-01M619AXRPNZZVY4Q09BY270A6/evidence/dm-parent-comparison.mjs` (cwd `.`) — at `b956350d4e77f09df76240439b3d35d512061899` — log `/home/orgasmic/.orgasmic/runs/run-01M619AXRPNZZVY4Q09BY270A6/evidence/gate-round2-parent-comparison-01M619FTG09JNAQTHADZD999PD.log`
+- `round2-review-probe` — exit 0 — `node --import tsx --test /home/orgasmic/.orgasmic/runs/run-01M619AXRPNZZVY4Q09BY270A6/evidence/adversarial-probe.mjs` (cwd `.`) — at `b956350d4e77f09df76240439b3d35d512061899` — log `/home/orgasmic/.orgasmic/runs/run-01M619AXRPNZZVY4Q09BY270A6/evidence/gate-round2-review-probe-01M619FT80D8BJGBXSZTXVEX1F.log`
+- `round2-test-node22` — exit 0 — `npm test` (cwd `.`) — at `b956350d4e77f09df76240439b3d35d512061899` — log `/home/orgasmic/.orgasmic/runs/run-01M619AXRPNZZVY4Q09BY270A6/evidence/gate-round2-test-node22-01M619EE26YJF4D02N89EZNWPA.log`
+- `round2-test-node24` — exit 0 — `npm exec --yes --package=node@24 -- node --import tsx --test --test-reporter=tap test/*.test.ts` (cwd `.`) — at `b956350d4e77f09df76240439b3d35d512061899` — log `/home/orgasmic/.orgasmic/runs/run-01M619AXRPNZZVY4Q09BY270A6/evidence/gate-round2-test-node24-01M619F404V76F65TV7NQWSM1C.log`
