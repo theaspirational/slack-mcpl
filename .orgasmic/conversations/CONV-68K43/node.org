@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-68K43
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-XH3RC
+:PROPERTIES:
+:UID: 33d56dc7-82bc-56eb-8ed4-7446be7aa6b5
+:ID: CONV-68K43
+:PURPOSE: review
+:OWNER: ["member","tarn2"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-xh3rc
+:RUNS:  run-01M6295XECTM09SVF1P896Z5FG
+:CREATED_AT: 2026-10-28T22:13:06Z
+:END:
