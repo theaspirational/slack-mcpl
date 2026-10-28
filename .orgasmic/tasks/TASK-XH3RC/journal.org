@@ -1,0 +1,33 @@
+#+title: orgasmic journal TASK-XH3RC
+#+orgasmic_version: 2
+
+* tx-20261028-theaspirationalslack-b7d346ed-8d71-40d4-a497-5311595d20b5 task.created
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-b7d346ed-8d71-40d4-a497-5311595d20b5
+:TIME:    [2026-10-28 Wed 22:06:27]
+:TYPE:    task.created
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-XH3RC
+:TARGET: .orgasmic/tasks/TASK-XH3RC/node.org
+:REASON: created task TASK-XH3RC
+:EVENT_ID: 3c89fdc8-5574-41cc-a9da-1ef957b5d8ca
+:REQUEST_REPLAY_V1: {"request_id":"tarn-slack-align-1/tx","mutation":{"operation":"task.created","project_id":"theaspirational.slack-mcpl","payload_sha256":"8dd7c360fbd3c13cc6b8fd5c0d1711adcea4c6a4fb10f7629495e60a7a0ae059"},"mutation_id":"TASK-XH3RC","written_paths":[{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-XH3RC/node.org"},{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-XH3RC/journal.org"}]}
+:END:
+
+* tx-20261028-theaspirationalslack-9dfd8e54-51aa-47cc-8e1a-7005d6534d60 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-9dfd8e54-51aa-47cc-8e1a-7005d6534d60
+:TIME:    [2026-10-28 Wed 22:06:28]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-XH3RC
+:TARGET: .orgasmic/tasks/TASK-XH3RC/node.org
+:REASON: transition TASK-XH3RC to in_progress
+:FROM_STATE: backlog
+:TO_STATE: in_progress
+:EVENT_ID: c5695653-b38d-4432-8d90-8c2f1ebd12dc
+:END:

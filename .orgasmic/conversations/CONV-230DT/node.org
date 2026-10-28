@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-230DT
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Implement TASK-XH3RC
+:PROPERTIES:
+:UID: 7a69174e-eea1-5bb1-a7de-e69315fc874c
+:ID: CONV-230DT
+:PURPOSE: implement
+:OWNER: ["member","tarn2"]
+:PROVIDER: codex
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-xh3rc
+:RUNS:  run-01M628SS02XHP08BKYFH7QT2ZE
+:CREATED_AT: 2026-10-28T22:06:28Z
+:END:
