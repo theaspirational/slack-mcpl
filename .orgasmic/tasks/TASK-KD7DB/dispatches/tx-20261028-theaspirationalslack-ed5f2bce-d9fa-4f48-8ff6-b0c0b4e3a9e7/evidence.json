@@ -1,0 +1,25 @@
+{
+  "event_count": 283,
+  "tool_call_count": 11,
+  "unparsed_events": 0,
+  "bounded_events": 4,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-KD7DB-implementer-20261028T155405-run-01M61KFXQ9KY9PX6CRZG6KN4Q6.jsonl",
+    "size_bytes": 267048
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T15-30-17-01a18322-2aee-7332-b6c1-424ea387a9b1.jsonl",
+    "session_id": "01a18322-2aee-7332-b6c1-424ea387a9b1",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll verify the remaining label mismatch, make the two commits, and rerun the final gates on both engines. I’ll also re-check the Node 24 archive checksum and record fresh baseline counts.The auto-subscribe note now uses `Group DM: …`. Reverting that production change made the extended test fail; a separate mutation also confirmed that the ordinary-channel assertion catches a missing `#` sigil. Both passed after restoration.\n\nThe second commit adds the joined-channel refusal control and removes the README redundancy. Fresh final gates are running now.All final gates passed at `685b2debff12ed5cfdcae9070ddb131842c5a6d0`.\n\n- Node 22.23.3: 795 passed, 28 skipped, 0 failed.\n- Node 24.22.1: 823 passed, 0 skipped, 0 failed.\n- Counts match the fresh baseline.\n- Both commits and the full report are saved locally; the working tree is clean.\n\nI’m finalizing with the report now."
+    }
+  ],
+  "narrative_truncated": false
+}
