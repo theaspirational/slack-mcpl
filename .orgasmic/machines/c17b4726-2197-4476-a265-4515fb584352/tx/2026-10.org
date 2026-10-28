@@ -5421,3 +5421,55 @@
 :EFFORT_OVERRIDE: high
 :EVENT_ID:     74a4186c-eca5-41c9-b8d4-6a209eb4dee4
 :END:
+
+
+* TX 2026-10-28 Wed 22:12:15 reviewer.reported TASK-2XGBG
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalslack-484cf806-727a-439a-80af-4e86723574b0
+:TIME:         [2026-10-28 Wed 22:12:15]
+:TYPE:         reviewer.reported
+:ACTOR:        agent.reviewer
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:TASK:         TASK-2XGBG
+:RUN_ID:       run-01M627ZXTYN8E3H2FE670FJT23
+:WORKTREE:     ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-2xgbg
+:EVENT_ID:     b6ba011f-639d-4059-9ec6-17f9fbbc7543
+:END:
+
+* TX 2026-10-28 Wed 22:12:21 dispatch.outcomes_acked theaspirational.slack-mcpl
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalslack-c6d1bfef-c8c5-4b4b-8ce6-9093264936b4
+:TIME:         [2026-10-28 Wed 22:12:21]
+:TYPE:         dispatch.outcomes_acked
+:ACTOR:        alnold
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:REASON:       acknowledged 1 outcome(s)
+:OUTCOME_IDS:  b6ba011f-639d-4059-9ec6-17f9fbbc7543
+:ACKED_BY:     member:alnold
+:EVENT_ID:     3e43bafc-78c7-47a9-a097-5f76bc75e56e
+:END:
+
+* TX 2026-10-28 Wed 22:12:30 reviewer.done TASK-2XGBG
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalslack-7d6a5e81-1072-4d1d-bbcf-3596890a385e
+:TIME:         [2026-10-28 Wed 22:12:30]
+:TYPE:         reviewer.done
+:ACTOR:        agent.reviewer
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:TASK:         TASK-2XGBG
+:REASON:       Review read in full: "approve with changes", three MEDIUMs. 1) conn nulled after the reset, so a message during teardown is acked and then dropped. 2) awaited reset in serve() finally, so a reconnecting TCP host is refused for a backlog-bounded time. 3) a non-Error rejection in callStatus exits the process and poisons the queue. LOWs: wrong migration link, duplicate post-clear, unreachable identity guards, undeclared op caveat, receipt change undocumented, 25 ms negative asserts. Closing as reject for a fix round.
+:MODEL:        opus[1m]
+:EFFORT:       high
+:REVIEWED_DIFF: ca8f6b1193154384e4626921255f86923fc5edf3..be7c3af18f95ae14e01dc917a145381ea5fa5896
+:CLOSED_TX:    tx-20261028-theaspirationalslack-23bfa087-d24f-45b1-88e7-09b2ea290da8
+:CLEANUP_STATUS: ok
+:REPORT_PATH:  .orgasmic/tasks/TASK-2XGBG/dispatches/tx-20261028-theaspirationalslack-23bfa087-d24f-45b1-88e7-09b2ea290da8/report.md
+:VERDICT:      reject
+:LIFECYCLE_FROM: in_review
+:LIFECYCLE_TO: in_progress
+:EVENT_ID:     da74c35c-a334-4f7d-9f4b-5eca7bbb1ecb
+:RELEASES_CLAIM_RUN: run-01M627ZXTYN8E3H2FE670FJT23
+:END:
