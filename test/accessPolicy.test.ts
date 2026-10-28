@@ -273,3 +273,15 @@ test('explicit-policy DM validates text after local authorization and before ope
   assert.deepEqual(h.calls.map(c => c.method), ['open', 'info', 'post']);
   assert.equal(h.calls[2].args.text, 'valid \ud83d\ude00');
 });
+
+for (const missingScope of ['im:write', 'im:read', 'chat:write']) {
+  test(`explicit-policy DM refuses missing ${missingScope} before malformed text without opening or posting`, async () => {
+    const h = fixture({ dmUsers: ['UALLOWED'], scopes: SCOPES.filter(scope => scope !== missingScope) });
+    for (const text of ['\ud800x', '\udc00x', 'valid text']) {
+      await assert.rejects(h.adapter.sendDM('UALLOWED', text), {
+        message: `Slack access requires granted scope ${missingScope}`,
+      });
+      assert.equal(h.calls.length, 0, 'scope refusal must precede every Slack call, including open and post');
+    }
+  });
+}

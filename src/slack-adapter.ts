@@ -1614,6 +1614,10 @@ export class SlackAdapter {
     if (this.accessPolicy) {
       this.accessPolicy.requireDmUser(userId); // before conversations.open
       this.accessPolicy.requireScope(this.scopes, 'im:write');
+      // Preflight the fresh DM check's known scopes before text validation
+      // or opening; the returned conversation and exact peer are still checked below.
+      this.accessPolicy.requireScope(this.scopes, 'im:read');
+      this.accessPolicy.requireScope(this.scopes, 'chat:write');
       assertSendable(text, 'Nothing was sent');
       const open = await this.web.conversations.open({ users: userId });
       const channelId = open.channel?.id;
