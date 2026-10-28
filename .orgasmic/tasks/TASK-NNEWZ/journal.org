@@ -31,3 +31,19 @@
 :TO_STATE: in_progress
 :EVENT_ID: 12678332-e944-4a1e-a1c3-a9e74132954d
 :END:
+
+* tx-20261028-theaspirationalslack-41180593-796f-4ff0-add9-bff2c77b3af6 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-41180593-796f-4ff0-add9-bff2c77b3af6
+:TIME:    [2026-10-28 Wed 19:18:04]
+:TYPE:    task.state_transitioned
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-NNEWZ
+:TARGET: .orgasmic/tasks/TASK-NNEWZ/node.org
+:REASON: Owner asked for a refresh against current upstream main before review.
+:FROM_STATE: in_review
+:TO_STATE: in_progress
+:EVENT_ID: 2337de07-1cbf-4101-9b1f-706121e459d8
+:END:
