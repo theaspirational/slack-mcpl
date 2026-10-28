@@ -1,0 +1,32 @@
+#+title: orgasmic journal CONV-P3CR2
+#+orgasmic_version: 2
+
+* tx-20261028-theaspirationalslack-807a25cd-e714-4174-a731-efdeda53d2b1 graph.conversations.created
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-807a25cd-e714-4174-a731-efdeda53d2b1
+:TIME:    [2026-10-28 Wed 13:37:14]
+:TYPE:    graph.conversations.created
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TARGET: ~/.orgasmic/ledgers/theaspirational.slack-mcpl/.orgasmic/conversations/CONV-P3CR2/node.org
+:REASON: created Conversation CONV-P3CR2
+:NODE_ID: CONV-P3CR2
+:EVENT_ID: 65387ccc-8ea7-4fd4-9f50-7f0519c26b6c
+:REQUEST_REPLAY_V1: {"request_id":"4726f090-d570-41f4-8840-f588b2dc2d12","mutation":{"operation":"conversation.created","project_id":"theaspirational.slack-mcpl","payload_sha256":"8c92dda0732fe22ca39cb76f641e2fbd23be400725293f87b014045d3adc9118"},"mutation_id":"CONV-P3CR2","written_paths":[{"project":"theaspirational.slack-mcpl","relative":".orgasmic/conversations/CONV-P3CR2/node.org"},{"project":"theaspirational.slack-mcpl","relative":".orgasmic/conversations/CONV-P3CR2/links.org"},{"project":"theaspirational.slack-mcpl","relative":".orgasmic/conversations/CONV-P3CR2/journal.org"}]}
+:END:
+
+* tx-20261028-theaspirationalslack-01980f4f-3e6c-45cb-844a-30f802769180 conversation.run_started
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-01980f4f-3e6c-45cb-844a-30f802769180
+:TIME:    [2026-10-28 Wed 13:37:15]
+:TYPE:    conversation.run_started
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TARGET: ~/.orgasmic/ledgers/theaspirational.slack-mcpl/.orgasmic/conversations/CONV-P3CR2/node.org
+:REASON: dispatch attempt started
+:NODE_ID: CONV-P3CR2
+:RUN_ID: run-01M61BNAV1TM73KGTQEED5GNYY
+:EVENT_ID: e6907aec-4694-480c-a9db-96dc19bb3e3e
+:END:
