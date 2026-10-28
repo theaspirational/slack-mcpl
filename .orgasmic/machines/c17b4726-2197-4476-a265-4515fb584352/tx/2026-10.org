@@ -72,3 +72,35 @@
 :EFFORT_OVERRIDE: high
 :EVENT_ID:     02a6b7cd-e817-4936-93e3-af684aa4f6ab
 :END:
+
+
+* TX 2026-10-28 Wed 12:40:13 run.asked TASK-0901Y
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalslack-69d87122-f43c-4f54-9aeb-fb153b64a0b1
+:TIME:         [2026-10-28 Wed 12:40:13]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:TASK:         TASK-0901Y
+:REASON:       The fork's requireWritableConversation performs a fresh conversations.info (or conversations.history) Slack call before it can confirm membership and scopes. This conflicts with requiring both the complete writability check and text validation before any Slack API call. Should the merge (A) preserve full fork writability-refusal precedence, then validate text before any subsequent DM/open/write call, allowing only the existing authorization lookup first; or (B) validate text after local allow-list/scope checks but before the fresh lookup, so malformed text takes precedence over membership refusals?
+:RUN_ID:       run-01M618AXR5KZJTWNW7HNHPNF0Z
+:ASK_ID:       ask-e1aac0460e2c4bc6b4ff1161703030e8
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     2071abde-1ef7-49db-9a0b-e23c73b16ad9
+:END:
+
+* TX 2026-10-28 Wed 12:40:27 run.answered TASK-0901Y
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalslack-188b40d8-3166-4a1e-a1eb-e81578e835d0
+:TIME:         [2026-10-28 Wed 12:40:27]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:TASK:         TASK-0901Y
+:REASON:       Choose A. Keep the fork's full writability refusal precedence, including its existing read-only authorization lookup (conversations.info / conversations.history), which carries no message text. Then validate text (upstream's lone-surrogate check) before any subsequent call that carries text or opens/writes (DM open, chat.postMessage, chat.update, etc.). The invariant to preserve is: no Slack call ever carries malformed text; refusal order is allow-list/scope/membership first, then text, matching upstream's documented order. Add a test showing malformed text to a non-writable conversation yields the writability refusal, and malformed text to a writable one yields the text refusal with zero text-carrying Slack calls. State this deviation from the literal brief wording in the report. Please quote this answer's first sentence back in your report.
+:RUN_ID:       run-01M618AXR5KZJTWNW7HNHPNF0Z
+:ASK_ID:       ask-e1aac0460e2c4bc6b4ff1161703030e8
+:EVENT_ID:     2904b2d4-9c4d-4863-830b-cb4cec8eaf0a
+:END:
