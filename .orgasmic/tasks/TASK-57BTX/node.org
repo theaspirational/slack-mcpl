@@ -1,0 +1,17 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-57BTX
+#+orgasmic_version: 2
+
+* IN_PROGRESS TASK-57BTX Upstream PR 6 plan: explicit access policy and group DMs, split for upstream
+:PROPERTIES:
+:UID: a5fea4e8-cdbd-58ad-83da-37fcb5b1f1cd
+:ID: TASK-57BTX
+:PRIORITY: P2
+:END:
+
+** Description
+Next in docs/FORK-VS-UPSTREAM.md (branch task-nnewz-r2, a2295638): bring the fork's explicit access policy (and the group-DM support built on it, fork PR #1) to upstream anima-research/slack-mcpl as small reviewable PRs. This first round is planning only: map the fork code to current upstream main and propose a split into PRs, with sizes and options. No code. The owner chooses the shape.
+
+** Acceptance
+- A report: the fork's access-policy surface (settings, checks, tests), what upstream already has, a proposed PR sequence with estimated net production lines and files each, maintainer-level questions, and a recommendation.
+- Public-safe text only.

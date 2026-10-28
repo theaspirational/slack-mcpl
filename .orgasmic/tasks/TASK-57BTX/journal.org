@@ -1,0 +1,33 @@
+#+title: orgasmic journal TASK-57BTX
+#+orgasmic_version: 2
+
+* tx-20261028-theaspirationalslack-50b5f3a3-960f-4a46-ab0f-79ebadd60455 task.created
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-50b5f3a3-960f-4a46-ab0f-79ebadd60455
+:TIME:    [2026-10-28 Wed 23:16:21]
+:TYPE:    task.created
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-57BTX
+:TARGET: .orgasmic/tasks/TASK-57BTX/node.org
+:REASON: created task TASK-57BTX
+:EVENT_ID: 2373a1ae-7ff7-4c55-bd61-75953a1cf291
+:REQUEST_REPLAY_V1: {"request_id":"alnold-pr6-task-1/tx","mutation":{"operation":"task.created","project_id":"theaspirational.slack-mcpl","payload_sha256":"615f0b500216711c3f17fc419a479d4603bea48c515ac2de0a3208df518921fa"},"mutation_id":"TASK-57BTX","written_paths":[{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-57BTX/node.org"},{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-57BTX/journal.org"}]}
+:END:
+
+* tx-20261028-theaspirationalslack-6e8d5da0-ffd3-483c-9ada-30effa8b7a0f task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-6e8d5da0-ffd3-483c-9ada-30effa8b7a0f
+:TIME:    [2026-10-28 Wed 23:16:25]
+:TYPE:    task.state_transitioned
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-57BTX
+:TARGET: .orgasmic/tasks/TASK-57BTX/node.org
+:REASON: Overnight planning round, by analogy.
+:FROM_STATE: backlog
+:TO_STATE: in_progress
+:EVENT_ID: 02508da7-6edd-4bec-8b03-f8aa609c6f2b
+:END:
