@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-WA3AR
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-2XGBG
+:PROPERTIES:
+:UID: 04cf30b4-62e8-5037-a75c-b0752ce0da0c
+:ID: CONV-WA3AR
+:PURPOSE: review
+:OWNER: ["member","alnold"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-2xgbg
+:RUNS:  run-01M627ZXTYN8E3H2FE670FJT23
+:CREATED_AT: 2026-10-28T21:52:21Z
+:END:

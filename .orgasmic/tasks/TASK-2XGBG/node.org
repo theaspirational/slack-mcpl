@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-2XGBG
 #+orgasmic_version: 2
 
-* IN_PROGRESS TASK-2XGBG Upstream PR 4: repair #12 thread status with optional typing
+* IN_REVIEW TASK-2XGBG Upstream PR 4: repair #12 thread status with optional typing
 :PROPERTIES:
 :UID: 7b420b84-ab2a-59eb-a23b-cc67465d433d
 :ID: TASK-2XGBG
