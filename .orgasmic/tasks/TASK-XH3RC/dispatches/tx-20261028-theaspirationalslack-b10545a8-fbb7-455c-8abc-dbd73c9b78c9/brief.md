@@ -1,0 +1,8 @@
+** Description
+Bring fork main (685b2debff12ed5cfdcae9070ddb131842c5a6d0) up to date with upstream main ca8f6b1193154384e4626921255f86923fc5edf3 by a --no-ff merge commit (no rebase, no force; fork main is pinned by deployments). A trial merge conflicts in src/slack-adapter.ts and src/index.ts.
+** Acceptance
+- One merge commit with parents 685b2deb and ca8f6b11; conflicts resolved keeping both upstream's changes and the fork's features (group DMs, conversation ids/recipients, access policy, path uploads, thread status, typing context, tool switches). Explain each resolution.
+- npm ci, build, typecheck, npm test green on Node 22.23.3 (/opt/node/bin) and the 22.12.0 floor if available; report counts vs fork main before the merge.
+- Commit author/committer Vasyl Dovhanchyn <48733736+theaspirational@users.noreply.github.com>; message "Merge upstream main ca8f6b11 into fork main". No push.
+
+Upstream is available as remote 'upstream' in the source clone; fetch https://github.com/anima-research/slack-mcpl main if not present in the worktree.
