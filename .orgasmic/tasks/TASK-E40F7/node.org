@@ -1,0 +1,21 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-E40F7
+#+orgasmic_version: 2
+
+* IN_PROGRESS TASK-E40F7 Upstream PR: disabled-tool controls via startupSettings
+:PROPERTIES:
+:UID: 2d1193e1-0d91-5792-9657-81eccbfa8efd
+:ID: TASK-E40F7
+:PRIORITY: P2
+:END:
+
+** Description
+Order 3 of docs/FORK-VS-UPSTREAM.md (TASK-NNEWZ, branch task-nnewz-r2, a2295638): disabled-tool controls. The fork has an operator control that disables chosen tools. Bring it upstream as one small commit on current anima-research/slack-mcpl main. Per the plan review's M1, do not port the fork's own config parser: build the setting inside upstream's `startupSettings`, so a bad value gets a clean startup refusal that names the value, not a thrown fatal error with a stack. Local commit only; push and PR are separate owner decisions.
+
+** Acceptance
+- One commit on current upstream main, only the files needed.
+- Tests in upstream's homes (test/config.test.ts, test/operatorControls.test.ts), including the src/index.ts wiring, which the fork left untested.
+- Regression tests red without the change; one mutation red.
+- typecheck, build, full one-process suite on Node 22.23.3 and 24.22.1.
+- changelog.d fragment and README row.
+- Public-safe text only.

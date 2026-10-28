@@ -1,0 +1,33 @@
+#+title: orgasmic journal TASK-E40F7
+#+orgasmic_version: 2
+
+* tx-20261028-theaspirationalslack-3d04d7db-8902-4919-9e59-5b0c2f97128c task.created
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-3d04d7db-8902-4919-9e59-5b0c2f97128c
+:TIME:    [2026-10-28 Wed 21:00:57]
+:TYPE:    task.created
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-E40F7
+:TARGET: .orgasmic/tasks/TASK-E40F7/node.org
+:REASON: created task TASK-E40F7
+:EVENT_ID: 36774105-620f-4e58-920e-2bb6c24dd7a6
+:REQUEST_REPLAY_V1: {"request_id":"alnold-pr3-task-1/tx","mutation":{"operation":"task.created","project_id":"theaspirational.slack-mcpl","payload_sha256":"779def8f67289246a965bec64a3e824c0414aaa017c3433605a48e3e13360816"},"mutation_id":"TASK-E40F7","written_paths":[{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-E40F7/node.org"},{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-E40F7/journal.org"}]}
+:END:
+
+* tx-20261028-theaspirationalslack-766a11fa-1572-4dfc-9c6a-80ff941cefdb task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-766a11fa-1572-4dfc-9c6a-80ff941cefdb
+:TIME:    [2026-10-28 Wed 21:01:00]
+:TYPE:    task.state_transitioned
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-E40F7
+:TARGET: .orgasmic/tasks/TASK-E40F7/node.org
+:REASON: Owner button up:pr3:go.
+:FROM_STATE: backlog
+:TO_STATE: in_progress
+:EVENT_ID: fc371420-1f09-4566-8be4-064527de84d9
+:END:
