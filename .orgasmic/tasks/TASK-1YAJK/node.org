@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-1YAJK
 #+orgasmic_version: 2
 
-* IN_REVIEW TASK-1YAJK Merge fork PR #1 onto b956350d, add group-DM deny tests, full verification (branch only)
+* DONE TASK-1YAJK Merge fork PR #1 onto b956350d, add group-DM deny tests, full verification (branch only)
 :PROPERTIES:
 :UID: ccd52389-f779-55bd-9c2f-e484f612d40e
 :ID: TASK-1YAJK
