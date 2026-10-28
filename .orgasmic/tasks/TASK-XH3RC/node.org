@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-XH3RC
 #+orgasmic_version: 2
 
-* IN_REVIEW TASK-XH3RC Merge upstream main ca8f6b11 into fork main
+* DONE TASK-XH3RC Merge upstream main ca8f6b11 into fork main
 :PROPERTIES:
 :UID: 9fbc00ea-3f77-592e-980a-1b6a56de82e0
 :ID: TASK-XH3RC
