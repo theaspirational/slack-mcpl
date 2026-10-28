@@ -15,3 +15,19 @@
 :EVENT_ID: eef1cd75-805e-4ea0-adc6-d3b2d6149b26
 :REQUEST_REPLAY_V1: {"request_id":"alnold-chan28-task-1/tx","mutation":{"operation":"task.created","project_id":"theaspirational.slack-mcpl","payload_sha256":"971e570ed35e6dc90361750af8ae49f5edc6ad4a967e787ddf28d5c2111ade52"},"mutation_id":"TASK-9YJZP","written_paths":[{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-9YJZP/node.org"},{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-9YJZP/journal.org"}]}
 :END:
+
+* tx-20261028-theaspirationalslack-6f7555ab-1f9e-4728-8e9b-cbb77abc7c0f task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-6f7555ab-1f9e-4728-8e9b-cbb77abc7c0f
+:TIME:    [2026-10-28 Wed 16:38:59]
+:TYPE:    task.state_transitioned
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-9YJZP
+:TARGET: .orgasmic/tasks/TASK-9YJZP/node.org
+:REASON: transition TASK-9YJZP to in_progress
+:FROM_STATE: backlog
+:TO_STATE: in_progress
+:EVENT_ID: 65f2d4d3-af1c-4e3a-bfb7-d358a7b6954e
+:END:

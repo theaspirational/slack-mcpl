@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-9YJZP
 #+orgasmic_version: 2
 
-* BACKLOG TASK-9YJZP Quote ordinary and private channel names in the channel descriptor label
+* IN_PROGRESS TASK-9YJZP Quote ordinary and private channel names in the channel descriptor label
 :PROPERTIES:
 :UID: 91de0946-4e1f-5103-bee8-8dc9f5e104a9
 :ID: TASK-9YJZP
