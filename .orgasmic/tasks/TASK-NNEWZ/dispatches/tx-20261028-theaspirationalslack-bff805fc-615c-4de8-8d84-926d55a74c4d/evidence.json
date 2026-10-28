@@ -1,0 +1,25 @@
+{
+  "event_count": 365,
+  "tool_call_count": 36,
+  "unparsed_events": 0,
+  "bounded_events": 6,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-NNEWZ-implementer-20261028T193725-run-01M6208VG9YRTS4Q98QNK576MZ.jsonl",
+    "size_bytes": 561286
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T19-37-26-01a18404-70f5-7461-932b-67b604721bb9.jsonl",
+    "session_id": "01a18404-70f5-7461-932b-67b604721bb9",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "Preflight passed: HEAD is `d63db80f` and the worktree is clean. I’ll check the interrupted run’s hang, refresh the public GitHub facts, and test candidate patches in scratch clones before updating the document.Upstream is still at `d3e4f7c9`; the fork is now 57 commits ahead and 3 behind. PR #50 applies cleanly and passes 602 tests. PR #31 is now conflicted in `src/index.ts`, rather than mergeable. I also found a likely cause of the interrupted composition hang: an attachment test mocks `fetch` twice, which can leak a mock into later tests under the single-process runner. I’m checking that directly.The next two candidates both pass full suites: zero backscroll (585 tests) and disabled tools (587). PR #31 also passes 661 tests after a minimal scratch resolution of its startup conflict.\n\nThe hang is reproducible, not just a missing daemon receipt. The two-file diagnostic hangs with the nested `fetch` mocks and passes 22 tests after fixing their restoration order in scratch. I’ll mark the full composed suite as not established; no source changes will enter this commit."
+    }
+  ],
+  "narrative_truncated": false
+}
