@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-6M9AN
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-1YAJK
+:PROPERTIES:
+:UID: 4591c302-3993-5672-9707-f61f6e645e2e
+:ID: CONV-6M9AN
+:PURPOSE: review
+:OWNER: ["member","alnold"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-1yajk
+:RUNS:  run-01M61CJKNEP8FFS5M48KX9584T
+:CREATED_AT: 2026-10-28T13:53:13Z
+:END:
