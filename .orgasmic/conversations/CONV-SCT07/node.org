@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-SCT07
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-38EPN
+:PROPERTIES:
+:UID: 7c350410-4582-5d44-b82e-3526c163a35a
+:ID: CONV-SCT07
+:PURPOSE: review
+:OWNER: ["member","alnold"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-38epn
+:RUNS:  run-01M622SAYH6KJ0A3H6DKP4YAGX
+:CREATED_AT: 2026-10-28T20:21:22Z
+:END:
