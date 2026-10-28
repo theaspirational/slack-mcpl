@@ -1,0 +1,25 @@
+{
+  "event_count": 330,
+  "tool_call_count": 13,
+  "unparsed_events": 0,
+  "bounded_events": 2,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-57BTX-implementer-20261028T231638-run-01M62CT81B8KXDZFWR2HD5FW21.jsonl",
+    "size_bytes": 722902
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T23-16-38-01a184cd-2331-7923-8942-322d54532b3b.jsonl",
+    "session_id": "01a184cd-2331-7923-8942-322d54532b3b",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll compare the fork with current upstream and the open PRs, then write the proposed split to the evidence report. I won’t change repository files or make a commit.Current upstream is still `ca8f6b1`. It already has general group-DM support, write allow-lists and DM-disable controls; the fork adds opt-in, exact-conversation authorization.\n\nThe main split constraint is avoiding a partially enforced policy. I’m planning inert preparatory PRs, with activation only after history, inbound events, writes and attachment fetches are covered. I also found two compatibility details to flag: explicit policy overrides the legacy DM switches, and the fork’s group-DM display changes also affect no-policy mode.The report is complete. It proposes four base-policy PRs, a separate named-group-DM PR, and an optional public-pin fallback PR, with size estimates and tests for each.\n\nIt also flags the compatibility decisions and known fetch-mock leak. The worktree remains clean; no code or commit was made. A report-writing quoting error was corrected and disclosed in the evidence."
+    }
+  ],
+  "narrative_truncated": false
+}
