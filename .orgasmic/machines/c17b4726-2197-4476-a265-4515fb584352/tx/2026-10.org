@@ -3278,3 +3278,37 @@
 :ACKED_BY:     member:alnold
 :EVENT_ID:     d33097c2-626c-40ee-b234-d1fc42347f5f
 :END:
+
+* TX 2026-10-28 Wed 19:36:44 manager.dispatch_aborted TASK-NNEWZ
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalslack-c17f6765-3fa6-49f2-a49a-6601c8757263
+:TIME:         [2026-10-28 Wed 19:36:44]
+:TYPE:         manager.dispatch_aborted
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:TASK:         TASK-NNEWZ
+:REASON:       Interrupted by daemon restart; recovery run never sent its prompt and was stall-killed. No commit (HEAD still d63db80f, clean). Re-dispatching fresh.
+:CLOSED_TX:    tx-20261028-theaspirationalslack-12136bab-1042-4690-b67b-0767bdfeb1ef
+:WORKTREE:     ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-nnewz
+:CLEANUP_STATUS: ok
+:REPORT_PATH:  .orgasmic/tasks/TASK-NNEWZ/dispatches/tx-20261028-theaspirationalslack-12136bab-1042-4690-b67b-0767bdfeb1ef/report.md
+:LIFECYCLE_FROM: in_progress
+:LIFECYCLE_TO: todo
+:EVENT_ID:     37df5485-1f54-4773-b865-0b7b0a95b324
+:RELEASES_CLAIM_RUN: run-01M61Z5X4QD0ZJ7H2RJHAEBX8R
+:END:
+
+* TX 2026-10-28 Wed 19:36:53 dispatch.outcomes_acked theaspirational.slack-mcpl
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalslack-a0513749-6540-4cee-83dc-089287a21d25
+:TIME:         [2026-10-28 Wed 19:36:53]
+:TYPE:         dispatch.outcomes_acked
+:ACTOR:        alnold
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:REASON:       acknowledged 1 outcome(s)
+:OUTCOME_IDS:  37df5485-1f54-4773-b865-0b7b0a95b324
+:ACKED_BY:     member:alnold
+:EVENT_ID:     e6573fe0-2bb1-4275-a549-4c80e68597d2
+:END:
