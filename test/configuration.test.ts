@@ -36,3 +36,11 @@ test('the old boolean path switch is refused rather than read as off', () => {
     assert.throws(() => optionalConfiguration({SLACK_ALLOW_FILE_PATHS: value}), /was removed.*SLACK_PATH_UPLOADS/);
   }
 });
+
+test('startup rejects overlap between groupDms and historyMembershipFallbackChannels', () => {
+  for (const id of ['CTEAM', 'COTHER']) {
+    assert.throws(() => optionalConfiguration({SLACK_ACCESS_POLICY: JSON.stringify({
+      ...accessPolicy, groupDms: [id], historyMembershipFallbackChannels: [id],
+    })}), {message: 'groupDms and historyMembershipFallbackChannels must not overlap'});
+  }
+});

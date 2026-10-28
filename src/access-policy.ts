@@ -46,6 +46,7 @@ export class SlackAccessPolicy {
     this.historyFallbackChannels = new Set(fallback);
     const groupDms = config.groupDms ?? [];
     if (!Array.isArray(groupDms) || !groupDms.every((id) => typeof id === 'string' && /^[CG][A-Z0-9]+$/.test(id))) throw new Error('Group DMs must be conversation IDs');
+    if (groupDms.some((id) => this.historyFallbackChannels.has(id))) throw new Error('groupDms and historyMembershipFallbackChannels must not overlap');
     this.groupDms = new Set(groupDms);
   }
 

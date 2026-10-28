@@ -268,7 +268,9 @@ messages are delivered only when `readJoinedChannels` is `true`.
 ```
 
 An optional `historyMembershipFallbackChannels` list names exact write destinations
-that the operator has independently verified are public. If `channels:read` is
+that the operator has independently verified are public.
+The `historyMembershipFallbackChannels` list must never name a group DM.
+If `channels:read` is
 absent, each operation proves fresh membership with a successful bot-token
 `conversations.history({ channel, limit: 1 })` call; `fetch_history` and
 `fetch_thread` make it before their first page, and it is not one of their pages.
