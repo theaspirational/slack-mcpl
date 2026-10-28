@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-2546Y
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-1NHEG
+:PROPERTIES:
+:UID: 05466f57-0dec-542b-9820-2c8000e94d09
+:ID: CONV-2546Y
+:PURPOSE: review
+:OWNER: ["member","alnold"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-1nheg
+:RUNS:  run-01M622W48S1A7V09PN4AWSA7WC
+:CREATED_AT: 2026-10-28T20:22:54Z
+:END:
