@@ -1,0 +1,16 @@
+TASK-1NHEG holds the goal and acceptance. This brief is the procedure.
+
+Rules: local commits only on your task branch; no push, no PR, no GitHub comment, no credentials; public-safe text only (no agent, host or private names); update notifiers off from the first command (NO_UPDATE_NOTIFIER=1, npm_config_update_notifier=false); `npm ci --ignore-scripts --registry=https://registry.npmjs.org` with two distinct empty user/global npm config files outside the repo. Network: read-only `git fetch` from https://github.com/anima-research/slack-mcpl.git and https://github.com/theaspirational/slack-mcpl.git, unauthenticated GET calls to the public GitHub REST API, and nodejs.org for a scratch Node 24.22.1 outside the repo verified against SHASUMS256.txt. Wrap every suite in `timeout 900` inside `orgasmic dispatch gate`.
+
+Base: your worktree starts on fork main 685b2deb. Fetch the fork read-only and `git reset --hard 7fc1acade0c089d491d77fcf3c182fc88aaa877f` (the head of upstream PR #50, fork branch `channel-label-framing`) on your local task branch; confirm `git log -1` and a clean tree. If the fork branch `channel-label-framing` no longer points at 7fc1acad, stop and report.
+
+Read the review on PR #50 yourself: `GET https://api.github.com/repos/anima-research/slack-mcpl/pulls/50/reviews` and `/pulls/50/comments`. Quote the asks you act on in your report. Known asks (verify them):
+- Medium, documentation: the changelog fragment changelog.d/channel-label-framing.fixed.md should say that conversations already known to a host keep their old label (a host keeps the label a conversation was first announced with, and a refresh does not re-announce a known conversation), and that non-plain workspace names change for every conversation, so a write's `to` may no longer match the host-held label. Check that reasoning against src/server.ts and say whether it is accurate before writing it.
+- Low, tests: make the test harness's team name configurable and add an end-to-end case with a hostile workspace name, plus one through `refresh_channels`.
+- Low, naming: the test whose name mentions only DMs and group DMs but also asserts an ordinary channel's label should be renamed.
+
+Do: one additional commit on 7fc1acad. No production change unless required; if you think one is, stop and report. Keep the fragment one bullet, no heading. New end-to-end tests must fail with the production change in src/channels.ts reverted to its parent d3e4f7c9 version, and pass after restoring it byte-for-byte; never commit a mutant. Commit: plain title (e.g. "docs, test: note retained host labels; cover hostile workspace names"), body wrapped at 72, trailer `Co-Authored-By: GPT-6-Astra <noreply@openai.com>`; leave the git author as the worktree default.
+
+Gates at the final commit through `orgasmic dispatch gate`: npm ci, typecheck, build, full suite on Node 22.23.3; full suite on Node 24.22.1. Base (7fc1acad) vs final counts.
+
+Report: final sha, diff stat, the review asks quoted and how each was met, the fragment verbatim, red/green evidence, counts per engine, what you could not run. Finalize with that report.

@@ -1,0 +1,25 @@
+{
+  "event_count": 333,
+  "tool_call_count": 29,
+  "unparsed_events": 0,
+  "bounded_events": 4,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-1NHEG-implementer-20261028T201642-run-01M622GRVVG1PP0HH2KMAMY4MV.jsonl",
+    "size_bytes": 465264
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T20-16-42-01a18428-669b-7800-b12a-d2384bd0daca.jsonl",
+    "session_id": "01a18428-669b-7800-b12a-d2384bd0daca",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "The fork branch matches the required commit, and the reset left a clean tree. GitHub’s unauthenticated API is rate-limited until 20:19 UTC; I’ll inspect the code while waiting, then retry the review requests before editing.I’ve read the review. Its label-retention reasoning matches `src/server.ts`: refresh updates server-side descriptors but announces only new conversations, while a write’s `to` uses the server registry. I’ll document that distinction without changing production code.\n\nThe baseline passes 602 tests on both Node versions. I’ll add configurable workspace names, registration/write coverage for hostile and empty names, and refresh coverage that checks both `added` and `channels/changed`.The final commit passes all required gates: 605 tests on each Node version, up from 602 at baseline. All three new tests fail against the parent’s `src/channels.ts` and pass after byte-for-byte restoration. Production files are unchanged, and the tree is clean. I’m writing the report and finalizing the dispatch."
+    }
+  ],
+  "narrative_truncated": false
+}
