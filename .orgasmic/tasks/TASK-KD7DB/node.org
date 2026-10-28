@@ -1,0 +1,20 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-KD7DB
+#+orgasmic_version: 2
+
+* IN_PROGRESS TASK-KD7DB PR #1 follow-up: fix the three LOW review findings and close the test gaps (branch only)
+:PROPERTIES:
+:UID: 7ec38305-7361-5261-a92e-50957da21dc1
+:ID: TASK-KD7DB
+:PRIORITY: P3
+:END:
+
+** Description
+Follow-up to TASK-1YAJK (approved at ed377dd911e0b78d2ad4301486ad852d9c3d04d2: fork PR #1 merged onto fork main b956350d with group-DM deny tests). The approving review left three LOW findings and test gaps. Fix them on the same branch line, local commits only. Push, merge and GitHub comments are separate owner decisions.
+
+** Acceptance
+- LOW-1: startup rejects an ID present in both groupDms and historyMembershipFallbackChannels; README says the fallback list must never name a group DM; red/green test.
+- LOW-2: README states that outside recipient routing a listed group DM is readable regardless of readJoinedChannels, while routing requires readJoinedChannels:true; a test pins the non-routing behaviour. No behaviour change.
+- LOW-3: delivered group-DM messages are labelled as a group DM in the location header and backscroll block, consistent with list_channels; tests.
+- Test gaps: sender framing under recipient routing; the group branch's is_im/is_private asymmetry recorded by a test.
+- build, typecheck, full suite on Node 22.23.3 and Node 24; base ed377dd9 vs final counts.
