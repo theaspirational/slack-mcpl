@@ -507,3 +507,25 @@ routingTest('recipient routing refuses a listed group DM when readJoinedChannels
   assert.deepEqual(received, []);
   assert.equal(h.calls.filter(c => ['history', 'replies', 'post'].includes(c.method)).length, 0);
 });
+
+for (const denied of ['missing chat:write', 'unlisted destination'] as const) {
+  test(`group DM reply: ${denied} refusal precedes malformed text without any write`, async () => {
+    const h = fixture({ groupDms: ['CGROUP'], writeChannels: ['CGROUP', 'COTHERGROUP'],
+      scopes: denied === 'missing chat:write' ? MPIM_SCOPES.filter(scope => scope !== 'chat:write') : MPIM_SCOPES });
+    h.conversations.set('CGROUP', groupDm('CGROUP'));
+    h.conversations.set('COTHERGROUP', groupDm('COTHERGROUP'));
+    const destination = denied === 'missing chat:write' ? 'CGROUP' : 'COTHERGROUP';
+    await assert.rejects(h.adapter.sendMessage(destination, '\ud800x', { threadTs: '1.0' }), error => {
+      assert.ok(error instanceof Error);
+      assert.match(error.message, denied === 'missing chat:write' ? /requires granted scope chat:write/ : /unsupported.*groupDms/);
+      assert.doesNotMatch(error.message, /lone UTF-16 surrogate/);
+      return true;
+    });
+    // A metadata lookup before refusal is current behaviour, not a requirement
+    // pinned by this test: zero calls also passes. No mutating call is allowed.
+    assert.ok(h.calls.length <= 1, 'at most one read-only metadata lookup');
+    for (const call of h.calls) {
+      assert.deepEqual(call, { method: 'info', args: { channel: destination } });
+    }
+  });
+}
