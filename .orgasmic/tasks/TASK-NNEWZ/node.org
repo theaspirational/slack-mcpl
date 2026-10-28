@@ -1,0 +1,24 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-NNEWZ
+#+orgasmic_version: 2
+
+* IN_PROGRESS TASK-NNEWZ Fork-vs-upstream table at 685b2deb and an upstream PR plan
+:PROPERTIES:
+:UID: d7ad5b7c-81d8-5500-a85a-d0f384fa5f5a
+:ID: TASK-NNEWZ
+:PRIORITY: P2
+:END:
+
+** Description
+Refresh the fork-vs-upstream table (earlier version: TASK-1735W) at fork main 685b2debff12ed5cfdcae9070ddb131842c5a6d0 against upstream anima-research/slack-mcpl main 439a81b502388ab3a77b4bbb0e62a380e1b50605 (fork is 57 commits ahead, 0 behind), and propose an order of small, separate upstream PRs. Goal: everything the fork carries either lands upstream or has an explicit reason to stay fork-only, so deployments can later run upstream main.
+
+Read-only. No push, no PR, no GitHub comment.
+
+** Acceptance
+- Every change in `git diff 439a81b5..685b2deb` mapped to one row: area, files, commits, status (already upstream / open upstream PR #N / needs PR / fork-only), and dependencies between rows.
+- Open upstream PRs #12 (thread status; conflicts, changes requested on making channels.typing optional, see TASK-H6B2X) and #31 (path uploads; mergeable, no review): what the fork has beyond each PR head, and what each needs to land.
+- For each "needs PR" row: proposed PR scope, base, size, tests that come with it, risk, and whether it needs a matching change in agent-framework or connectome-host.
+- Recipient routing and host compatibility: what upstream would need to accept it, or what a generic upstream equivalent would look like; flag it as the critical path.
+- TASK-9YJZP (descriptor label quoting) noted as a fix for a bug that also exists upstream.
+- A proposed PR order, smallest and most independent first.
+- Public-safe text: no agent, host or private names.

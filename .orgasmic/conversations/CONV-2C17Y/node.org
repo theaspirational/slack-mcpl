@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-2C17Y
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Implement TASK-NNEWZ
+:PROPERTIES:
+:UID: a9d2de6f-2bdd-5609-b0ce-39cf54958a46
+:ID: CONV-2C17Y
+:PURPOSE: implement
+:OWNER: ["member","alnold"]
+:PROVIDER: codex
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-nnewz
+:RUNS:  run-01M61PHEHT1Z1RWG76C7NEVSAP
+:CREATED_AT: 2026-10-28T16:47:21Z
+:END:
