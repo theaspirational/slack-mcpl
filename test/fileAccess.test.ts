@@ -35,12 +35,12 @@ async function fixture(t: any, opts: { legacy?: boolean; scopes?: string[] } = {
   const h = connectHost(new SlackMcplServer(adapter));
   t.after(() => h.close());
   await initialize(h, false);
-  t.mock.method(globalThis, 'fetch', async (url: string | URL | Request, options?: RequestInit) => {
+  const fetchMock = t.mock.method(globalThis, 'fetch', async (url: string | URL | Request, options?: RequestInit) => {
     downloads.push({ url: String(url), options });
     return new Response('hello', { headers: { 'content-type': 'text/plain' } });
   });
   return {
-    calls, downloads, host: h.host,
+    calls, downloads, fetchMock, host: h.host,
     member(value: boolean) { member = value; }, file(value: Record<string, unknown>) { file = value; },
     call: async (args: Record<string, unknown>) => h.host.sendRequest('tools/call', {
       name: 'fetch_attachment', arguments: args,
@@ -109,7 +109,9 @@ test('explicit bearer downloads reject redirect responses without forwarding aut
   process.env.SLACK_BOT_TOKEN = fakeToken;
   t.after(() => { if (previous === undefined) delete process.env.SLACK_BOT_TOKEN; else process.env.SLACK_BOT_TOKEN = previous; });
   const sent: Array<{ url: string; redirect?: RequestInit['redirect']; authorization?: string }> = [];
-  t.mock.method(globalThis, 'fetch', async (url: string | URL | Request, options?: RequestInit) => {
+  // Replace the fixture mock's implementation, not fetch itself: stacking
+  // mocks can restore the earlier stub and leak it into other test files.
+  h.fetchMock.mock.mockImplementation(async (url: string | URL | Request, options?: RequestInit) => {
     sent.push({ url: String(url), redirect: options?.redirect, authorization: (options?.headers as Record<string, string>)?.Authorization });
     // Native fetch throws for redirect:'error'; a 302 is also refused if a
     // custom transport returns it. No second fetch is made to Location.
