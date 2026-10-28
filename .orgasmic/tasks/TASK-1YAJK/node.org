@@ -1,0 +1,19 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-1YAJK
+#+orgasmic_version: 2
+
+* BACKLOG TASK-1YAJK Merge fork PR #1 onto b956350d, add group-DM deny tests, full verification (branch only)
+:PROPERTIES:
+:UID: ccd52389-f779-55bd-9c2f-e484f612d40e
+:ID: TASK-1YAJK
+:PRIORITY: P2
+:END:
+
+** Description
+Resolve fork PR #1 (named group DMs under the explicit access policy, head 6a1946d072bfcc99d67a837d2fcc6132e677fcf7) onto fork main b956350d4e77f09df76240439b3d35d512061899, on a local branch only, with added deny tests and full verification. An earlier read-only review (TASK-2R1FJ) found one MEDIUM: the merge conflicts in one test file (test/accessPolicy.test.ts, a single end-of-file hunk); no production-file conflicts. It also asked for four integration deny cases. Push, merge and any GitHub comment are separate owner decisions.
+
+** Acceptance
+- Merge of the PR head onto b956350d with both test blocks kept.
+- Four new deny cases (see brief), each shown to fail when its guard is removed.
+- build, typecheck and full suite on Node 22.23.3; routing test on Node 24; base b956350d vs final counts.
+- No production code change unless reported first.
