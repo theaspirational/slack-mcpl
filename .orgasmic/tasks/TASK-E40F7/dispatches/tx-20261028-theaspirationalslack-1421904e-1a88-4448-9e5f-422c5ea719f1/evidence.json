@@ -1,0 +1,25 @@
+{
+  "event_count": 242,
+  "tool_call_count": 12,
+  "unparsed_events": 0,
+  "bounded_events": 3,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-E40F7-implementer-20261028T212921-run-01M626NT3ZC6V7GCNVCRSMA5EX.jsonl",
+    "size_bytes": 330877
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T21-01-17-01a18451-376e-7b01-99c3-6c939b8fcffc.jsonl",
+    "session_id": "01a18451-376e-7b01-99c3-6c939b8fcffc",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll make the polish changes, consolidate the CLI test setup, and add coverage for the non-tool operations that remain allowed. Then I’ll create the single-commit `pr/disabled-tools` branch and verify its tree matches the polished implementation branch.\n\nThe polish is complete. `pr/disabled-tools` has one commit, and its tree matches the two-commit `task-e40f7-impl` branch.\n\nAt the squash, both full suites pass 595 tests, and the focused suites pass all 29 tests on Node 22.12.0. The new exemption test also fails under each deliberate mutation that blocks acknowledgements or rollback, then passes with those mutations removed.\n\n"
+    }
+  ],
+  "narrative_truncated": false
+}
