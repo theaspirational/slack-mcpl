@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-M04RQ
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-1735W
+:PROPERTIES:
+:UID: 87efa076-d373-540a-80a3-b3da21fbccff
+:ID: CONV-M04RQ
+:PURPOSE: review
+:OWNER: ["member","tarn2"]
+:PROVIDER: codex
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-1735w
+:RUNS:  run-01M61A9B1V7FRDXQM2QVCK2CGN
+:CREATED_AT: 2026-10-28T13:13:12Z
+:END:
