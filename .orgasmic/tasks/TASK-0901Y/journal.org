@@ -78,3 +78,19 @@ Retargeted by owner decision to upstream main 439a81b502388ab3a77b4bbb0e62a380e1
 :END:
 
 Answer to worker ask (writability lookup vs text validation): Choose A. Keep the fork's full writability refusal precedence, including its existing read-only authorization lookup (conversations.info / conversations.history), which carries no message text. Then validate text (upstream's lone-surrogate check) before any subsequent call that carries text or opens/writes (DM open, chat.postMessage, chat.update, etc.). The invariant to preserve is: no Slack call ever carries malformed text; refusal order is allow-list/scope/membership first, then text, matching upstream's documented order. Add a test showing malformed text to a non-writable conversation yields the writability refusal, and malformed text to a writable one yields the text refusal with zero text-carrying Slack calls. State this deviation from the literal brief wording in the report. Please quote this answer's first sentence back in your report.
+
+* tx-20261028-theaspirationalslack-9ceb8022-8cda-4608-84f3-97ee51ae1595 comment
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-9ceb8022-8cda-4608-84f3-97ee51ae1595
+:TIME:    [2026-10-28 Wed 13:04:35]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-0901Y
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: fabc4724-a33c-4e48-8353-e1ba161161df
+:END:
+
+Landed on owner decision: fork main fast-forwarded 3302d700c058f9de3a833ab7ee021903dd05cc1c -> b956350d4e77f09df76240439b3d35d512061899 (no force). Review 2 approved b956350d with no findings. Deployment to any agent is a separate decision.
