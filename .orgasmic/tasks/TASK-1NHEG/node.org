@@ -1,0 +1,23 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-1NHEG
+#+orgasmic_version: 2
+
+* IN_PROGRESS TASK-1NHEG PR #50 follow-up: changelog on retained host labels, hostile workspace and refresh tests
+:PROPERTIES:
+:UID: e2f1302c-dfb7-5731-85c8-f88f6f92196e
+:ID: TASK-1NHEG
+:PRIORITY: P2
+:END:
+
+** Description
+Answer the automated review on anima-research/slack-mcpl#50 (head 7fc1acade0c089d491d77fcf3c182fc88aaa877f) with one additional commit on top of it:
+- Medium (changelog): say that conversations already known to a host keep their old label, and that non-plain workspace names change for every conversation, so a write's `to` may no longer match the host-held label.
+- Low (tests): make the harness team name configurable and add an end-to-end case with a hostile workspace name, plus one through `refresh_channels`.
+- Low (naming): the test that also asserts an ordinary channel's label should say so in its name.
+Local commit only; push to the PR branch is a separate owner decision.
+
+** Acceptance
+- One commit on 7fc1acad; no production change unless the review's points require it.
+- New tests red without the PR's production change.
+- typecheck, build, full suite on Node 22.23.3 and 24.22.1.
+- Public-safe text only.
