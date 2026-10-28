@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-QCSK7
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-E40F7
+:PROPERTIES:
+:UID: 3e425df8-eec3-5bf2-a86e-05194fe3730a
+:ID: CONV-QCSK7
+:PURPOSE: review
+:OWNER: ["member","alnold"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-e40f7
+:RUNS:  run-01M625HC3FE1HCG26K70R0G1XH
+:CREATED_AT: 2026-10-28T21:09:27Z
+:END:
