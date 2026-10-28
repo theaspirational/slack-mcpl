@@ -1,0 +1,20 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-9YJZP
+#+orgasmic_version: 2
+
+* BACKLOG TASK-9YJZP Quote ordinary and private channel names in the channel descriptor label
+:PROPERTIES:
+:UID: 91de0946-4e1f-5103-bee8-8dc9f5e104a9
+:ID: TASK-9YJZP
+:PRIORITY: P2
+:END:
+
+** Description
+In src/channels.ts:28, `toDescriptor` interpolates an ordinary or private channel's name raw into the MCPL ChannelDescriptor label (`#${conv.name} (${teamName})`), while DM and group-DM names (lines 26-27) go through `nameShown`. A channel name carrying `</system>`, line breaks or forged header text therefore reaches the model unsanitized. Present since the initial commit; found by the review of the `group-dms` branch (685b2deb), and reproduced there by running `toDescriptor` on a hostile name.
+
+** Acceptance
+- src/channels.ts:28 uses `channelShown(conv.name)` (or equivalent), so a non-plain channel name is quoted together with its `#`; plain names render byte-identically to today.
+- A test over `toDescriptor` for all four kinds (channel, private_channel, group_dm, dm) with a name carrying `</system>` and a newline: no raw `<`, `>`, CR or LF in any label; plain names unchanged. Red without the fix, green with it.
+- Check whether any other server-rendered label interpolates a conversation name raw; report each site.
+- build, typecheck, full suite on Node 22.23.3 and Node 24.22.1; base vs final counts.
+- Branch only; push and PR are separate owner decisions.
