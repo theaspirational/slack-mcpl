@@ -1,0 +1,25 @@
+{
+  "event_count": 384,
+  "tool_call_count": 22,
+  "unparsed_events": 1,
+  "bounded_events": 5,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-2XGBG-implementer-20261028T221250-run-01M6295DXN3J7NVE4K128BQXK1.jsonl",
+    "size_bytes": 462350
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T21-40-15-01a18474-e22d-7501-84eb-c4bdf6a163d8.jsonl",
+    "session_id": "01a18474-e22d-7501-84eb-c4bdf6a163d8",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "HEAD is clean at `be7c3af1`; upstream is still `ca8f6b11`, so no rebase is needed. I found the reviewer’s probes, including the separate backlog and rejection files.\n\nI’ll detach the peer immediately and queue cleanup without awaiting it on disconnect. Shutdown will still await cleanup under the existing five-second cap. I’ll add held-call reconnect and non-Error rejection regressions, then address the documentation and duplicate-clear findings.The four new regressions fail on `be7c3af1` and pass with the fixes; the full thread-status file now passes 28/28. A separate mutation also confirms that a late refusal from the old peer cannot disable the new peer’s status.\n\nI removed the duplicate adapter post-clear and both redundant status-entry identity guards, retaining the queue-tail guard. The fixed 25 ms waits are replaced with delivery/queue joins or event-loop barriers. README and the fragment now explain the undeclared stop extension, degraded receipt, and pinned feature-set requirement.Round 2 is committed as `17275b846dfb4ce7abec93d9c17514de026d03e0`, still one commit on unchanged upstream main.\n\nAll final gates passed: 612/612 on both Node versions, 122/122 on Node 22.12.0, and five consecutive 28/28 thread-status runs. The report is in this round’s evidence directory. Nothing was pushed or posted."
+    }
+  ],
+  "narrative_truncated": false
+}
