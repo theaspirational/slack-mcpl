@@ -1,0 +1,25 @@
+{
+  "event_count": 281,
+  "tool_call_count": 15,
+  "unparsed_events": 0,
+  "bounded_events": 0,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-9YJZP-implementer-20261028T174210-run-01M61SNTFDZSCT31C2FGNKYAMF.jsonl",
+    "size_bytes": 363299
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T16-39-00-01a18361-14d1-7073-a154-3369ca7d3c94.jsonl",
+    "session_id": "01a18361-14d1-7073-a154-3369ca7d3c94",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "The preflight SHA matches, and both review findings are confirmed. I’ll update the fragment and share the expanded hostile-name fixture between the descriptor and harness tests. After testing, I’ll preserve the task branch, create the single-commit PR branch, and verify its cherry-pick in an external scratch clone.The exotic-character mutation failed at the expanded leak assertion, then passed after byte-for-byte restoration. The task and PR branches have identical trees, with exactly one PR commit above `685b2deb`. That commit also cherry-picked cleanly onto the specified upstream SHA; fresh checks are running in both the task worktree and scratch clone.All checks passed. The task branch has 813 passes and 28 existing skips on Node 22, and 841 passes on Node 24. The upstream cherry-pick passes all 593 tests on both engines. The report records both branch SHAs, tree identity, the scratch SHA/tree, and red/green evidence. I’m finalizing now."
+    }
+  ],
+  "narrative_truncated": false
+}
