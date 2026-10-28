@@ -31,3 +31,19 @@
 :TO_STATE: in_progress
 :EVENT_ID: a93be22a-b905-4773-aca2-82fa0184e706
 :END:
+
+* tx-20261028-theaspirationalslack-76768e21-8371-4154-b6e7-6ae5cbc72b21 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-76768e21-8371-4154-b6e7-6ae5cbc72b21
+:TIME:    [2026-10-28 Wed 13:47:51]
+:TYPE:    task.state_transitioned
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-1YAJK
+:TARGET: .orgasmic/tasks/TASK-1YAJK/node.org
+:REASON: Close of round 1 moved the task to in_review. Round 2 is an implementer round that corrects case (d), so it goes back to in_progress.
+:FROM_STATE: in_review
+:TO_STATE: in_progress
+:EVENT_ID: 80186e7d-ccd9-4bf0-bf4e-6f3fa2259948
+:END:
