@@ -31,3 +31,19 @@
 :TO_STATE: in_progress
 :EVENT_ID: 65f2d4d3-af1c-4e3a-bfb7-d358a7b6954e
 :END:
+
+* tx-20261028-theaspirationalslack-b2c3beb2-e1da-4d1b-8eaa-ff249857b387 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-b2c3beb2-e1da-4d1b-8eaa-ff249857b387
+:TIME:    [2026-10-28 Wed 17:41:54]
+:TYPE:    task.state_transitioned
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-9YJZP
+:TARGET: .orgasmic/tasks/TASK-9YJZP/node.org
+:REASON: Owner chose polish before PR: two review LOWs plus squash.
+:FROM_STATE: done
+:TO_STATE: in_progress
+:EVENT_ID: e6ac0353-6e84-4f73-b0d1-ca676e2b46a3
+:END:
