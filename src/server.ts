@@ -1840,7 +1840,9 @@ export class SlackMcplServer {
       !this.unsubscribedByAgent.has(msg.channelId) && !this.isChannelSubscribed(msg.channelId);
     const blocks: string[] = [];
     if (autoSubscribe) {
-      const where = meta?.name ? channelShown(meta.name) : `conversation ${msg.channelId}`;
+      const where = meta?.name
+        ? (meta.kind === 'group_dm' ? `Group DM: ${nameShown(meta.name)}` : channelShown(meta.name))
+        : `conversation ${msg.channelId}`;
       blocks.push(
         `<system>Auto-subscribed to ${where} because you were mentioned. ` +
           `Ambient (non-mention) messages from this conversation will now arrive in your context. ` +

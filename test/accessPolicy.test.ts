@@ -560,6 +560,18 @@ test('delivered group DM location and backscroll identify Group DM without chang
   assert.match(text, /\[Group DM: mpdm-CGROUP \(workspace\) channelId=CGROUP id=200\.1\]/);
   assert.match(text, /<backscroll channel="mpdm-CGROUP" group_dm="true" count="1">/);
   assert.match(text, /id=100\.1\] peer: earlier message/);
+  assert.match(text, /^<system>Auto-subscribed to Group DM: mpdm-CGROUP because you were mentioned\. /);
+
+  await h.emit({ type: 'message', channel: 'CREAD', channel_type: 'channel', user: 'UHUMAN',
+    ts: '300.1', text: '<@UBOT> hello channel' });
+  await until(() => host.hostSaw.filter(r => r.method === method.PUSH_EVENT).length === 2, 'ordinary channel delivery');
+  const channelPush = host.hostSaw.filter(r => r.method === method.PUSH_EVENT)[1]!;
+  const channelText = (channelPush.params as { payload: { content: Array<{ text: string }> } }).payload.content[0]!.text;
+  assert.equal(channelText.split('\n')[0],
+    '<system>Auto-subscribed to #CREAD because you were mentioned. ' +
+    'Ambient (non-mention) messages from this conversation will now arrive in your context. ' +
+    'Mentions and DMs always come through regardless of subscriptions. ' +
+    'To stop ambient delivery from here: unsubscribe_channel("CREAD").</system>');
 });
 
 routingTest('recipient routing frames hostile group DM body, name and attachment as peer content', async (t) => {
