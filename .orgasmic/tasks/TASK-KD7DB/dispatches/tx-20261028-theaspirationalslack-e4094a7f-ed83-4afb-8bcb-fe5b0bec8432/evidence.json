@@ -1,0 +1,20 @@
+{
+  "event_count": 668,
+  "tool_call_count": 0,
+  "unparsed_events": 0,
+  "bounded_events": 1,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-KD7DB-reviewer-20261028T153629-run-01M61JFP3GJX25PCV0VCECGA4Q.jsonl",
+    "size_bytes": 897558
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.claude/projects/-home-orgasmic--orgasmic-worktrees-theaspirational-slack-mcpl-task-kd7db/3fc66ee7-3035-4d65-945c-02e64323feac.jsonl",
+    "session_id": "3fc66ee7-3035-4d65-945c-02e64323feac",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [],
+  "narrative_truncated": false
+}
