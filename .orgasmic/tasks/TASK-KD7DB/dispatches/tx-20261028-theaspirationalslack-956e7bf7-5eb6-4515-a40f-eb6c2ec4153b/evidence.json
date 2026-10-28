@@ -1,0 +1,25 @@
+{
+  "event_count": 394,
+  "tool_call_count": 24,
+  "unparsed_events": 0,
+  "bounded_events": 6,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-KD7DB-implementer-20261028T153016-run-01M61J49Y60E5XJP4HP7Z9N846.jsonl",
+    "size_bytes": 538629
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T15-30-17-01a18322-2aee-7332-b6c1-424ea387a9b1.jsonl",
+    "session_id": "01a18322-2aee-7332-b6c1-424ea387a9b1",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll verify the reported findings, make the four scoped commits in order, and collect mutation evidence plus final test results on both Node versions.All three findings are confirmed in the source. The baseline passes on both engines: 818 tests total, with 27 skipped on Node 22 and none skipped on Node 24.22.1.\n\nThe LOW-1 fix is committed. Removing the overlap check made the startup test fail; restoring it returned the test to green.The four commits are complete. Every new test has failed under a temporary production mutation and passed after byte-for-byte restoration. The routing framing test also caught separate body, sender-name, and attachment mutations.\n\nI’m running the fresh final gates now. No existing DM or channel assertions were changed.Final gates passed at `ea7a63dfca2d91304072bae5ab3a596fba10ae4e`:\n\n- Node 22.23.3: 795 passed, 28 skipped, 0 failed.\n- Node 24.22.1: 823 passed, 0 skipped, 0 failed.\n- Clean install, build, and typecheck passed.\n\nThe report includes all four commits, nine red/green mutation checks, and baseline comparisons. npm reported two high-severity dependency vulnerabilities at both baseline and final; dependencies were left unchanged."
+    }
+  ],
+  "narrative_truncated": false
+}
