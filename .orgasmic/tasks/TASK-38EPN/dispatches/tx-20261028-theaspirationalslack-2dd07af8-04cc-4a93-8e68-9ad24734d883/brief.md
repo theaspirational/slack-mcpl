@@ -1,0 +1,17 @@
+TASK-38EPN holds the goal and acceptance. This brief is the procedure.
+
+Rules: local commits only on your task branch; no push, no PR, no GitHub comment, no credentials; public-safe text only (no agent, host or private names); update notifiers off from the first command (NO_UPDATE_NOTIFIER=1, npm_config_update_notifier=false); `npm ci --ignore-scripts --registry=https://registry.npmjs.org` with two distinct empty user/global npm config files outside the repo. Network: read-only `git fetch` from https://github.com/anima-research/slack-mcpl.git and https://github.com/theaspirational/slack-mcpl.git, and nodejs.org for a scratch Node 24.22.1 outside the repo verified against SHASUMS256.txt. Wrap every suite in `timeout 900` inside `orgasmic dispatch gate`.
+
+Base: your worktree starts on fork main 685b2deb. Fetch upstream main read-only. If HEAD of upstream main is not d3e4f7c9d2e4753f276232f07a4f7eb02dae5e34, use the new head and say so. Then `git reset --hard <upstream main>` on your task branch (it is a local task branch; nothing else changes) and confirm `git log -1` shows that commit and the tree is clean. Everything below is relative to that base.
+
+Reference: docs/FORK-VS-UPSTREAM.md at a2295638 (branch task-nnewz-r2, readable with `git show a2295638:docs/FORK-VS-UPSTREAM.md` after fetching the fork) describes order 2. The worker's earlier tested extraction is /home/orgasmic/.orgasmic/runs/run-01M6208VG9YRTS4Q98QNK576MZ/evidence/prepare-zero.py and zero-tested.patch; the fork's source is 685b2deb:src/server.ts. A review found the extraction correct (2 files, +22/-3, 585/585) but asked that tests go into upstream's existing homes rather than new files.
+
+Do:
+1. Production: SLACK_BACKSCROLL_LIMIT=0 disables the automatic history read; the value is clamped to [0,1000]; the single automatic fetchHistory call site is guarded by `backscrollLimit > 0`. Explicit history tools are unaffected. Check whether upstream's src/config.ts `startupSettings` is the right home for this setting under #49's design; if moving it there is small and keeps current behaviour for every other value, do so and say why, otherwise keep the getter and say why. Do not change behaviour for unset, valid or invalid non-zero values; report exactly what an invalid value like `abc` does before and after.
+2. Tests in existing files (test/operatorControls.test.ts; test/config.test.ts if the parser changes): limit 0 makes no automatic history call, while an explicit history read still works; a non-zero limit still reads. Red without the change, and one mutation (drop `&& backscrollLimit > 0`, keep the clamp) red. Never commit a mutant.
+3. changelog.d fragment (one bullet, category per precedent) and the README row for the variable.
+4. One commit, plain descriptive title, body wrapped at 72, trailer `Co-Authored-By: GPT-6-Astra <noreply@openai.com>`. Leave the git author as the worktree default.
+
+Gates at the final commit through `orgasmic dispatch gate`: npm ci, typecheck, build, full suite on Node 22.23.3; full suite on Node 24.22.1. Base vs final counts.
+
+Report: base sha used, final sha, diff stat, what an invalid value does before/after, red/green and mutation evidence, counts per engine, what you could not run. Finalize with that report.
