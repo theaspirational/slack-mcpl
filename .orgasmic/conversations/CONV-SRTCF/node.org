@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-SRTCF
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Implement TASK-2R1FJ
+:PROPERTIES:
+:UID: 27c5d9f3-1edb-5fe3-b0aa-2e52dfc7e517
+:ID: CONV-SRTCF
+:PURPOSE: implement
+:OWNER: ["member","alnold"]
+:PROVIDER: codex
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-2r1fj
+:RUNS:  run-01M61B5QSF6YK0ZX9MBGX2QMYS
+:CREATED_AT: 2026-10-28T13:28:43Z
+:END:
