@@ -529,3 +529,14 @@ for (const denied of ['missing chat:write', 'unlisted destination'] as const) {
     }
   });
 }
+
+test('without recipient routing a listed group DM remains readable and writable when readJoinedChannels is false', async () => {
+  const h = fixture({ groupDms: ['CGROUP'], writeChannels: ['CGROUP'],
+    scopes: MPIM_SCOPES, readJoinedChannels: false });
+  h.conversations.set('CGROUP', groupDm('CGROUP'));
+  await h.adapter.fetchHistory('CGROUP');
+  await h.adapter.readThread('CGROUP', '1.0', {});
+  await h.adapter.sendMessage('CGROUP', 'hello', { threadTs: '1.0' });
+  assert.deepEqual(h.calls.filter(c => ['history', 'replies', 'post'].includes(c.method))
+    .map(c => [c.method, c.args.channel]), [['history', 'CGROUP'], ['replies', 'CGROUP'], ['post', 'CGROUP']]);
+});

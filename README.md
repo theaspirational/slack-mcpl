@@ -262,6 +262,8 @@ channel messages: ambient unless they mention the bot, as in a private channel.
 Group DMs the list doesn't name are neither listed nor delivered. With recipient
 routing, an allowed group DM is admitted as a joined private channel, so its
 messages are delivered only when `readJoinedChannels` is `true`.
+Outside recipient routing, a listed group DM is readable regardless of
+`readJoinedChannels`, while recipient routing requires `readJoinedChannels: true`.
 
 ```json
 {"readJoinedChannels":true,"writeChannels":["CGROUPDM"],"dmUsers":["UOPERATOR"],"groupDms":["CGROUPDM"]}
