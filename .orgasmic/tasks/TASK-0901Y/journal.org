@@ -15,3 +15,50 @@
 :EVENT_ID: ef07d3ac-a10d-4ad0-9644-0a315a42c07a
 :REQUEST_REPLAY_V1: {"request_id":"alnold-slack-merge-upstream-3/tx","mutation":{"operation":"task.created","project_id":"theaspirational.slack-mcpl","payload_sha256":"e35c4bdcf4835c7ce02bce07efbbc4b1c43cb73d784c94efe11ee9e281c370f8"},"mutation_id":"TASK-0901Y","written_paths":[{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-0901Y/node.org"},{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-0901Y/journal.org"}]}
 :END:
+
+* tx-20261028-theaspirationalslack-09cf5096-c6b1-43f1-ab33-d6299f3f1950 task.edited
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-09cf5096-c6b1-43f1-ab33-d6299f3f1950
+:TIME:    [2026-10-28 Wed 12:39:06]
+:TYPE:    task.edited
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-0901Y
+:TARGET: ~/.orgasmic/ledgers/theaspirational.slack-mcpl/.orgasmic/tasks/TASK-0901Y/node.org
+:REASON: Owner plan A: retarget to current upstream main 439a81b5
+:NODE_ID: TASK-0901Y
+:EVENT_ID: 6912f259-0b3f-49f4-a0af-f6964e70a21f
+:END:
+
+* tx-20261028-theaspirationalslack-0b5d9e91-c755-47af-ad37-8dcef26ab4b7 comment
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-0b5d9e91-c755-47af-ad37-8dcef26ab4b7
+:TIME:    [2026-10-28 Wed 12:39:06]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-0901Y
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: c8427d89-a225-47b4-b1c4-7e667f741724
+:END:
+
+Retargeted by owner decision to upstream main 439a81b502388ab3a77b4bbb0e62a380e1b50605 (2026-10-27). Fork main 3302d700c058f9de3a833ab7ee021903dd05cc1c is 45 ahead / 10 behind; merge-base bff8f10c1c3ce493abc10fb9946f0559e2f89e05. Trial merge-tree: conflicts in src/server.ts, src/slack-adapter.ts, test/harness.ts. Upstream now also includes PR 47 (sender-framing forgery fix) and PR 48 (mcpl-core ^0.4.0).
+
+* tx-20261028-theaspirationalslack-594bf2be-f31b-4e36-85a9-d27a096fc7f4 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalslack-594bf2be-f31b-4e36-85a9-d27a096fc7f4
+:TIME:    [2026-10-28 Wed 12:39:07]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-0901Y
+:TARGET: .orgasmic/tasks/TASK-0901Y/node.org
+:REASON: transition TASK-0901Y to in_progress
+:FROM_STATE: backlog
+:TO_STATE: in_progress
+:EVENT_ID: cb38a338-45bb-4b64-9503-86cbcf3cd674
+:END:
