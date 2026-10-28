@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-1NHEG
 #+orgasmic_version: 2
 
-* DONE TASK-1NHEG PR #50 follow-up: changelog on retained host labels, hostile workspace and refresh tests
+* IN_PROGRESS TASK-1NHEG PR #50 follow-up: changelog on retained host labels, hostile workspace and refresh tests
 :PROPERTIES:
 :UID: e2f1302c-dfb7-5731-85c8-f88f6f92196e
 :ID: TASK-1NHEG
