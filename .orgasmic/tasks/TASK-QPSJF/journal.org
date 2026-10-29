@@ -47,3 +47,19 @@
 :TO_STATE: in_progress
 :EVENT_ID: 4abd05ed-5b77-4e9e-ab27-d8e7863b2901
 :END:
+
+* tx-20261029-theaspirationalslack-64cfad3a-febe-4de7-8ab9-4db7ad30eda9 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-64cfad3a-febe-4de7-8ab9-4db7ad30eda9
+:TIME:    [2026-10-29 Thu 21:14:24]
+:TYPE:    task.state_transitioned
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-QPSJF
+:TARGET: .orgasmic/tasks/TASK-QPSJF/node.org
+:REASON: Owner chose the small polish (caps:polish:small).
+:FROM_STATE: done
+:TO_STATE: in_progress
+:EVENT_ID: b0a36717-7cb5-444a-898f-f5f6bd8a7ae8
+:END:
