@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-V08EN
 #+orgasmic_version: 2
 
-* IN_PROGRESS TASK-V08EN Slack reactions: show existing reactions in history and thread output, and add a tool to remove the agent's own reaction
+* DONE TASK-V08EN Slack reactions: show existing reactions in history and thread output, and add a tool to remove the agent's own reaction
 :PROPERTIES:
 :UID: 12690dc7-dbcf-51f7-8a6d-10ab1b1733f9
 :ID: TASK-V08EN
@@ -32,3 +32,5 @@ Agents using this connector can add an emoji reaction (`add_reaction`) but canno
 - Tests with a mocked Slack client: reactions appear in history and thread output; removing an own reaction succeeds; removing one that is not the agent's own, or a missing one, fails with a clear fixed message; the access policy blocks both read and removal where it should.
 - No change to existing output for messages without reactions.
 - A reviewer reads the diff. Merge and rollout are separate owner decisions.
+** Evidence
+- Published as #57.
