@@ -1,0 +1,17 @@
+#+title: orgasmic journal TASK-XPP3A
+#+orgasmic_version: 2
+
+* tx-20261029-theaspirationalslack-9ca2d416-fd7d-4c20-ac3e-1dfa85a1201c task.created
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-9ca2d416-fd7d-4c20-ac3e-1dfa85a1201c
+:TIME:    [2026-10-29 Thu 07:35:50]
+:TYPE:    task.created
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-XPP3A
+:TARGET: .orgasmic/tasks/TASK-XPP3A/node.org
+:REASON: created task TASK-XPP3A
+:EVENT_ID: efe28bb7-72bc-426a-b315-fa13368ce547
+:REQUEST_REPLAY_V1: {"request_id":"alnold-pr6-a2-task-1/tx","mutation":{"operation":"task.created","project_id":"theaspirational.slack-mcpl","payload_sha256":"81d1a49eaeeff514689d92090a3370c325e06cda87702ce388e0f7e859f8478e"},"mutation_id":"TASK-XPP3A","written_paths":[{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-XPP3A/node.org"},{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-XPP3A/journal.org"}]}
+:END:
