@@ -103,3 +103,19 @@ AI-assisted implementation with GPT-6-Astra.
 :END:
 
 Published on the owner's button (the pusher made the push): https://github.com/anima-research/slack-mcpl/pull/58. Head `0625ffeb` (tree identical to ccbbb766), stacked on #56/#55. Title: "feat(access): admit named group DMs under the dormant access policy". The pusher's gates were 695/695 on 3 Nodes. I haven't opened the link myself.
+
+* tx-20261029-theaspirationalslack-4bfc6837-e6c2-4402-bff9-bb254a11b194 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-4bfc6837-e6c2-4402-bff9-bb254a11b194
+:TIME:    [2026-10-29 Thu 14:49:33]
+:TYPE:    task.state_transitioned
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-T71QC
+:TARGET: .orgasmic/tasks/TASK-T71QC/node.org
+:REASON: Published as #58.
+:FROM_STATE: in_review
+:TO_STATE: done
+:EVENT_ID: 93302ba2-bf47-4a16-a94d-c5c10dfdefee
+:END:

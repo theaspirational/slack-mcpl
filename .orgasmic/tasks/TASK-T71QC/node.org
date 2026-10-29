@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-T71QC
 #+orgasmic_version: 2
 
-* IN_REVIEW TASK-T71QC Access policy: named group DMs under the explicit policy (dormant)
+* DONE TASK-T71QC Access policy: named group DMs under the explicit policy (dormant)
 :PROPERTIES:
 :UID: d857fe05-6bcb-51ae-af5d-f55d7d1e2fb6
 :ID: TASK-T71QC
@@ -21,3 +21,5 @@ Still dormant until the setting that enables the policy lands.
 - Access is independent of `readJoinedChannels`.
 - A test row distinguishes the dedicated group-DM guard from the generic channel check.
 - Legacy behaviour byte-identical. Red/green tests.
+** Evidence
+- Published as #58.
