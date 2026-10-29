@@ -11013,3 +11013,39 @@
 :ACKED_BY:     member:alnold
 :EVENT_ID:     6dc78b26-8fb3-433e-85a5-991fd81735aa
 :END:
+
+
+* TX 2026-10-29 Thu 15:38:40 run.created TASK-ER984
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalslack-e783db60-6762-4b2e-af7d-7f36dbff78eb
+:TIME:         [2026-10-29 Thu 15:38:40]
+:TYPE:         run.created
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:TASK:         TASK-ER984
+:REASON:       start_recovery_run replacing run run-01M644M74ZN4C9Q1RXG2BFQRDX
+:RUN_ID:       run-01M6450DHWM77JBSNH0X1ZQHBX
+:ORIGIN:       recovery
+:ORIGIN_RUN_ID: run-01M644M74ZN4C9Q1RXG2BFQRDX
+:ACTION:       start_recovery_run
+:KIND:         implementer
+:EVENT_ID:     b5a863bc-b204-445f-af83-37c5284e88fa
+:END:
+
+* TX 2026-10-29 Thu 15:38:52 run.message TASK-ER984
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalslack-b1c6e624-f199-4fe5-a9ca-c02d98ee04ce
+:TIME:         [2026-10-29 Thu 15:38:52]
+:TYPE:         run.message
+:ACTOR:        alnold
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:TASK:         TASK-ER984
+:REASON:       You are recovering an interrupted orgasmic run, the THIRD attempt at TASK-ER984 round 2. Inspect before acting.
+:RUN_ID:       run-01M6450DHWM77JBSNH0X1ZQHBX
+:MESSAGE_ID:   msg-97fbed8a87634ed4beea929181587e6e
+:FROM:         member:alnold
+:DELIVERY:     delivered
+:EVENT_ID:     d32b9c76-2ccd-4ad5-84d7-c111a0d63390
+:END:

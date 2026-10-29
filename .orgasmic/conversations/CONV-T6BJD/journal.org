@@ -75,3 +75,18 @@
 :RUN_ID: run-01M644M74ZN4C9Q1RXG2BFQRDX
 :EVENT_ID: fc17a526-f985-47e4-9685-377a42890452
 :END:
+
+* tx-20261029-theaspirationalslack-eeae1593-c08d-4791-907c-907c5960e014 conversation.run_recovered
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-eeae1593-c08d-4791-907c-907c5960e014
+:TIME:    [2026-10-29 Thu 15:38:40]
+:TYPE:    conversation.run_recovered
+:ACTOR:   orgasmic
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TARGET: ~/.orgasmic/ledgers/theaspirational.slack-mcpl/.orgasmic/conversations/CONV-T6BJD/node.org
+:REASON: recovery run started
+:NODE_ID: CONV-T6BJD
+:RUN_ID: run-01M6450DHWM77JBSNH0X1ZQHBX
+:EVENT_ID: c3db1815-832a-4154-a325-d1b677fca4e0
+:END:
