@@ -1,0 +1,20 @@
+{
+  "event_count": 874,
+  "tool_call_count": 0,
+  "unparsed_events": 0,
+  "bounded_events": 2,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-XPP3A-reviewer-20261029T075742-run-01M63AMBC0WMDK46YTJ8K55TA3.jsonl",
+    "size_bytes": 1167002
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.claude/projects/-home-orgasmic--orgasmic-worktrees-theaspirational-slack-mcpl-task-xpp3a/6c929b3b-23e8-4eef-8fa0-6e443ace9fb4.jsonl",
+    "session_id": "6c929b3b-23e8-4eef-8fa0-6e443ace9fb4",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [],
+  "narrative_truncated": false
+}
