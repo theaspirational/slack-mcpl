@@ -31,3 +31,63 @@
 :TO_STATE: in_progress
 :EVENT_ID: 79c8edb2-f6aa-40bc-aaab-8b41cdf3d6ca
 :END:
+
+* tx-20261029-theaspirationalslack-b139f584-1e93-42ec-b5d0-2fbabc01036b comment
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-b139f584-1e93-42ec-b5d0-2fbabc01036b
+:TIME:    [2026-10-29 Thu 07:30:51]
+:TYPE:    comment
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-R4THE
+:REASON: comment
+:ACTOR_UID: 33bd077fdb77f660a533eb5493ebc442
+:EVENT_ID: fb0b9f44-c0ee-4703-8bfb-373ad69cef56
+:END:
+
+Final PR body for A1 (publication text, owner-gated). The implementer's report body has one sentence replaced, per re-review LOW-A. 3582 bytes, sha256 8ee4edc7f8d69e140ac80a1da358328a41dc4be889741250cc2fa021cad4da4d. Commit 95916c48ef8110d1089e92df11f7fee30bdeb0ad, re-review approve. Proposed branch feat/access-policy-model. Apply the no-changelog label.
+
+----- BEGIN PR BODY -----
+## Problem
+
+This is **part 1 (A1) of the access-policy chain**: independently test a small policy model before adding enforcement and opt-in configuration.
+
+## Changes
+
+- Add a pure internal ordinary-channel/one-to-one-DM policy: exact identities and kinds, membership, read/effect scopes, channel write pins, U/W peers and copied allow-lists.
+- Add `parseAccessPolicy(unknown)`: read each field once, validate against explicit required/allowed keys, and return a frozen normalized object with fresh frozen arrays. Construction consumes those validated snapshots.
+- The format is deliberately stricter than today's `SLACK_DM_USERS` / `SLACK_SEND_CHANNELS` handling: all three fields are required, and unknown keys and null lists are rejected. Nothing reaches this format yet; A4 will carry the operator-visible migration note.
+- Keep this **inert until a later PR exposes configuration**. Nothing imports it from the adapter, server, config or index; there is no operator setting or README row. Built `dist/src/access-policy.js` is imported by nothing, and the package is not published to npm.
+- Please apply **`no-changelog`** for this internal-only preparation, as permitted by CONTRIBUTING.md and the changelog workflow. Without that label the fragment check fails; no label has been applied by this local-only work.
+- Proposed publication branch: **`feat/access-policy-model`**. The local branch has not been renamed.
+
+### Companion PRs / merge order
+
+A1 → **A2 (adapter gates)** → **A3 (attachments)** → **A4 (opt-in setting)** → **G (group DMs)**. A1–A3 remain dormant; A4 waits for complete enforcement. Public-pin fallback F is optional later work. No companion PR was created by this change. Legacy DM precedence and early no-D-ID `send_dm` veto remain A2/A4 integration work.
+
+## Tests
+
+At `95916c48ef8110d1089e92df11f7fee30bdeb0ad`, compared with upstream `7274283fa719a17328ef8e085336ce25f6f22b08`:
+
+| Node | Main baseline (`npm test`) | This commit (`npm test`) | Typecheck / build |
+| --- | --- | --- | --- |
+| 22.23.3 | 583 pass / 0 fail | 599 pass / 0 fail | Pass / pass |
+| 24.22.1 | 583 pass / 0 fail | 599 pass / 0 fail | Pass / pass |
+| 22.12.0 | 583 pass / 0 fail | 599 pass / 0 fail | Not requested |
+
+All six suites were freshly run with the repository's one-process runner; no skips or cancellations. The policy file passes **16/16 five times**. Its getter regression first failed on the previous implementation (**13 pass / 1 fail**), then passed after the parser fix. Coverage includes unchanged newline rejection, required/unknown/null fields, own/non-enumerable/symbol keys, frozen copies, changing getters and deliberate permissive D-prefix hints that cannot authorize invalid DM IDs. No mocks are used by these tests.
+
+Tests ran with an explicit-loopback listener guard. Node 24.22.1 and 22.12.0 archive checksums were rechecked against official SHASUMS256.txt files. The unlabelled changelog failure and documented label exemption were reproduced. The release script dry-folded the 33 existing fragments in a scratch copy.
+
+## Not verified
+
+No live Slack workspace, live MCPL host or macOS execution. This does not enable or qualify adapter/attachment enforcement, CLI configuration, group-DM authorization or fallback. The pure model cannot establish freshness of caller-supplied metadata; synchronous write hints are not authorization decisions.
+
+---
+
+- [ ] Changelog fragment added — or internal-only: **apply `no-changelog`** before requiring a green changelog job.
+
+🤖 Generated with [Codex](https://openai.com/codex) (GPT-6-Astra)
+----- END PR BODY -----
+
