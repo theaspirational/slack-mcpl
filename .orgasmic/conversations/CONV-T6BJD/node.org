@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-T6BJD
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Implement TASK-ER984
+:PROPERTIES:
+:UID: f755b404-65f1-5e63-94f3-65fa92c38c2c
+:ID: CONV-T6BJD
+:PURPOSE: implement
+:OWNER: ["member","alnold"]
+:PROVIDER: codex
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-er984
+:RUNS:  run-01M642VVF02NTS369VADW8N1QG
+:CREATED_AT: 2026-10-29T15:01:14Z
+:END:

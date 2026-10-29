@@ -1,0 +1,30 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-ER984
+#+orgasmic_version: 2
+
+* IN_PROGRESS TASK-ER984 Access policy A4: opt-in setting that activates the explicit access policy
+:PROPERTIES:
+:UID: 72d3ce9f-072b-5650-ba02-6659491a9ae4
+:ID: TASK-ER984
+:PRIORITY: P2
+:END:
+
+** Description
+Fourth step of the access-policy series (#55 model, #56 adapter gates, #58 group DMs, then A3 file/attachment gates). It adds an opt-in operator setting (via `startupSettings`) that actually enables the explicit access policy. Until now, every step is dormant.
+
+It must settle the open activation items collected by the reviews:
+- group-DM membership signal (`is_member` for MPIMs);
+- file-mode list;
+- DM file writes;
+- `find_user` directory exposure;
+- admission call budget/cache;
+- `readJoinedChannels:false` + pinned `writeChannels`;
+- replace-not-combine with `SLACK_DISABLE_DMS`/`SLACK_DM_USERS`;
+- construction-time policy;
+- passing `groupDms` by omission, not undefined.
+
+Candidate small fixes to fold in: Enterprise Grid W… user IDs (policy part), stale pinned channel in listing, listing membership check, and the optional pinned-channel fallback.
+
+** Acceptance
+- Plan round first, with owner options.
+- Then implementation with a changelog fragment and migration docs.
