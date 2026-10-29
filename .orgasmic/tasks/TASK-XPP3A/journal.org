@@ -15,3 +15,19 @@
 :EVENT_ID: efe28bb7-72bc-426a-b315-fa13368ce547
 :REQUEST_REPLAY_V1: {"request_id":"alnold-pr6-a2-task-1/tx","mutation":{"operation":"task.created","project_id":"theaspirational.slack-mcpl","payload_sha256":"81d1a49eaeeff514689d92090a3370c325e06cda87702ce388e0f7e859f8478e"},"mutation_id":"TASK-XPP3A","written_paths":[{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-XPP3A/node.org"},{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-XPP3A/journal.org"}]}
 :END:
+
+* tx-20261029-theaspirationalslack-07e546bd-1cf2-4f19-85c5-05f01ee0b0c8 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-07e546bd-1cf2-4f19-85c5-05f01ee0b0c8
+:TIME:    [2026-10-29 Thu 07:35:57]
+:TYPE:    task.state_transitioned
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-XPP3A
+:TARGET: .orgasmic/tasks/TASK-XPP3A/node.org
+:REASON: Chain approved by the owner (pr6:recs); A1 is published as #55.
+:FROM_STATE: backlog
+:TO_STATE: in_progress
+:EVENT_ID: 337f63b4-c0b0-4e7b-bea5-4269a92798ab
+:END:
