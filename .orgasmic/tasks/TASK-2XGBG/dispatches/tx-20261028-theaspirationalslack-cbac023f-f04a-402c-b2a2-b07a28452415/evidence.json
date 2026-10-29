@@ -1,0 +1,25 @@
+{
+  "event_count": 210,
+  "tool_call_count": 11,
+  "unparsed_events": 0,
+  "bounded_events": 4,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-2XGBG-implementer-20261028T231046-run-01M62CFG67C0M0ME5CPAB2FQ6E.jsonl",
+    "size_bytes": 261966
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T21-40-15-01a18474-e22d-7501-84eb-c4bdf6a163d8.jsonl",
+    "session_id": "01a18474-e22d-7501-84eb-c4bdf6a163d8",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "Upstream main is unchanged at `ca8f6b1193154384e4626921255f86923fc5edf3`; no rebase is needed. I’ll add the two regression tests and README clarification, verify both mutations are caught, and keep `src/` byte-identical to the approved commit.Both new tests catch the reviewer’s mutations, and all final gates pass: 616 tests on each of the three Node versions, plus 32 thread-status tests in five consecutive runs. The amended commit is `2e2eff1`; `src/` is unchanged from `85c41a5c`. I’m finishing the report and public-safe drafts."
+    }
+  ],
+  "narrative_truncated": false
+}
