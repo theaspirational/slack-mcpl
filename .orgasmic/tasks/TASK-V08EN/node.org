@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-V08EN
 #+orgasmic_version: 2
 
-* IN_PROGRESS TASK-V08EN Slack reactions: show existing reactions in history and thread output, and add a tool to remove the agent's own reaction
+* IN_REVIEW TASK-V08EN Slack reactions: show existing reactions in history and thread output, and add a tool to remove the agent's own reaction
 :PROPERTIES:
 :UID: 12690dc7-dbcf-51f7-8a6d-10ab1b1733f9
 :ID: TASK-V08EN
