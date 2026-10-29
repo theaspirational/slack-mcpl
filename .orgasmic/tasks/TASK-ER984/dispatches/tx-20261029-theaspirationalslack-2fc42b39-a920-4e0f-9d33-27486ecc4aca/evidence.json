@@ -1,0 +1,25 @@
+{
+  "event_count": 509,
+  "tool_call_count": 28,
+  "unparsed_events": 0,
+  "bounded_events": 5,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-ER984-implementer-20261029T162921-run-01M647X747D622YM3RJX0XT3HZ.jsonl",
+    "size_bytes": 607184
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T15-38-41-01a18850-3950-70e1-a35c-929454770d30.jsonl",
+    "session_id": "01a18850-3950-70e1-a35c-929454770d30",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll read the full review, fix the retry behavior and scope issues, then amend the existing commit. Every runtime check will use the required memory scope and 768 MiB heap limit.The review confirms two counter bugs: the DM-name cap prevented the server’s existing give-up path, and candidate retries accumulated across different conversations. I’ll test both through real background registration, remove the count caps, and add legacy-mode coverage for the retained cursor-cycle guards.The new tests reproduced both high findings and all three unwanted count limits. The fixes now pass the registration and pagination checks. I also added config and entry-point checks for M2 and M13, so passing legacy options alongside a policy will fail a test even while the adapter’s defenses still mask it.The extended comparison is byte-identical to the base across 1,002-page listing, directory and history runs, plus the DM-name give-up path. It records ten waiter calls for the first failing name, one give-up notice, and one lookup each for the remaining DMs. The full suites and both source/built startup matrices are passing; mutation testing and the targeted repetitions are still running.All three full suites pass 897/897 tests, and all five targeted runs pass 314/314. The largest measured full-suite RSS was 403,420 KiB, about 394 MiB. I’m finishing mutation verification; I corrected a scratch-fixture import failure and excluded redundant long-running startup cases before continuing those checks.The fixes are committed as `81657f1`, still one commit on the required base with the trailer intact. H1, H2, all three cycle-guard mutants, M2 and M13 are caught. Of 28 mutants, 27 are caught; M10 remains behaviorally equivalent and survives the full suite. I’m recording the final evidence and public PR body, then finalizing the run."
+    }
+  ],
+  "narrative_truncated": false
+}
