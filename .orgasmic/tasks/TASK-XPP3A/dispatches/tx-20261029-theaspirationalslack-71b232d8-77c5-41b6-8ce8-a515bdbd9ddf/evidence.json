@@ -1,0 +1,25 @@
+{
+  "event_count": 570,
+  "tool_call_count": 42,
+  "unparsed_events": 0,
+  "bounded_events": 11,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-XPP3A-implementer-20261029T073617-run-01M639D46CVXRPX3G7GZYWM6X7.jsonl",
+    "size_bytes": 810898
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T07-36-17-01a18696-94bf-7792-84f0-c336ab395681.jsonl",
+    "session_id": "01a18696-94bf-7792-84f0-c336ab395681",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I fetched the published A1 head and rebased onto `62a77616`. I’m now checking the approved A2 boundaries and fork gates, then I’ll add the dormant adapter hooks and establish red/green, mutation, and three-version baseline evidence.The A1 baseline passes all 599 tests on each Node version. The initial A2 tests failed as intended (43 failures); the implemented adapter gates now pass the targeted tests.\n\nThe manager clarified that “open and join” means the existing DM-open path plus fresh listing/metadata admission—no new join API or changes to server `channels/open`. I’m adding server-path coverage and mutation checks before the final commit gates.The local commit is `20e2c9179b237671e00632ea5b516153455a48d8`.\n\nFinal checks passed: 670/670 tests on all three Node versions, typecheck/build on Node 22.23.3 and 24.22.1, and all 71 new tests five times. All five deliberate mutations were caught. The changelog check confirms the internal-only `no-changelog` exemption, and the scratch release fold is identical to A1. I’m writing the report and separate PR body now.Final commit: `8296d58e7940f69f1334228a18c5c9c0f18b93ff`, directly on published A1. A final fork comparison caught the missing “no DM peers → no DM listing type” condition; I added it and reran all gates. Results are now 671/671 on all three Node versions, with 72 new tests passing five times and all five mutations caught.\n\nThe report and separate `pr-body.md` are complete in the evidence directory."
+    }
+  ],
+  "narrative_truncated": false
+}
