@@ -1,0 +1,19 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-R4THE
+#+orgasmic_version: 2
+
+* IN_PROGRESS TASK-R4THE Upstream PR 6/A1: internal explicit access-policy model
+:PROPERTIES:
+:UID: 521e48f5-d0ec-5ec2-9e26-c6796e473fb2
+:ID: TASK-R4THE
+:PRIORITY: P2
+:END:
+
+** Description
+First PR of the access-policy chain planned in TASK-57BTX (plan = that task's implementer report). A1: add an internal explicit access-policy model, not yet switchable by operators. The owner approved all of the plan's recommendations.
+
+** Acceptance
+- One commit on current upstream main: the pure policy model (src/access-policy.ts), with tests. No connector opt-in.
+- Strict format: required core fields, unknown keys rejected, null optional lists rejected.
+- Red/green tests and a full one-process suite on three Node versions.
+- A PR body that describes the change as inert preparation in a chain.
