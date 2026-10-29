@@ -63,3 +63,69 @@
 :TO_STATE: in_progress
 :EVENT_ID: 91768075-26d5-4bc8-857c-21a41c152e4b
 :END:
+
+* tx-20261029-theaspirationalslack-35836a43-696b-40e4-bf27-bf69ed46d5bf comment
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-35836a43-696b-40e4-bf27-bf69ed46d5bf
+:TIME:    [2026-10-29 Thu 08:39:26]
+:TYPE:    comment
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-XPP3A
+:REASON: comment
+:ACTOR_UID: 33bd077fdb77f660a533eb5493ebc442
+:EVENT_ID: 0d58bd5f-b4b8-4481-9470-87cb06ab6bbe
+:END:
+
+Final PR body for A2 (publication text, owner-gated). Commit 772317c6badaa9cd999a6020d1e8bc2c9da8de9a: one commit on #55's head 62a77616. The round-2 body is unchanged; the round-3 worker confirmed it is byte-identical. 3973 bytes, sha256 b6e9f4b9425bf02682771156ecf62fa742e3d4587eb611d91a01cadd471b715c. Proposed branch feat/access-policy-adapter-gates. Needs the no-changelog label from a maintainer.
+
+----- BEGIN PR BODY -----
+## Problem
+
+Part 2 of the access-policy chain: the internal policy model needs adapter enforcement before supported opt-in can be exposed. This PR **depends on #55**; review and merge #55 first.
+
+## Changes
+
+- Prepare fresh metadata/identity, read/history, write/scope, listing, inbound, DM-open, upload, rollback and reaction/ACK gates behind private policy state.
+- Retain the early no-D-ID send-list veto for `send_dm`, then verify the opened DM's exact peer and destination. Derive the DM-disabled description from whether the policy allows any peers.
+- Preserve legacy behavior when no policy is supplied. No environment variable, CLI option, connector setting or public installer is added: **inert until a later PR adds the opt-in setting**.
+- A later PR adds attachment enforcement; group DMs come later. Until then, internal policy mode refuses group DMs and suppresses attachment references. No new channel-join API or server `channels/open` change.
+- Make the ID-list predicate hole-safe for future callers (behaviour-neutral today).
+- Document the user-directory exception and file-deletion pairing assumption; silence test-local console diagnostics without changing production logging.
+
+## Safety boundaries and open questions
+
+**`fetch_attachment` is NOT gated by the policy yet.** Suppressing attachment references does not protect downloads of URLs supplied by callers. **Activation must not land before attachment enforcement.** A later PR must enforce attachment access before another adds the opt-in setting.
+
+**The user directory is outside the policy's confinement.** `find_user` is gated only on `users:read` and returns results from the whole workspace directory, subject to its existing query and result limits—not just admitted DM peers or members of admitted conversations. Whether directory results should be filtered is an open question for the later activation PR; this PR does not change that behavior.
+
+Fresh admission adds one `conversations.info` per listing candidate, inbound event and read or write, with no cache. Whether a short TTL cache or a call budget is needed is open for activation.
+
+Activation should pass the policy at construction so the startup scope diagnostic is policy-aware. These tests intentionally inject private state after construction and do not exercise that future wiring.
+
+## Tests
+
+- Unchanged published-parent baseline: **599 pass / 0 fail** on Node 22.23.3, 24.22.1 and 22.12.0 (recorded in the initial implementation round).
+- This revision: **672 pass / 0 fail** on each version; no skips or cancellations.
+- Typecheck and build pass on Node 22.23.3 and 24.22.1.
+- All **73 new tests pass five consecutive runs**. The getter regression covers empty/allowed DM peers, both legacy switches, absent policy and send-list/readability separation.
+- Test-local console mocks are scoped to each test; targeted runs emit no Slack diagnostic noise.
+- Real server/adapter tests cover tool refusals, host publish and rollback; a loopback upload exercises the byte-transfer path without mocking fetch.
+- Internal-only changelog exemption checked; scratch release folds the published parent and this revision identically.
+
+## Not verified
+
+No live Slack workspace, live external host, macOS or rate-limit/load testing. Admission is not transactional with Slack effects; cleanup after revocation may leave artifacts. File deletion relies on the caller's conversation/file pairing recorded from its own upload; a future arbitrary-file tool must verify association.
+
+## Out of scope
+
+Protected attachment fetching, supported opt-in configuration, group-DM admission, public-pin fallback, routing and typing. These private preparations are not a supported partially enabled security feature.
+
+---
+
+- [x] Internal-only change: apply `no-changelog` per CONTRIBUTING.md. No fragment is needed while this remains unreachable through supported configuration.
+
+🤖 Generated with [Codex](https://openai.com/codex) (GPT-6-Astra)
+----- END PR BODY -----
+
