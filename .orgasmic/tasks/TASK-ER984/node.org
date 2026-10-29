@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-ER984
 #+orgasmic_version: 2
 
-* IN_REVIEW TASK-ER984 Access policy A4: opt-in setting that activates the explicit access policy
+* DONE TASK-ER984 Access policy A4: opt-in setting that activates the explicit access policy
 :PROPERTIES:
 :UID: 72d3ce9f-072b-5650-ba02-6659491a9ae4
 :ID: TASK-ER984

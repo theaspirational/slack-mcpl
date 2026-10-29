@@ -47,3 +47,41 @@
 :TO_STATE: in_progress
 :EVENT_ID: 84b62761-69d6-4f95-a0c0-e1072ed1bcca
 :END:
+
+* tx-20261029-theaspirationalslack-29331774-a02e-46cc-b27f-a3b8e4f62d19 comment
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-29331774-a02e-46cc-b27f-a3b8e4f62d19
+:TIME:    [2026-10-29 Thu 17:02:57]
+:TYPE:    comment
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-ER984
+:REASON: comment
+:ACTOR_UID: 33bd077fdb77f660a533eb5493ebc442
+:EVENT_ID: fef5c2c3-93fa-41cd-83c3-94897ca2fbf1
+:END:
+
+Publication record. Commit `81657f195e734c1a43ab5bed9ddffe741630e15d` (one commit on 3b1a97ac; cherry-pick onto the published #59 head 79c0d98a, which has an identical tree). Re-review approved, no HIGH/MED. Proposed branch `feat/access-policy-activation`. Title: "feat(access): opt-in SLACK_ACCESS_POLICY activates the explicit access policy". Changelog fragment included. PR body sha256 55e8ca98695985b935e6dc59c622c4e07546ac3652f1353613aa25e1ce0574a2, 1322 B:
+
+-----BEGIN PR BODY-----
+## Problem
+Prepared access policies could not be enabled by operators. Activation needs strict startup validation and consistent admission across reads, writes and file operations.
+
+## Changes
+Add restart-only `SLACK_ACCESS_POLICY`, replacing legacy DM/write controls, with fresh bounded MPIM checks, independent per-candidate retries, shared file-state gates and migration documentation. Preserve legacy DM-name give-up behavior. In legacy and policy listing, directory and history paging, **a repeated pagination cursor now fails instead of looping forever**. Long invalid-policy diagnostics are truncated.
+
+## Tests
+897 pass / 0 fail on Node 22.23.3, 24.22.1 and 22.12.0; both builds/typechecks; 314 targeted tests ×5; source/built stdio+TCP startup; 27 caught mutants and one equivalent survivor; extended legacy byte comparison; changelog checks.
+
+## Not verified
+Live Slack, macOS and real rate-limit throughput. Under sustained throttling, policy-mode background registration time scales with candidates × retries × `Retry-After` (each candidate is bounded at five attempts; there is no aggregate wait budget). `refresh_channels` answers meanwhile.
+
+## Out of scope
+Pinned-channel fallback, hot reload and #53.
+
+## Companion PRs
+**Depends on #59; merge #59 first.**
+
+AI-assisted implementation with GPT-6-Astra.
+-----END PR BODY-----
