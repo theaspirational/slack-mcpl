@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-Z6W7Y
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-QPSJF
+:PROPERTIES:
+:UID: fd2215b7-158d-5301-83f7-41fd07b40fe5
+:ID: CONV-Z6W7Y
+:PURPOSE: review
+:OWNER: ["member","alnold"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-qpsjf
+:RUNS:  run-01M64MWP3YPHRVRE7HGGGQ9NVW
+:CREATED_AT: 2026-10-29T20:16:16Z
+:END:
