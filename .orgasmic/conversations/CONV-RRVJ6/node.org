@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-RRVJ6
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-XPP3A
+:PROPERTIES:
+:UID: 3dd8d27b-f4c5-538c-85a0-fd64b09a1f10
+:ID: CONV-RRVJ6
+:PURPOSE: review
+:OWNER: ["member","alnold"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-xpp3a
+:RUNS:  run-01M63AMBC0WMDK46YTJ8K55TA3
+:CREATED_AT: 2026-10-29T07:57:42Z
+:END:
