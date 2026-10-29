@@ -47,3 +47,63 @@
 :TO_STATE: in_progress
 :EVENT_ID: a2e593ea-cbf5-4c33-95cd-b15c2c07dc9d
 :END:
+
+* tx-20261029-theaspirationalslack-e13860fd-cec4-4aad-87a7-1896e6e521c2 comment
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-e13860fd-cec4-4aad-87a7-1896e6e521c2
+:TIME:    [2026-10-29 Thu 11:08:38]
+:TYPE:    comment
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-V08EN
+:REASON: comment
+:ACTOR_UID: 33bd077fdb77f660a533eb5493ebc442
+:EVENT_ID: 3c7df1a6-f4c2-4912-a198-9eea9d54f91f
+:END:
+
+Final PR body for the reactions PR (publication text; publishing is owner-gated). Commit 336c015136a277dbb5acd79015f17d5868398df6: one commit on upstream main 7274283f, approved in review 3 at 8130e873. Round 4 changed only a test and the wrapping (src unchanged, per the worker's scope check). I edited the body from the worker's pr-body.md, removing an internal mutation label and round-internal lines. 2959 bytes, sha256 773d47acedccf3f0fda4628c2e240d6d71108173f3c5681d15cf4f7054140818. Proposed branch: feat/slack-reactions. Independent of #55 and #56.
+
+----- BEGIN PR BODY -----
+## Problem
+
+Agents can add reactions but cannot inspect existing reactions in history or remove their own, limiting shared reaction-based status conventions.
+
+## Changes
+
+- History and thread results include up to 20 valid reactions per message, Slack counts, and `reactionsOmitted`, within the existing byte budget. Messages without reactions remain byte-identical.
+- `own: true` means the bot appears in Slack's user list; `false` requires a complete list without the bot. Unknown ownership is omitted. Malformed entries are skipped and invalid counts omitted.
+- Add `remove_reaction` with the same arguments, feature set, scope and write restrictions as `add_reaction`. A missing own reaction gets a clear error.
+- Coordinate manual removal with ACK cleanup. Joining cleanup returns successful “Nothing changed” without another Slack call only when Slack confirmed removal or `no_reaction`. If cleanup gave up after failure, the tool makes its own removal attempt and reports Slack's answer. Manual ACK attempts share the cleanup retry budget and terminal-failure rules.
+- Update agent-facing descriptions, README and changelog. Live incoming messages and backscroll remain unchanged.
+
+No additional scope or reaction lookup is needed: [history includes reactions](https://docs.slack.dev/reference/methods/conversations.history/), [thread replies use conversation history scopes](https://docs.slack.dev/reference/methods/conversations.replies/), and [removal requires `reactions:write`](https://docs.slack.dev/reference/methods/reactions.remove/), already granted by the manifest.
+
+## Tests
+
+- Node 22.23.3, 24.22.1 and 22.12.0: **627 pass / 0 fail each**, against **583 pass / 0 fail** on base `7274283f`.
+- Typecheck passes on Node 22.23.3.
+- All 44 reaction tests pass five consecutive runs, with loopback-only listeners and one-process suite isolation disabled.
+- JSON-RPC tests cover joining cleanup dropped for archived-channel refusal, missing scope, shutdown and exhausted retries; successful and `no_reaction` joins remain green.
+- The adapter-level overlapping-manual-removal test confirms results `true` then `false`, with exactly one Slack removal. Deleting the manual success path's `gone` assignment makes it fail.
+- Changelog validation passes.
+
+## Not verified
+
+No live Slack workspace or external MCPL host. Slack may supply partial metadata; unknown ownership is deliberately omitted. The existing limitation remains that a timed-out ACK add can reach Slack after removal.
+
+## Out of scope
+
+Live reaction events, access-policy changes, reaction rollback, publishing, merge and rollout.
+
+## Companion PRs
+
+Independent of #55 and #56. Upstream main remained at `7274283f`; no rebase was needed. Shared files to watch: `src/slack-adapter.ts` and `src/server.ts`. No merge-order dependency.
+
+---
+
+- [x] Changelog fragment added: `changelog.d/slack-reactions.added.md`.
+
+🤖 Generated with [Codex](https://openai.com/codex) (GPT-6-Astra)
+----- END PR BODY -----
+
