@@ -87,3 +87,19 @@ Depends on #56; merge #56 first. This remains dormant after merging.
 
 AI-assisted implementation with GPT-6-Astra.
 -----END PR BODY-----
+
+* tx-20261029-theaspirationalslack-ae3ea0ab-fb78-4a9c-bf85-fea2e7f2746f comment
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-ae3ea0ab-fb78-4a9c-bf85-fea2e7f2746f
+:TIME:    [2026-10-29 Thu 14:49:33]
+:TYPE:    comment
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-T71QC
+:REASON: comment
+:ACTOR_UID: 33bd077fdb77f660a533eb5493ebc442
+:EVENT_ID: 379a7a59-0423-46ea-8c1d-9e55832f40d1
+:END:
+
+Published on the owner's button (the pusher made the push): https://github.com/anima-research/slack-mcpl/pull/58. Head `0625ffeb` (tree identical to ccbbb766), stacked on #56/#55. Title: "feat(access): admit named group DMs under the dormant access policy". The pusher's gates were 695/695 on 3 Nodes. I haven't opened the link myself.
