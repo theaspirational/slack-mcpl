@@ -1,0 +1,25 @@
+{
+  "event_count": 282,
+  "tool_call_count": 25,
+  "unparsed_events": 0,
+  "bounded_events": 8,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-ZSA2S-implementer-20261029T143808-run-01M641HHX0N6CC3S5GYXEW3PZ9.jsonl",
+    "size_bytes": 370901
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T13-36-33-01a187e0-6912-7ee2-be9d-6e4d5b4e59b2.jsonl",
+    "session_id": "01a187e0-6912-7ee2-be9d-6e4d5b4e59b2",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ve read the full review and verified that `ccbbb766` is directly on `f6e62835`. I’ll rebase A3 onto it, apply the requested fixes, and rerun the gates and legacy A/B comparison against the new parent.The restack merged cleanly. The new checks confirm group admission reaches the file gates, and the red run caught the orphan-tracking, provenance-cap, tool-description, reference-label, and rollback-warning gaps. I’m applying those fixes next, then rerunning the full matrix and mutations.All final gates passed on the restacked commit: 785 tests on each of the three Node versions, 113 targeted tests repeated five times, and the legacy A/B against `ccbbb766`. All nine mutations were caught; the reviewer’s guard-removal mutation failed all three new deletion-denial tests. I’m recording the evidence and final PR body now."
+    }
+  ],
+  "narrative_truncated": false
+}
