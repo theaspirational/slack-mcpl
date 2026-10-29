@@ -1,0 +1,19 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-ZSA2S
+#+orgasmic_version: 2
+
+* IN_PROGRESS TASK-ZSA2S Access policy A3: attachment and file reads under the explicit policy (dormant)
+:PROPERTIES:
+:UID: f2b51b92-e0af-503d-ba9f-85df18171919
+:ID: TASK-ZSA2S
+:PRIORITY: P2
+:END:
+
+** Description
+Third step of the access-policy series (#55 model, #56 adapter gates). Under the explicit policy, file and attachment reads must only reach files that belong to admitted conversations. Review of #56 found that `fetch_attachment` is entirely ungated in policy mode: a `files.slack.com` link pasted in an admitted channel could fetch bytes shared only in an unadmitted one. The fork carries a file-access gate (`src/file-access.ts`, fork commits f565376 and bb85ee1) to port and re-check.
+
+Still dormant: no setting enables the policy yet, which is the following step. It must land before that switch.
+
+** Acceptance
+- Plan round first: inventory of every file/attachment read and file-touching write path on upstream main + #56, with the proposed gate per path and the evidence each uses (file's channels/shares, message membership).
+- Then the implementation: one commit on #56, legacy behaviour byte-identical, red/green tests, a deny matrix.

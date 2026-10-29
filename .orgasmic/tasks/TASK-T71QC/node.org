@@ -1,0 +1,23 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-T71QC
+#+orgasmic_version: 2
+
+* IN_PROGRESS TASK-T71QC Access policy: named group DMs under the explicit policy (dormant)
+:PROPERTIES:
+:UID: d857fe05-6bcb-51ae-af5d-f55d7d1e2fb6
+:ID: TASK-T71QC
+:PRIORITY: P2
+:END:
+
+** Description
+Group DMs (Slack `G…`/mpim conversations) admitted by exact conversation ID under the explicit access policy, built on #56 (adapter gates). Port of the fork's group-DM work (fork commits 6a1946d through 685b2de), rebuilt on upstream main.
+
+Still dormant until the setting that enables the policy lands.
+
+** Acceptance
+- Policy model gains the group-DM list with the same strict parsing as #55.
+- Adapter admission, listing, reads and writes for named group DMs, with scope checks (`mpim:read`, `mpim:history`, `mpim:write` as applicable).
+- Overlap with the history-membership fallback is refused.
+- Access is independent of `readJoinedChannels`.
+- A test row distinguishes the dedicated group-DM guard from the generic channel check.
+- Legacy behaviour byte-identical. Red/green tests.
