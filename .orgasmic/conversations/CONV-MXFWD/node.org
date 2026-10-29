@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-MXFWD
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-T71QC
+:PROPERTIES:
+:UID: 001035ca-e895-5901-bc32-49244818fa80
+:ID: CONV-MXFWD
+:PURPOSE: review
+:OWNER: ["member","alnold"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-t71qc
+:RUNS:  run-01M63YT2KV47RM7M28VNN7BB6S
+:CREATED_AT: 2026-10-29T13:50:21Z
+:END:
