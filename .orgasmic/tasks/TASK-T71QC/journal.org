@@ -31,3 +31,59 @@
 :TO_STATE: in_progress
 :EVENT_ID: 54684678-bd16-4cae-912b-fc57d6151d81
 :END:
+
+* tx-20261029-theaspirationalslack-2458aa65-2754-4b7f-8d1f-c46d968ad473 comment
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-2458aa65-2754-4b7f-8d1f-c46d968ad473
+:TIME:    [2026-10-29 Thu 14:15:56]
+:TYPE:    comment
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-T71QC
+:REASON: comment
+:ACTOR_UID: 33bd077fdb77f660a533eb5493ebc442
+:EVENT_ID: c287d756-2ceb-4093-8541-4f15602c4bba
+:END:
+
+Publication record. Commit `ccbbb766614b3c612887d79060c75fc125c9ebcc` (one commit on #56 `f6e62835`). Reviewed at 9592c649 (approve); round 2 only adds one test (+8 lines, src unchanged), not re-reviewed. Proposed branch `feat/access-policy-group-dms`. PR body (sha256 01a4f23df6234197d207c56dc4560b0aaabdd9f19ac245bfea77977fd0c950b5, 2420 B):
+
+-----BEGIN PR BODY-----
+## Problem
+
+The dormant explicit access policy rejects group DMs even when an operator deliberately names them.
+
+## Changes
+
+- Add a strict optional `groupDms` list of exact G-prefixed conversation IDs, with fresh membership and mpim scope checks for listing, reads and writes, independently of `readJoinedChannels`.
+- Require a separate exact write-channel pin and the operation's scope for writes. A direct policy unit test now verifies the write pin independently of the adapter and kills the mutation that exempts group DMs from it.
+- Add policy-only group-DM labels with existing framing protections; preserve legacy behavior.
+- Named group DMs are writable for uploads and deletes through the same guard; upload/delete implementations and file/attachment readers are unchanged.
+- Remain dormant: no setter, setting or environment variable enables this policy. Unsupported history-membership fallback input remains refused, including overlapping IDs.
+
+Callers must omit the `groupDms` key when unused, not pass `groupDms: undefined`.
+
+With a non-empty `groupDms` list and `mpim:read`, listing requests mpim and costs one `conversations.info` per listed mpim, including unnamed ones.
+
+## Tests
+
+- Base `f6e62835`: 672 pass / 0 fail; this change: 695 pass / 0 fail (+23 tests, no additional failures).
+- Typecheck and full suite pass on Node 22.23.3, 24.22.1 and 22.12.0.
+- All 23 group tests pass five consecutive runs.
+- The write-pin exemption mutation previously survived the group tests; it now fails exactly the new direct policy row. Earlier coverage also catches six admission/scope/label mutations.
+- Real server upload/rollback and hostile-label coverage; baseline/current legacy payload and write-request bytes match, excluding generated checkpoint UUIDs.
+
+## Before activation
+
+Admission requires `conversations.info` to return `is_member === true`. This is unverified for MPIMs against a live workspace and fails closed: absent or false membership refuses admission. The activation PR must confirm this signal against a live workspace or choose another membership signal before enabling the policy.
+
+## Out of scope
+
+Policy activation, history-membership fallback support, directory confinement, and file/attachment reads. No live Slack workspace testing was performed.
+
+## Companion PRs
+
+Depends on #56; merge #56 first. This remains dormant after merging.
+
+AI-assisted implementation with GPT-6-Astra.
+-----END PR BODY-----
