@@ -1,0 +1,25 @@
+{
+  "event_count": 404,
+  "tool_call_count": 35,
+  "unparsed_events": 1,
+  "bounded_events": 9,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-SYJYQ-implementer-20261029T053332-run-01M632CC8AV6R82YC81M26399V.jsonl",
+    "size_bytes": 635247
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T05-33-33-01a18626-33cd-7cd3-b2be-e24d84df5ec4.jsonl",
+    "session_id": "01a18626-33cd-7cd3-b2be-e24d84df5ec4",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ve read the prior Step 0 report. I’ll rebuild #31’s approved design on current upstream main, move policy validation into `startupSettings`, and run the baseline and final-commit gates locally. Nothing will be pushed or posted.\nUpstream main has advanced to `7274283`; the new changes are test-only. Its one-process suite passes 583/583 on all three required Node versions. The new startup tests fail against that baseline, confirming that the policy refusals are not already implemented.\nThe rebuild is committed locally. The reader retains #31’s design; startup now rejects invalid policies, roots, and capabilities before Slack authentication. Both deliberate mutations were caught: four containment tests failed when the leaf check was disabled, and two byte-cap tests failed when one excess byte was allowed. After restoring the checks, the focused tests passed. Final-commit gates are running now.\nAll final-commit gates passed. The full suite is 683/683 on each required Node version, versus 583/583 on upstream; the 100 new tests also passed five repeats. The report includes the fragment, treatment table, gate evidence, residual risks, and draft PR body/comment. The worktree is clean, and nothing has been pushed or posted.\n"
+    }
+  ],
+  "narrative_truncated": false
+}
