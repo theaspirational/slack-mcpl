@@ -47,3 +47,35 @@
 :TO_STATE: in_progress
 :EVENT_ID: e1b0f3cb-f172-48eb-aa91-c1f40598e80e
 :END:
+
+* tx-20261029-theaspirationalslack-98f12460-c231-4aea-8fc4-fdaa0f24cdae comment
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-98f12460-c231-4aea-8fc4-fdaa0f24cdae
+:TIME:    [2026-10-29 Thu 06:38:04]
+:TYPE:    comment
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-SYJYQ
+:REASON: comment
+:ACTOR_UID: 33bd077fdb77f660a533eb5493ebc442
+:EVENT_ID: 18cb5858-504d-4a77-9377-226926423688
+:END:
+
+Published on the owner's `pr5:go`, per the maintainer of the push. Fork branch `feat/operator-path-uploads` went from ddf92124 to `e23dfd642f399f854d82437eb63c548718c564dd` with lease, on upstream 7274283f. That commit is a cherry-pick of 0fa20a15 with a byte-identical patch, re-authored to the owner. Upstream #31's head was verified and its body replaced. Comment: https://github.com/anima-research/slack-mcpl/pull/31#issuecomment-6489794034. The pusher's runs: 683/683 on Node 22.23.3, 24.22.1 and 22.12.0; tsc ok. The round-3 polish (+18/−8) was not re-reviewed by opus; the owner chose to push without that. I haven't opened the link myself.
+
+* tx-20261029-theaspirationalslack-f1dc24a5-0311-42cb-b933-2727bbef2200 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-f1dc24a5-0311-42cb-b933-2727bbef2200
+:TIME:    [2026-10-29 Thu 06:38:07]
+:TYPE:    task.state_transitioned
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-SYJYQ
+:TARGET: .orgasmic/tasks/TASK-SYJYQ/node.org
+:REASON: Published to upstream #31 as e23dfd64.
+:FROM_STATE: todo
+:TO_STATE: done
+:EVENT_ID: a7f66632-1904-4ea8-9263-4eebe6924df7
+:END:
