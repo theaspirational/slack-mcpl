@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-ZSA2S
 #+orgasmic_version: 2
 
-* IN_REVIEW TASK-ZSA2S Access policy A3: attachment and file reads under the explicit policy (dormant)
+* IN_PROGRESS TASK-ZSA2S Access policy A3: attachment and file reads under the explicit policy (dormant)
 :PROPERTIES:
 :UID: f2b51b92-e0af-503d-ba9f-85df18171919
 :ID: TASK-ZSA2S
