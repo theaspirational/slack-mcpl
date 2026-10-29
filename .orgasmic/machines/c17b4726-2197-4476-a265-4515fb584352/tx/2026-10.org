@@ -11206,3 +11206,54 @@
 :ACKED_BY:     member:alnold
 :EVENT_ID:     8df64ef9-5235-4d55-b59f-f9687251a3f7
 :END:
+
+* TX 2026-10-29 Thu 16:28:48 reviewer.reported TASK-ER984
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalslack-4d696944-1f31-4d5d-8a4f-399074720f73
+:TIME:         [2026-10-29 Thu 16:28:48]
+:TYPE:         reviewer.reported
+:ACTOR:        agent.reviewer
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:TASK:         TASK-ER984
+:RUN_ID:       run-01M645X1HH07RQRW0DQH4715SY
+:WORKTREE:     ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-er984
+:EVENT_ID:     6fdebc36-9f80-4cc1-8103-1cdf08dcfcb1
+:END:
+
+* TX 2026-10-29 Thu 16:28:54 dispatch.outcomes_acked theaspirational.slack-mcpl
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalslack-8ead0bc7-dfb0-42da-9ffa-2ecd3a92e9f3
+:TIME:         [2026-10-29 Thu 16:28:54]
+:TYPE:         dispatch.outcomes_acked
+:ACTOR:        alnold
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:REASON:       acknowledged 1 outcome(s)
+:OUTCOME_IDS:  6fdebc36-9f80-4cc1-8103-1cdf08dcfcb1
+:ACKED_BY:     member:alnold
+:EVENT_ID:     a704866d-50b4-4504-9a94-5eb4d6f9dbf2
+:END:
+
+* TX 2026-10-29 Thu 16:29:06 reviewer.done TASK-ER984
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalslack-ab2be4c4-edf6-4704-966b-68345edf87ca
+:TIME:         [2026-10-29 Thu 16:29:06]
+:TYPE:         reviewer.done
+:ACTOR:        agent.reviewer
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:TASK:         TASK-ER984
+:REASON:       Request changes: 2 HIGH (the DM-name cap breaks legacy give-up; the shared `limited` counter aborts registration), plus scope MEDIUMs. Fix round follows.
+:MODEL:        opus[1m]
+:EFFORT:       high
+:REVIEWED_DIFF: 3b1a97ac8228a03383b6232ddd1fc3d4e94f1ecf..b93646965e3667807fc5e889474ac852084c310d
+:CLOSED_TX:    tx-20261029-theaspirationalslack-80d185dc-4863-477f-b9a4-ec168c9fa2c2
+:CLEANUP_STATUS: ok
+:REPORT_PATH:  .orgasmic/tasks/TASK-ER984/dispatches/tx-20261029-theaspirationalslack-80d185dc-4863-477f-b9a4-ec168c9fa2c2/report.md
+:VERDICT:      reject
+:LIFECYCLE_FROM: in_review
+:LIFECYCLE_TO: in_progress
+:EVENT_ID:     30014a41-376f-4d38-b7d3-75ef65430db0
+:RELEASES_CLAIM_RUN: run-01M645X1HH07RQRW0DQH4715SY
+:END:
