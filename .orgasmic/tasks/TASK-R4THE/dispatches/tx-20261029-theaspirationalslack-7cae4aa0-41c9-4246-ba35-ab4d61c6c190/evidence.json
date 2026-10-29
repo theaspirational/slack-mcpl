@@ -1,0 +1,25 @@
+{
+  "event_count": 210,
+  "tool_call_count": 9,
+  "unparsed_events": 0,
+  "bounded_events": 4,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-R4THE-implementer-20261029T070605-run-01M637NTH8EKW95JJGSA6E5JMY.jsonl",
+    "size_bytes": 282429
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T06-43-54-01a18666-9d30-7471-bd80-ea1233e5ce12.jsonl",
+    "session_id": "01a18666-9d30-7471-bd80-ea1233e5ce12",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll add a getter-based regression and show it failing on `8030d418`, then switch to a parser that returns frozen snapshots. Upstream is unchanged, so I’ll amend the existing commit without rebasing or renaming the branch.Amended to `95916c48`, still one commit on `7274283f`. The getter test failed on the old code and passes with the snapshot parser. Fresh suites pass 599/599 on all three Node versions; typecheck/build and five 16/16 policy runs also pass. The report includes the revised PR body and the still-required `no-changelog` label request."
+    }
+  ],
+  "narrative_truncated": false
+}
