@@ -1,0 +1,25 @@
+{
+  "event_count": 197,
+  "tool_call_count": 13,
+  "unparsed_events": 0,
+  "bounded_events": 4,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-V08EN-implementer-20261029T102736-run-01M63K6V25E568QV8Z5CGZDP5C.jsonl",
+    "size_bytes": 317591
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T09-58-49-01a18719-0e5a-7563-bfba-c6a8e0bd10b8.jsonl",
+    "session_id": "01a18719-0e5a-7563-bfba-c6a8e0bd10b8",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ve read the full review. I’ll add the automatic-cleanup-first red test, make unknown ownership explicit, and cover timer cancellation, retries, and terminal failures. Then I’ll amend the single commit and rerun every requested gate.\nAll six findings are fixed in amended commit `d9fa8ab`. The full suite passed 621/621 on all three Node versions; typecheck, build, five runs of the 38 reaction tests, and changelog validation passed. The reviewer’s three surviving mutants now fail targeted assertions: skipped join, skipped timer cancellation, and skipped retry re-arm.\n"
+    }
+  ],
+  "narrative_truncated": false
+}
