@@ -87,3 +87,35 @@ Review history:
 - Round 4 was not re-reviewed by opus, since production code is unchanged.
 
 Publishing means updating existing upstream PR #12 (head 21a7ebcb), not opening a new PR. The replacement PR body and the reviewer-reply comment are verbatim in this round's implementer report. The commit author is the worker identity and needs resetting before push.
+
+* tx-20261029-theaspirationalslack-1c351d16-410d-488d-b57a-e99c9a507da4 comment
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-1c351d16-410d-488d-b57a-e99c9a507da4
+:TIME:    [2026-10-29 Thu 05:37:59]
+:TYPE:    comment
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-2XGBG
+:REASON: comment
+:ACTOR_UID: 33bd077fdb77f660a533eb5493ebc442
+:EVENT_ID: ff29859e-4ffd-4ba7-aea6-f5a3d915fbc0
+:END:
+
+Published, as relayed by the maintainer of the push, on the owner's `pr4:go` button. Fork branch `feat/slack-thread-status` went from 21a7ebcb to `ce16acd1f079c2f524ae1503770d8d82cb86fe8e` with lease. That commit is a cherry-pick of 2e2eff1a onto upstream main 7274283f (the patch is byte-identical), re-authored to the owner. Upstream PR #12's head was verified and its body replaced. Reviewer reply: https://github.com/anima-research/slack-mcpl/pull/12#issuecomment-6488930581. The pusher's runs: 615/615 on Node 22.23.3, 24.22.1 and 22.12.0, base 583; thread-status 32/32 ×3; tsc ok. I haven't opened the link myself.
+
+* tx-20261029-theaspirationalslack-a42569dd-d819-4030-a04c-72d32f9b0d73 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-a42569dd-d819-4030-a04c-72d32f9b0d73
+:TIME:    [2026-10-29 Thu 05:38:11]
+:TYPE:    task.state_transitioned
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-2XGBG
+:TARGET: .orgasmic/tasks/TASK-2XGBG/node.org
+:REASON: Published to upstream #12 as ce16acd1.
+:FROM_STATE: todo
+:TO_STATE: done
+:EVENT_ID: fbc32c0e-bc81-4433-94eb-3c085c76b718
+:END:
