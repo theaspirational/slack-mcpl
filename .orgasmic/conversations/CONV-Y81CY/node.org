@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-Y81CY
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-SYJYQ
+:PROPERTIES:
+:UID: fdff100a-b4ab-5109-9528-325af4ea197f
+:ID: CONV-Y81CY
+:PURPOSE: review
+:OWNER: ["member","alnold"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-syjyq
+:RUNS:  run-01M6335ZMN77HZAMBW8DDGE3QN
+:CREATED_AT: 2026-10-29T05:47:31Z
+:END:
