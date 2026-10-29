@@ -1,0 +1,25 @@
+{
+  "event_count": 144,
+  "tool_call_count": 7,
+  "unparsed_events": 0,
+  "bounded_events": 0,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-V08EN-implementer-20261029T110400-run-01M63N9EXF1NMVD7QT4CZNMT9C.jsonl",
+    "size_bytes": 198295
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T09-58-49-01a18719-0e5a-7563-bfba-c6a8e0bd10b8.jsonl",
+    "session_id": "01a18719-0e5a-7563-bfba-c6a8e0bd10b8",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll keep this to the adapter concurrency test and whitespace-only prose wrapping. I’ll verify that the new test kills M18, then amend the single commit and rerun the requested gates.\nPolish is complete in `336c0151`. M18 now fails the new test. The full suite passed 627/627 on all three Node versions, the 44 reaction tests passed five times, and typecheck/changelog checks passed. The scope check confirms no production changes and unchanged documentation text apart from wrapping.\n"
+    }
+  ],
+  "narrative_truncated": false
+}
