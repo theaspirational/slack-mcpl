@@ -10981,3 +10981,35 @@
 :DELIVERY:     delivered
 :EVENT_ID:     3d4f1970-3ad8-455e-b2ee-10fb238a1044
 :END:
+
+
+* TX 2026-10-29 Thu 15:37:23 manager.dispatch_orphaned TASK-ER984
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalslack-6d3cdab0-9cf2-4e7b-98c6-ae9db9c78296
+:TIME:         [2026-10-29 Thu 15:37:23]
+:TYPE:         manager.dispatch_orphaned
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:TASK:         TASK-ER984
+:TARGET:       ledgers/theaspirational.slack-mcpl/.orgasmic/tmp/sessions/recover-d6e9203b-c000-46e0-9a4a-c402193ceb6d.jsonl
+:REASON:       the dispatched run was lost with the daemon that spawned it
+:RUN_ID:       run-01M644M74ZN4C9Q1RXG2BFQRDX
+:RELEASE_REASON: process_gone: the daemon stopped while the run was live and could not reattach it at boot (run run-01M644M74ZN4C9Q1RXG2BFQRDX cannot be reattached: driver could not prove a live runtime handle); the run record stays interrupted for `orgasmic run recover run-01M644M74ZN4C9Q1RXG2BFQRDX --project theaspirational.slack-mcpl`
+:WORKTREE:     ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-er984
+:EVENT_ID:     ab55e743-4cd4-44d9-bc39-21ca6948abdb
+:END:
+
+* TX 2026-10-29 Thu 15:37:39 dispatch.outcomes_acked theaspirational.slack-mcpl
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalslack-c7ad2f2f-8b16-4d96-83b8-23193bf1bcef
+:TIME:         [2026-10-29 Thu 15:37:39]
+:TYPE:         dispatch.outcomes_acked
+:ACTOR:        alnold
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:REASON:       acknowledged 1 outcome(s)
+:OUTCOME_IDS:  ab55e743-4cd4-44d9-bc39-21ca6948abdb
+:ACKED_BY:     member:alnold
+:EVENT_ID:     6dc78b26-8fb3-433e-85a5-991fd81735aa
+:END:
