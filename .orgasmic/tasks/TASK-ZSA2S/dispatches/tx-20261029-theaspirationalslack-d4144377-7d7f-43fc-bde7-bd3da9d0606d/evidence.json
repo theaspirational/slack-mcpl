@@ -1,0 +1,25 @@
+{
+  "event_count": 244,
+  "tool_call_count": 16,
+  "unparsed_events": 0,
+  "bounded_events": 2,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-ZSA2S-implementer-20261029T133633-run-01M63Y0S2P0ZC4FWP75HXK8KDZ.jsonl",
+    "size_bytes": 406934
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T13-36-33-01a187e0-6912-7ee2-be9d-6e4d5b4e59b2.jsonl",
+    "session_id": "01a187e0-6912-7ee2-be9d-6e4d5b4e59b2",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "The HEAD preflight matches the required commit. I’ll inventory the file paths and existing gates, compare the fork reference, and write a plan-only report without changing repository files.Upstream main has not moved. The code confirms that policy mode suppresses attachment references but still accepts URL-only downloads.\n\nThere’s also a deletion decision for the owner: Slack deletes the whole file, not just its share in one conversation, and its metadata can omit shares. The report will distinguish that risk from read authorization and recommend a conservative default.The plan-only report is saved to `$ORGASMIC_EVIDENCE_DIR/report.md`. It includes the inventory, gate proposals, owner choices, test matrix, size estimate, and group-DM overlap risks. The worktree is unchanged; no tests or builds were run."
+    }
+  ],
+  "narrative_truncated": false
+}
