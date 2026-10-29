@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-XPP3A
 #+orgasmic_version: 2
 
-* IN_PROGRESS TASK-XPP3A Upstream PR 6/A2: dormant adapter access gates
+* DONE TASK-XPP3A Upstream PR 6/A2: dormant adapter access gates
 :PROPERTIES:
 :UID: 5f1a7a32-2b4d-587a-8296-5866ebb8112e
 :ID: TASK-XPP3A
@@ -18,3 +18,5 @@ Second PR of the access-policy chain (plan: TASK-57BTX implementer report). A2: 
 - With a policy, every adapter read and write path is gated before any Slack effect, per the plan's A2 section.
 - Red/green and mutation tests, and a full suite on three Node versions.
 - A PR body that names the dependency on #55.
+** Evidence
+- Published as #56.
