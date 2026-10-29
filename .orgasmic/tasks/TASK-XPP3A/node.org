@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-XPP3A
 #+orgasmic_version: 2
 
-* IN_REVIEW TASK-XPP3A Upstream PR 6/A2: dormant adapter access gates
+* IN_PROGRESS TASK-XPP3A Upstream PR 6/A2: dormant adapter access gates
 :PROPERTIES:
 :UID: 5f1a7a32-2b4d-587a-8296-5866ebb8112e
 :ID: TASK-XPP3A
