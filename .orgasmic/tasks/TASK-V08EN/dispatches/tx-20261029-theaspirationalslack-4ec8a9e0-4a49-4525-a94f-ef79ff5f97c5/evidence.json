@@ -1,0 +1,25 @@
+{
+  "event_count": 148,
+  "tool_call_count": 8,
+  "unparsed_events": 0,
+  "bounded_events": 0,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-V08EN-implementer-20261029T105019-run-01M63MGE24QSBSSE833DFGNQD2.jsonl",
+    "size_bytes": 218666
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T09-58-49-01a18719-0e5a-7563-bfba-c6a8e0bd10b8.jsonl",
+    "session_id": "01a18719-0e5a-7563-bfba-c6a8e0bd10b8",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ve read the re-review. I’ll make the no-op depend on Slack confirming that the reaction is gone, rather than the ACK entry disappearing, and add the failed-cleanup join test before changing the code.\nThe amended commit is `8130e873`. All requested gates passed: 626/626 tests on each Node version, typecheck/build on both requested versions, and five runs of the 43 reaction tests. The new flag mutation was caught by all four failed-cleanup join tests.\n"
+    }
+  ],
+  "narrative_truncated": false
+}
