@@ -1,0 +1,25 @@
+{
+  "event_count": 357,
+  "tool_call_count": 27,
+  "unparsed_events": 1,
+  "bounded_events": 13,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-ZSA2S-implementer-20261029T135340-run-01M63Z04SBAVG1ASB7N77R9E77.jsonl",
+    "size_bytes": 551990
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T13-36-33-01a187e0-6912-7ee2-be9d-6e4d5b4e59b2.jsonl",
+    "session_id": "01a187e0-6912-7ee2-be9d-6e4d5b4e59b2",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "The required base matches, and upstream main is unchanged. I’ll implement the approved choices, including provenance-backed deletion, then run red/green, legacy A/B, mutation, and multi-version checks before making the single commit.The four initial regressions now pass through the real server path. The expanded tests also caught a rollback subtlety: a `files.info` “not found” response must not count as a successful deletion. That case now fails closed, while sharing-message cleanup remains independent.\n\nI’m checking legacy output identity and running the required runtime and mutation gates next.The single commit is complete: `dfbc6ed1d6c412f3696479d56b81dede52c83845`.\n\nAll required final gates passed: 749 tests on each of the three Node versions, 77 new tests in each of five repetitions, six caught mutations, and identical legacy A/B output across 32 snapshots. Typechecks, builds, and the changelog check also passed. I’m saving the final report and PR-body draft."
+    }
+  ],
+  "narrative_truncated": false
+}
