@@ -1,0 +1,25 @@
+{
+  "event_count": 1466,
+  "tool_call_count": 53,
+  "unparsed_events": 0,
+  "bounded_events": 9,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-QPSJF-implementer-20261029T194556-run-01M64K55EW133WTY5HH3SERAKR.jsonl",
+    "size_bytes": 3478124
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T19-26-13-01a18920-8837-77b2-99ed-9c6b327e0a8f.jsonl",
+    "session_id": "01a18920-8837-77b2-99ed-9c6b327e0a8f",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll implement the selected design, starting with the required Node versions and a proven loopback-only guard. Then I’ll run the red tests, make the changes, and work through the requested gates. I’ll stop if the memory scope fails or the production patch grows beyond roughly 400 lines.The core changes are in place, well below the ~400-line production threshold. The initial red tests produced 63 expected failures and now pass. The byte-comparison corpus also matches the base exactly for complete results, including raw protocol frames, logs and API traces. I’m finishing the integration cases, mutations and three-Node verification.The commit is `dc0ad3c`. The final matrix passed: typecheck and build on both requested versions, 1,002 tests on each of three Node versions, and 311 targeted tests repeated five times. The byte corpus and changelog checks passed too. I’m now rerunning the expanded mutation checks at the committed SHA, then I’ll finalize the evidence report."
+    }
+  ],
+  "narrative_truncated": false
+}
