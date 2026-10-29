@@ -1,0 +1,25 @@
+{
+  "event_count": 165,
+  "tool_call_count": 6,
+  "unparsed_events": 0,
+  "bounded_events": 2,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-XPP3A-implementer-20261029T083511-run-01M63CRZCX39P7FPSM65CET916.jsonl",
+    "size_bytes": 193057
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T07-36-17-01a18696-94bf-7792-84f0-c336ab395681.jsonl",
+    "session_id": "01a18696-94bf-7792-84f0-c336ab395681",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll replace the four named references and the extra “group DMs await G” comment found by the grep. I’ll leave `C/G prefix` unchanged—it refers to Slack IDs, not the chain—and include the remaining grep match in the report.The wording-only amendment is `772317c6badaa9cd999a6020d1e8bc2c9da8de9a`. Typecheck passed; all three full suites passed 672/672, and the new tests passed 73/73. The final whole-diff grep finds only the legitimate `C/G prefix` test wording. The PR body is byte-for-byte unchanged."
+    }
+  ],
+  "narrative_truncated": false
+}
