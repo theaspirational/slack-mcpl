@@ -1,0 +1,25 @@
+{
+  "event_count": 258,
+  "tool_call_count": 28,
+  "unparsed_events": 0,
+  "bounded_events": 5,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-QPSJF-implementer-20261029T211437-run-01M64R7J8SYE0EQ5E3QB51DV8R.jsonl",
+    "size_bytes": 350066
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T19-26-13-01a18920-8837-77b2-99ed-9c6b327e0a8f.jsonl",
+    "session_id": "01a18920-8837-77b2-99ed-9c6b327e0a8f",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll make the small polish changes, preserve the complete-result bytes, then rerun the requested gates and amend the single commit.\n\nThe polish is in the amended commit. Both zero-match `find_user` branches now omit `users`, preserving the complete branch’s bytes. The partial note includes the matching guidance, and refresh now prioritizes the unnamed-DM note. New tests pin the existing connection-closed behavior; that branch needed no code change.\n\nThe focused red/green check behaved as expected. I’m running the full requested matrix now.\n\nAll requested gates passed: 1005 tests on each Node version, typecheck/build on all three, 314 targeted tests repeated three times, exact legacy-corpus equality, changelog validation, and six killed mutations. I’m finishing the report with the revised PR body.\n\n"
+    }
+  ],
+  "narrative_truncated": false
+}
