@@ -1,0 +1,20 @@
+{
+  "event_count": 881,
+  "tool_call_count": 0,
+  "unparsed_events": 0,
+  "bounded_events": 10,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-ER984-reviewer-20261029T155419-run-01M645X1HH07RQRW0DQH4715SY.jsonl",
+    "size_bytes": 1401030
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.claude/projects/-home-orgasmic--orgasmic-worktrees-theaspirational-slack-mcpl-task-er984/10288d02-dcaf-4b21-85a2-2c7f22aeef3a.jsonl",
+    "session_id": "10288d02-dcaf-4b21-85a2-2c7f22aeef3a",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [],
+  "narrative_truncated": false
+}
