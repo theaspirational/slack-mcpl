@@ -9594,3 +9594,49 @@
 :TIMEOUT_SECS: 1800
 :EVENT_ID:     10762851-50e2-43e9-a1a2-8848a186d9ca
 :END:
+
+* TX 2026-10-29 Thu 13:42:43 dispatch.outcomes_acked theaspirational.slack-mcpl
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalslack-931375ae-9371-419b-bde8-1bdcb69de867
+:TIME:         [2026-10-29 Thu 13:42:43]
+:TYPE:         dispatch.outcomes_acked
+:ACTOR:        alnold
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:REASON:       acknowledged 1 outcome(s)
+:OUTCOME_IDS:  10762851-50e2-43e9-a1a2-8848a186d9ca
+:ACKED_BY:     member:alnold
+:EVENT_ID:     9cfb671f-d806-403d-83f9-d7d1ccb1073d
+:END:
+
+* TX 2026-10-29 Thu 13:42:43 run.answered TASK-T71QC
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalslack-f454368c-49eb-4d08-a794-03a133e7517b
+:TIME:         [2026-10-29 Thu 13:42:43]
+:TYPE:         run.answered
+:ACTOR:        alnold
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:TASK:         TASK-T71QC
+:REASON:       Permit it. Uploading or deleting into a named group DM is a write to an admitted conversation, which is exactly what the shared guard means. The parallel change owns *reading* files and attachments (where bytes can come from an unadmitted conversation), not writes into admitted ones.
+:RUN_ID:       run-01M63Y0S24ZECY2XWTDG35C40M
+:ASK_ID:       ask-21a7d3fae3a04478b16fa58cb887a268
+:EVENT_ID:     e906e9e7-6efc-42c6-b61c-0e52b5fc491f
+:END:
+
+* TX 2026-10-29 Thu 13:42:48 run.message TASK-T71QC
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalslack-4041aa8e-0e62-4b0c-a48a-708a9c7492d6
+:TIME:         [2026-10-29 Thu 13:42:48]
+:TYPE:         run.message
+:ACTOR:        alnold
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:TASK:         TASK-T71QC
+:REASON:       Answer to ask-21a7d3fa (the shared-guard file effect): PERMIT it.
+:RUN_ID:       run-01M63Y0S24ZECY2XWTDG35C40M
+:MESSAGE_ID:   msg-eeaeb73951de4eedb712a544101e1d04
+:FROM:         member:alnold
+:DELIVERY:     delivered
+:EVENT_ID:     a8cf9d18-3bdd-40a2-ad96-2caa2bc4245d
+:END:
