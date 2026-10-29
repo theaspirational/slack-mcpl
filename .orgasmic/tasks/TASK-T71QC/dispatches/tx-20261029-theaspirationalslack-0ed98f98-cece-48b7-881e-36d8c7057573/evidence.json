@@ -1,0 +1,25 @@
+{
+  "event_count": 216,
+  "tool_call_count": 10,
+  "unparsed_events": 0,
+  "bounded_events": 3,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-T71QC-implementer-20261029T141023-run-01M63ZYRT6FJY9JTTBRGHNYBZQ.jsonl",
+    "size_bytes": 219120
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T13-36-33-01a187e0-6832-7da2-9199-4d2c1e5d7398.jsonl",
+    "session_id": "01a187e0-6832-7da2-9199-4d2c1e5d7398",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "HEAD is still `9592c649`, and refetched upstream main remains `7274283f`. I’ll add the direct policy test, verify it kills M6, and amend the single commit. Production code will remain unchanged.\nThe new direct row kills M6: the mutated run has exactly one failure, while the original 22 group tests still pass under that mutation. I also freshly confirmed the base count: `f6e62835` has 672 passing tests. The amended commit is `ccbbb766`; the remaining gates are finishing.\nAll round-two gates passed: 695 tests on each Node version, typecheck on all three, and 23 group tests five times. M6 is killed, production code is unchanged, and the report includes all requested activation caveats. I’m finalizing now.\n"
+    }
+  ],
+  "narrative_truncated": false
+}
