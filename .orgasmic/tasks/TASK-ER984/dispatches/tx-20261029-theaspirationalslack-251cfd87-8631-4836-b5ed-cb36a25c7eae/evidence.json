@@ -1,0 +1,25 @@
+{
+  "event_count": 318,
+  "tool_call_count": 23,
+  "unparsed_events": 0,
+  "bounded_events": 2,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-ER984-implementer-20261029T150114-run-01M642VVF02NTS369VADW8N1QG.jsonl",
+    "size_bytes": 421131
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T15-01-14-01a1882d-f0ef-7740-baf0-e93c9984593b.jsonl",
+    "session_id": "01a1882d-f0ef-7740-baf0-e93c9984593b",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll verify the pinned baseline, read the repository and worker constraints, then produce a plan-only report with recommendations and test coverage. I won’t change production files or run the server.The worktree matches the required commit, and fetched upstream main is still `7274283f`. Two fork fixes are already present in this baseline: W-prefixed policy user IDs and skipping unjoined channels before fresh listing checks.\n\nI also confirmed that policy checks still intersect with `sendChannels` in several places. A4 must remove those intersections in explicit mode, not merely add the setting.Slack documents `is_member` for MPIM objects and shows it in a mixed conversation listing, but does not clearly guarantee it in every MPIM `conversations.info` response. I’ll recommend using an explicit boolean when present and checking `conversations.members` when it is absent—never treating an event or stale listing as membership proof.\n\nThe plan will also retain DM file writes for allowed peers, reject contradictory ordinary-channel write pins, and keep the optional public-channel fallback in a separate PR."
+    }
+  ],
+  "narrative_truncated": false
+}
