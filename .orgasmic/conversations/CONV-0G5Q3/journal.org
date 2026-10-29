@@ -75,3 +75,18 @@
 :RUN_ID: run-01M632CC8AV6R82YC81M26399V
 :EVENT_ID: a37f86df-add5-49ff-9da1-4d712dbb14b9
 :END:
+
+* tx-20261029-theaspirationalslack-d773c641-2adf-465e-97b9-e4b5502354b6 conversation.run_started
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-d773c641-2adf-465e-97b9-e4b5502354b6
+:TIME:    [2026-10-29 Thu 06:14:57]
+:TYPE:    conversation.run_started
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TARGET: ~/.orgasmic/ledgers/theaspirational.slack-mcpl/.orgasmic/conversations/CONV-0G5Q3/node.org
+:REASON: dispatch attempt started
+:NODE_ID: CONV-0G5Q3
+:RUN_ID: run-01M634R6FFMJ28PVQFQCJWT5RT
+:EVENT_ID: 8ee324e4-2e88-4809-9cb6-cf8b133d8c3d
+:END:
