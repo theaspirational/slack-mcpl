@@ -63,3 +63,56 @@
 :TO_STATE: in_progress
 :EVENT_ID: b0a36717-7cb5-444a-898f-f5f6bd8a7ae8
 :END:
+
+* tx-20261029-theaspirationalslack-b1c03775-83df-4e5f-ace0-3be455dc6c15 comment
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-b1c03775-83df-4e5f-ace0-3be455dc6c15
+:TIME:    [2026-10-29 Thu 21:35:07]
+:TYPE:    comment
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-QPSJF
+:REASON: comment
+:ACTOR_UID: 33bd077fdb77f660a533eb5493ebc442
+:EVENT_ID: d7a85d5d-6716-4222-b76e-ce7bb8aee32a
+:END:
+
+PR body for upstream (title: `fix(pagination): bound pagination with explicit incomplete results`; proposed branch `fix/bounded-pagination`). File qpsjf-pr-body-final.md, 2187 B, sha256 7c3a5c59af375151d70556624db1596c4dd3d74d0fa3d3b1c1357a277bc8b6b2. Commit e5112fe31abf7951a41cf0ca52d0162274a4bc6e on 81657f19 (#60 content).
+
+----BEGIN----
+### Problem
+
+Distinct pagination cursors can keep workspace listings, directory searches and backscroll traversing indefinitely. A throwing cap would discard useful results in very large workspaces, while silently stopping would misrepresent incomplete data.
+
+### Changes
+
+- Bound successful pagination pages with validated operator defaults: 1000 conversation pages, 1000 directory pages and 100 backscroll pages; accepted range 1–10000.
+- Retain eligible partial results and explicitly identify incompleteness in list_channels, find_user, backscroll, background registration and refresh_channels.
+- Also identify existing 25-match and message-limit stops as incomplete when more results remain.
+- Preserve cycle guards, per-candidate admission retries, registration GaveUp behavior and the fail-closed MPIM members cap.
+- Preserve complete results below all limits; partial zero-match searches retain matching guidance, and refresh prioritizes unnamed-DM guidance.
+- Document all three page settings in the canonical README Environment table, including defaults, range, invalid-value startup refusal and links to Bounded pagination.
+- Add operator documentation and a changelog fragment.
+
+### Tests
+
+- Base (#60): 897 pass. This change: **1005 pass / 0 fail** on Node **22.12.0, 22.23.3 and 24.22.1**.
+- Typecheck and build pass on all three versions.
+- Targeted suite: **314 pass / 0 fail, repeated three times**.
+- Focused polish checks fail before the changes and pass afterward; **6/6 polish mutations killed**.
+- Raw legacy differential corpus matches `81657f19` exactly.
+- Connection-closed refresh tests pin registration-status cleanup and omission for partial and complete scans.
+- Changelog validation passes.
+
+### Not verified / limitations
+
+No live Slack workspace was used. Page limits are not total-duration or byte limits. Refresh starts over rather than resuming and may repeatedly return the same incomplete subset.
+
+### Dependency and merge order
+
+**Depends on #60. Merge #60 first.** This commit is stacked directly on `81657f195e734c1a43ab5bed9ddffe741630e15d` and retains its cursor-cycle and access-policy behavior.
+
+AI-assisted implementation with GPT-6-Astra.
+----END----
+
