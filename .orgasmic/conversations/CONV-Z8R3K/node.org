@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-Z8R3K
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-R4THE
+:PROPERTIES:
+:UID: f48a7f34-c51e-5b6f-895b-15e54d24100b
+:ID: CONV-Z8R3K
+:PURPOSE: review
+:OWNER: ["member","alnold"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-r4the
+:RUNS:  run-01M636Y6J2ANHJ7QBEY1GAASS3
+:CREATED_AT: 2026-10-29T06:53:11Z
+:END:
