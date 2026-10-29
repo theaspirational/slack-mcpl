@@ -1,0 +1,19 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-QPSJF
+#+orgasmic_version: 2
+
+* IN_PROGRESS TASK-QPSJF Bounded pagination with truncation for very large workspaces
+:PROPERTIES:
+:UID: dfb55897-78f2-5563-866d-7f2c21890c35
+:ID: TASK-QPSJF
+:PRIORITY: P3
+:END:
+
+** Description
+Bound pagination for very large workspaces in `listConversations` (list_channels and background registration), `findUsers` (find_user) and `fetchSlackHistory`/backscroll. Today a distinct-cursor sequence is unbounded. #60 adds cursor-cycle refusal only. An earlier draft added hard 1000-page caps that THREW, which would break listings on very large Enterprise Grid workspaces, so it was removed from #60.
+
+Goal: a bounded design that truncates with an explicit, visible "incomplete" signal instead of throwing, and never presents a truncated result as complete. It must apply in legacy and policy mode.
+
+** Acceptance
+- Plan first (options with a recommendation): limits per path, the truncation signal per tool and for registration, configurability, interaction with `maxMessages`, rate-limit waits and the cycle guards, legacy byte identity under normal sizes, and the base (on #60 or independent).
+- Implementation after the owner's choice, with red/green tests, mutations, and legacy identity below the limits.

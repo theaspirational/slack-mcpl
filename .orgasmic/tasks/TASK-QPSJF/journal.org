@@ -1,0 +1,33 @@
+#+title: orgasmic journal TASK-QPSJF
+#+orgasmic_version: 2
+
+* tx-20261029-theaspirationalslack-e9d583f9-762c-42d0-b8ce-44a52893e477 task.created
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-e9d583f9-762c-42d0-b8ce-44a52893e477
+:TIME:    [2026-10-29 Thu 19:25:55]
+:TYPE:    task.created
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-QPSJF
+:TARGET: .orgasmic/tasks/TASK-QPSJF/node.org
+:REASON: created task TASK-QPSJF
+:EVENT_ID: b1308ffe-21fc-492b-88f0-ea2ff18b439f
+:REQUEST_REPLAY_V1: {"request_id":"alnold-caps-task-1/tx","mutation":{"operation":"task.created","project_id":"theaspirational.slack-mcpl","payload_sha256":"439b1111f732790bf94e16ea89bc32a3a2764658a6064326d3d2750c58c4b926"},"mutation_id":"TASK-QPSJF","written_paths":[{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-QPSJF/node.org"},{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-QPSJF/journal.org"}]}
+:END:
+
+* tx-20261029-theaspirationalslack-6ab5048f-07f4-42f5-8236-70cf01c21f0d task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-6ab5048f-07f4-42f5-8236-70cf01c21f0d
+:TIME:    [2026-10-29 Thu 19:25:59]
+:TYPE:    task.state_transitioned
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-QPSJF
+:TARGET: .orgasmic/tasks/TASK-QPSJF/node.org
+:REASON: Owner chose option C (chain:next:caps, taken as the owner's go); plan-only round.
+:FROM_STATE: backlog
+:TO_STATE: in_progress
+:EVENT_ID: 25934c47-8a83-4c6a-9e32-16ab684556ab
+:END:
