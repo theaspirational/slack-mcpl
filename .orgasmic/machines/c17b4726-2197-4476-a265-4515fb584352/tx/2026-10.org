@@ -9577,3 +9577,20 @@
 :EFFORT_OVERRIDE: high
 :EVENT_ID:     4c8b4eb9-ed0e-49b1-8c80-9ed46c9d1f8f
 :END:
+
+
+* TX 2026-10-29 Thu 13:42:26 run.asked TASK-T71QC
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalslack-824286b5-9197-4f4c-80a1-b1b61a34a0e9
+:TIME:         [2026-10-29 Thu 13:42:26]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.slack-mcpl
+:TASK:         TASK-T71QC
+:REASON:       The shared requireWritableConversation/SlackAccessPolicy.requireWritable guard also gates uploadFile and deleteFile. Admitting named group DMs therefore changes those file operations indirectly, although no attachment/file implementation is edited. Does the file-path boundary permit this shared-guard effect, or should named group-DM files:write remain refused for the parallel change? I have stopped implementation pending this scope decision.
+:RUN_ID:       run-01M63Y0S24ZECY2XWTDG35C40M
+:ASK_ID:       ask-21a7d3fae3a04478b16fa58cb887a268
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     10762851-50e2-43e9-a1a2-8848a186d9ca
+:END:
