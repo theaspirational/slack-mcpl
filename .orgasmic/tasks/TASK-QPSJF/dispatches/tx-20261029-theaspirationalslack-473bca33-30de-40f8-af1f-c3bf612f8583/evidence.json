@@ -1,0 +1,20 @@
+{
+  "event_count": 645,
+  "tool_call_count": 0,
+  "unparsed_events": 0,
+  "bounded_events": 2,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-QPSJF-reviewer-20261029T212121-run-01M64RKW26MN082HRXQXSYBDW6.jsonl",
+    "size_bytes": 947582
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.claude/projects/-home-orgasmic--orgasmic-worktrees-theaspirational-slack-mcpl-task-qpsjf/dd013e38-b744-4780-a6da-ce3afc5a578e.jsonl",
+    "session_id": "dd013e38-b744-4780-a6da-ce3afc5a578e",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [],
+  "narrative_truncated": false
+}
