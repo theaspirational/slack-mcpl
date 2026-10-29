@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-R4THE
 #+orgasmic_version: 2
 
-* IN_REVIEW TASK-R4THE Upstream PR 6/A1: internal explicit access-policy model
+* IN_PROGRESS TASK-R4THE Upstream PR 6/A1: internal explicit access-policy model
 :PROPERTIES:
 :UID: 521e48f5-d0ec-5ec2-9e26-c6796e473fb2
 :ID: TASK-R4THE
