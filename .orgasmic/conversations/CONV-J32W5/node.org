@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-J32W5
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-ER984
+:PROPERTIES:
+:UID: e73f5806-2230-5093-9903-1feacc4d50b4
+:ID: CONV-J32W5
+:PURPOSE: review
+:OWNER: ["member","alnold"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-er984
+:RUNS:  run-01M645X1HH07RQRW0DQH4715SY
+:CREATED_AT: 2026-10-29T15:54:18Z
+:END:
