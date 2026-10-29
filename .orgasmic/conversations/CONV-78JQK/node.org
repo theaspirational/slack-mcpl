@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-78JQK
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-ZSA2S
+:PROPERTIES:
+:UID: 1e463534-dd0b-5b94-a7be-1cb956a65165
+:ID: CONV-78JQK
+:PURPOSE: review
+:OWNER: ["member","alnold"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.slack-mcpl/task-zsa2s
+:RUNS:  run-01M640CEGBZ0SVFJA0XPTANRG3
+:CREATED_AT: 2026-10-29T14:17:52Z
+:END:
