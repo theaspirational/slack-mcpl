@@ -1,0 +1,25 @@
+{
+  "event_count": 253,
+  "tool_call_count": 14,
+  "unparsed_events": 1,
+  "bounded_events": 2,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-SYJYQ-implementer-20261029T061457-run-01M634R6FFMJ28PVQFQCJWT5RT.jsonl",
+    "size_bytes": 288571
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T05-33-33-01a18626-33cd-7cd3-b2be-e24d84df5ec4.jsonl",
+    "session_id": "01a18626-33cd-7cd3-b2be-e24d84df5ec4",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll verify the findings against the reviewed commit, make the targeted polish, and demonstrate that deleting the hidden-path guard now fails the test. Then I’ll amend the commit and rerun the required gates, using this round’s evidence directory.\nUpstream is still at `7274283`, so no rebase was needed. The requested polish is amended into one commit. Deleting the hidden-path guard now produces the expected test failure (99 pass, 1 fail); the exact-message test also fails against the old unrestricted-open error and passes after sanitization. Final-commit gates are running.\nAll required gates passed at `0fa20a15`: 683/683 on all three Node versions, against fresh 583/583 baselines; the 100 focused tests also passed five repeats. The report contains the fix-to-evidence table and final fragment, PR body, and comment verbatim. Nothing was pushed or posted.\n"
+    }
+  ],
+  "narrative_truncated": false
+}
