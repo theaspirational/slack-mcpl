@@ -60,3 +60,18 @@
 :RUN_ID: run-01M63K6V25E568QV8Z5CGZDP5C
 :EVENT_ID: 9915a0d1-e5b0-470e-a5dd-675a2a86bfac
 :END:
+
+* tx-20261029-theaspirationalslack-c7b14dbe-6bff-40a5-9127-c8ac3b7dfc31 conversation.run_released
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-c7b14dbe-6bff-40a5-9127-c8ac3b7dfc31
+:TIME:    [2026-10-29 Thu 10:36:25]
+:TYPE:    conversation.run_released
+:ACTOR:   orgasmic
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TARGET: ~/.orgasmic/ledgers/theaspirational.slack-mcpl/.orgasmic/conversations/CONV-Q5C6H/node.org
+:REASON: worker finalize for TASK-V08EN
+:NODE_ID: CONV-Q5C6H
+:RUN_ID: run-01M63K6V25E568QV8Z5CGZDP5C
+:EVENT_ID: 2c8d975c-f14e-4333-b966-38900397efec
+:END:
