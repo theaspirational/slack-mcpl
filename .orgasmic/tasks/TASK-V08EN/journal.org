@@ -15,3 +15,19 @@
 :EVENT_ID: 1a007139-fefc-4d20-a708-6d00255f82cd
 :REQUEST_REPLAY_V1: {"request_id":"alnold-slackmcpl-reactions-read-remove-1/tx","mutation":{"operation":"task.created","project_id":"theaspirational.slack-mcpl","payload_sha256":"1a3a7a03a3b8d78b7fd922938fedcb139b2e028859fa0d007f235d9f06a00b0a"},"mutation_id":"TASK-V08EN","written_paths":[{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-V08EN/node.org"},{"project":"theaspirational.slack-mcpl","relative":".orgasmic/tasks/TASK-V08EN/journal.org"}]}
 :END:
+
+* tx-20261029-theaspirationalslack-68065f61-c03b-4679-8571-9280f4296d8d task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-68065f61-c03b-4679-8571-9280f4296d8d
+:TIME:    [2026-10-29 Thu 09:58:30]
+:TYPE:    task.state_transitioned
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-V08EN
+:TARGET: .orgasmic/tasks/TASK-V08EN/node.org
+:REASON: The owner approved building it as an upstream PR (button v08en:alnold, relayed).
+:FROM_STATE: backlog
+:TO_STATE: in_progress
+:EVENT_ID: ae477866-42f4-42a8-a7f0-dd00c5af8541
+:END:
