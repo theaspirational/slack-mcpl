@@ -47,3 +47,50 @@
 :TO_STATE: in_progress
 :EVENT_ID: d85c0891-ca53-4966-a0de-9abfb3cb6412
 :END:
+
+* tx-20261029-theaspirationalslack-eb3395e6-510f-46b1-b113-16ffd788880f comment
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalslack-eb3395e6-510f-46b1-b113-16ffd788880f
+:TIME:    [2026-10-29 Thu 15:07:10]
+:TYPE:    comment
+:ACTOR:   alnold
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.slack-mcpl
+:TASK: TASK-ZSA2S
+:REASON: comment
+:ACTOR_UID: 33bd077fdb77f660a533eb5493ebc442
+:EVENT_ID: a6e25379-3327-4ce6-8de6-acb804275900
+:END:
+
+Publication record. Commit `3b1a97ac8228a03383b6232ddd1fc3d4e94f1ecf` (one commit on ccbbb766; cherry-pick onto the published #58 head 0625ffeb, which has an identical tree). Review 2 approved, no HIGH/MED. Proposed branch `feat/access-policy-file-gates`. Title: "fix(access): gate file and attachment access under the dormant access policy". PR body sha256 8a067c670b8443e93d7b3cd4ac6500ce174243081337bff13e7fd34fe456a34b, 2783 B:
+
+-----BEGIN PR BODY-----
+## Summary
+
+Depends on **#58** (named group DMs), which is stacked on **#56** and **#55**. Merge those first. This prepares dormant attachment/file authorization; no setting enables the policy.
+
+- Policy downloads require conversation ID + file ID, fresh conversation admission and fresh exact file/share evidence. URL-only input, external files and redirects are refused. A file shared in several places needs one freshly proven admitted share.
+- Attachment hints use only admitted-message metadata, without per-reference API calls. Explicit non-visible file entries are marked non-downloadable.
+- Upload targets are rechecked before completion. Rollback deletion requires server-recorded upload provenance, fresh writable admission and current file association. **A deletion removes the file from every conversation it is shared in**, also stated in policy rollback output.
+- Upload provenance is capped at **1000 entries**, evicting the oldest insertion. Evicted, unknown, restarted-away, invalid or unshared files fail closed and can require manual cleanup.
+- Adapts the group-DM upload/rollback tests to these checks, adds deletion-guard coverage and reports an invalid-ticket upload as a leftover file. Legacy behavior is unchanged.
+
+## Verification
+
+- Typecheck/build: Node 22.23.3 and 24.22.1.
+- Full suite: **785/785** on 22.23.3, 24.22.1 and 22.12.0.
+- File/reference/group tests: **113/113**, five consecutive runs.
+- **Nine** mutations caught; removing both restricted-file guards fails all three new deletion cases.
+- Legacy A/B against the #58 tree: **32 byte-identical snapshots** after normalizing checkpoint IDs and loopback ports only.
+- Changelog check and **27/27** release tests pass. Empty-config, ignore-scripts install; loopback-only verification.
+
+## Before activation
+
+- Decide the supported file-mode list explicitly. The current allow-list remains `hosted`, `snippet`, `post`; other modes fail closed and may include legitimate Slack-hosted content.
+- Decide/document whether admitted one-to-one DMs should allow file upload and rollback deletion without a `writeChannels` entry. The inherited DM write semantics are unchanged here.
+- Policy rollback deletion needs `files:read` as well as `files:write`; with only `files:write`, every policy rollback leaves the uploaded file behind.
+- References to files already denied by the gate (deleted, tombstoned, external or unsupported mode) still show a download hint; the download is refused. Align the hint with the gate.
+- Fresh checks cannot eliminate the race between authorization and Slack's next operation. Provenance-backed deletion still affects other shares; incomplete metadata, lost/evicted provenance and orphaned uploads may require manual cleanup.
+
+AI-assisted implementation with GPT-6-Astra.
+-----END PR BODY-----
