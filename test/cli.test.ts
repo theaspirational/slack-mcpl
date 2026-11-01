@@ -32,6 +32,7 @@ test('a bad switch stops startup with one line, before Slack is contacted', () =
 test('startup still validates fork policy, recipients, tool switches and path uploads before connecting', () => {
   const cases: [Record<string, string>, RegExp][] = [
     [{ SLACK_ACCESS_POLICY: '{' }, /SLACK_ACCESS_POLICY must be valid JSON/],
+    [{ SLACK_BOT_MESSAGES: 'true' }, /SLACK_BOT_MESSAGES must be all or a comma-separated list of bot\/user IDs/],
     [{ SLACK_ACCESS_POLICY: JSON.stringify({
       readJoinedChannels: true, writeChannels: ['CGROUP'], dmUsers: [],
       groupDms: ['CGROUP'], historyMembershipFallbackChannels: ['CGROUP'],
@@ -86,6 +87,7 @@ test('startup reads every setting from the command line and the environment', ()
       disableDms: true,
       subscribeMemberChannels: true,
       ackReaction: 'eyes',
+      botMessages: undefined,
     },
   });
 });

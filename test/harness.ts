@@ -6,7 +6,7 @@
 import http from 'node:http';
 import { PassThrough } from 'node:stream';
 import { McplConnection, method, type JsonRpcRequest } from '@animalabs/mcpl-core';
-import { SlackAdapter, type SlackSocketLike, type SlackWebLike } from '../src/slack-adapter.js';
+import { SlackAdapter, type SlackAdapterConfig, type SlackSocketLike, type SlackWebLike } from '../src/slack-adapter.js';
 import { SlackMcplServer } from '../src/server.js';
 
 /** The full capability set slack-mcpl's manifest declares (§6.2 paths). */
@@ -206,6 +206,7 @@ function fakeWeb(
 }
 
 export interface HarnessOptions {
+  botMessages?: SlackAdapterConfig['botMessages'];
   sendChannels?: string[];
   disableDms?: boolean;
   ackReaction?: string;
@@ -261,7 +262,7 @@ export function fakeSlack(opts: HarnessOptions = {}) {
   const statuses: string[] = [];
   const slack = new SlackAdapter(
     fakeWeb(posts, reactions, uploads, deletedMessages, deletedFiles, uploadsBegun, reads, statuses, opts.dms, opts.displayNames, opts.channelName, opts.historyMessages), socket, 'UBOT', 'acme',
-    undefined, opts.sendChannels, opts.disableDms, opts.ackReaction, opts.scopes,
+    undefined, opts.sendChannels, opts.disableDms, opts.ackReaction, opts.scopes, opts.botMessages, 'BSELF',
   );
   return { slack, socket, posts, reactions, reads, uploads, uploadsBegun, deletedMessages, deletedFiles, statuses };
 }

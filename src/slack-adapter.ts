@@ -28,6 +28,7 @@ import { SLACK_TS, readBounded, readOptions, type HistoryReadResult, type ReadSt
 import { SlackAccessPolicy, HISTORY_MEMBERSHIP_PROOF, type SlackAccessPolicyConfig } from './access-policy.js';
 import { RoutingLedger, type AccessAdmission, type RoutingReceipt, type SenderKind } from './recipient-routing.js';
 import type { RecipientRoutingConfig } from './configuration.js';
+import type { BotMessagePolicy } from './config.js';
 import { attachmentFetchHint } from './file-access.js';
 import {
   formatSlackText,
@@ -312,7 +313,7 @@ export interface SlackMessageData {
   threadTs?: string;
   authorId: string;
   authorName: string;
-  /** Set with recipient routing: the author as the routing ledger classes it. */
+  /** Set for admitted bots, or with recipient routing's author classification. */
   isBot?: boolean;
   senderKind?: SenderKind;
   authorBotId?: string;
@@ -376,6 +377,8 @@ export interface SlackAdapterConfig {
   disableDms?: boolean;
   /** Emoji name put on an addressed message while the agent works on it. */
   ackReaction?: string;
+  /** Opt in to live messages from other bots, without recipient routing. */
+  botMessages?: BotMessagePolicy;
 }
 
 /**
@@ -763,6 +766,8 @@ export async function connectSlack(config: SlackAdapterConfig, slackApiUrl?: str
     config.ackReaction,
     // Granted scopes, from the x-oauth-scopes header of auth.test.
     reportedScopes(auth.response_metadata),
+    config.botMessages,
+    auth.bot_id,
   );
   if (config.accessPolicy) adapter.configureAccessPolicy(config.accessPolicy);
   if (config.recipientRouting) adapter.configureRecipientRouting(config.recipientRouting);
@@ -870,7 +875,12 @@ export class SlackAdapter {
     /** The bot token's scopes, as auth.test reported them; undefined, or an
      *  empty list, is unknown, so a listing asks for every type. */
     scopes?: string[],
+    private botMessages?: BotMessagePolicy,
+    private botId?: string,
   ) {
+    if (botMessages && (!botUserId || !botId)) {
+      throw new Error('Bot message delivery requires authenticated bot and user IDs for self-filtering');
+    }
     this.scopes = reportedScopes({ scopes });
     const omitted = this.leftOutTypes();
     if (omitted.length) this.logLeftOut(omitted, '');
@@ -1854,22 +1864,27 @@ export class SlackAdapter {
    *  they make, or undefined for an event that isn't delivered. */
   private async prepareMessageEvent(event: SlackMessageEvent): Promise<SlackMessageData | undefined> {
     if (!event || event.type !== 'message') return;
-    // With recipient routing, other bots' messages come through as context.
-    if (!CONTENT_SUBTYPES.has(event.subtype) && !(this.routing && event.subtype === 'bot_message')) return;
-    // Self-filter: skip our own messages and other bots' (bot_id covers
-    // bot_message-without-subtype edge cases like app-posted file shares).
-    if (event.bot_id && !this.routing) return;
+    // Recipient routing admits bots as context; ordinary delivery needs opt-in.
+    if (!CONTENT_SUBTYPES.has(event.subtype) && !((this.routing || this.botMessages) && event.subtype === 'bot_message')) return;
+    // Check both authenticated identities, including bot events without a user.
     if (this.botUserId !== null && event.user === this.botUserId) return;
-    // A real user content message always carries channel, user, and ts;
+    if (this.botId && event.bot_id === this.botId) return;
+    const fromBot = !!event.bot_id || event.subtype === 'bot_message';
+    const botAllowed = this.botMessages === 'all' ||
+      Array.isArray(this.botMessages) && this.botMessages.some((id) => id === event.bot_id || id === event.user);
+    if (fromBot && !this.routing && !botAllowed) return;
+    // Legacy bot messages can lack a user; use their bot ID as author instead.
+    const authorId = event.user || (fromBot && this.botMessages ? event.bot_id : undefined);
+    // A content message always carries channel, author, and ts;
     // a malformed payload missing any of them is dropped, not crashed on
     // (parseFloat(undefined) → NaN → toISOString() throws).
-    if (!event.channel || !event.user || !event.ts) return;
+    if (!event.channel || !authorId || !event.ts) return;
 
     let supportAccess: AccessAdmission | undefined;
     if (this.accessPolicy) {
       // Fresh admission precedes dedup and any wake decision.
       const conversation = await this.requireHistoryConversation(event.channel);
-      if (conversation?.is_im && conversation.user !== event.user) return;
+      if (conversation?.is_im && conversation.user !== authorId) return;
       // An allowed group DM is admitted as a joined private channel: it is
       // delivered and woken like one, and routing's admission has no other kind.
       supportAccess = {version: 1, channelId: event.channel, readable: true,
@@ -1880,20 +1895,21 @@ export class SlackAdapter {
     const isDM = supportAccess ? supportAccess.kind === 'dm' : event.channel_type === 'im' || event.channel.startsWith('D');
     // Only what Slack marks as a channel gets through, not merely what isn't marked a DM.
     if (!this.accessPolicy && this.disableDms && event.channel_type !== 'channel' && event.channel_type !== 'group') return;
-    if (!this.accessPolicy && isDM && this.dmUsers && this.dmUsers.length > 0 && !this.dmUsers.includes(event.user)) {
+    if (!this.accessPolicy && isDM && this.dmUsers && this.dmUsers.length > 0 && !this.dmUsers.includes(authorId)) {
       return; // DM whitelist active and this sender isn't on it
     }
 
     // Resolve author + mentioned users before formatting.
     const mentionIds = extractSlackUserIds(event.text ?? '');
     await this.resolveUserNames([event.user, ...mentionIds]);
-    const authorName = this.userNameCache.get(event.user) ?? event.user;
-    const senderKind: SenderKind = event.bot_id || event.subtype === 'bot_message' || this.botUsers.has(event.user)
-      ? 'bot' : this.humanUsers.has(event.user) || !this.routing ? 'human' : 'unknown';
+    const authorName = this.userNameCache.get(authorId) ?? authorId;
+    const senderKind: SenderKind = fromBot || this.botUsers.has(authorId)
+      ? 'bot' : this.humanUsers.has(authorId) || !this.routing ? 'human' : 'unknown';
+    if (this.botMessages && !this.routing && senderKind === 'bot' && !botAllowed) return;
     const routing = this.routing?.receive({channel: event.channel, id: event.ts,
-      root: event.thread_ts || event.root?.thread_ts || event.ts, senderKind, authorId: event.user,
+      root: event.thread_ts || event.root?.thread_ts || event.ts, senderKind, authorId,
       mentions: mentionIds, access: supportAccess!,
-      ...(supportAccess?.kind === 'dm' && senderKind === 'human' ? {dmAuthorizedPeer: event.user} : {})});
+      ...(supportAccess?.kind === 'dm' && senderKind === 'human' ? {dmAuthorizedPeer: authorId} : {})});
     if (this.routing && routing === null) return;
 
     // Under an explicit access policy a file is referred to by its ID, so one
@@ -1916,9 +1932,11 @@ export class SlackAdapter {
       channelId: event.channel,
       id: String(event.ts),
       threadTs: event.thread_ts || event.root?.thread_ts || undefined,
-      authorId: String(event.user),
+      authorId,
       authorName,
       ...(routing ? {routing, isBot: senderKind !== 'human', senderKind,
+        ...(event.bot_id ? {authorBotId: event.bot_id} : {})} : {}),
+      ...(!routing && this.botMessages && senderKind === 'bot' ? {isBot: true, senderKind,
         ...(event.bot_id ? {authorBotId: event.bot_id} : {})} : {}),
       content: event.text ?? '',
       cleanContent: formatSlackText(event.text ?? '', this.userNameCache),

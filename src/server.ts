@@ -1885,7 +1885,7 @@ export class SlackMcplServer {
     const sourceLabel = msg.routing
       ? `[Slack source user=${msg.authorId} kind=${msg.senderKind} authority=${msg.routing.authority}; ` +
         `${msg.routing.wakeAllowed ? 'addressed to this agent' : 'context only; no response requested'}]\n`
-      : '';
+      : msg.isBot ? '[Slack source: bot]\n' : '';
     const renderedContent = `${prefixBlock}${location}${sourceLabel}${nameShown(msg.authorName)}: ${senderText(msg.cleanContent)}`;
 
     const contentBlocks: ContentBlock[] = [textContent(renderedContent)];
@@ -1894,8 +1894,7 @@ export class SlackMcplServer {
     }
 
     // MCPL RFC-001 event tags — reserved chat:* core, umbrellas included.
-    // The host's wake gate routes on these. Other bots' messages never get
-    // here (the adapter self-filters bot_id), so from-human is uniform.
+    // The host's wake gate routes on these, including opted-in bot messages.
     const eventTags: string[] = (() => {
       const t = new Set<string>();
       if (msg.mentionsBot) t.add('chat:mention');

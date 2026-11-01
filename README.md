@@ -491,6 +491,7 @@ Boolean switches take `true`/`false` (also `1`/`0`, `yes`/`no`); any other value
 |----------|----------|-------------|
 | `SLACK_BOT_TOKEN` | yes | Bot token (`xoxb-…`) for Web API calls |
 | `SLACK_APP_TOKEN` | yes | App-level token (`xapp-…`, `connections:write`) for Socket Mode |
+| `SLACK_BOT_MESSAGES` | no | Opt in to live messages from other bots: `all`, or comma-separated bot IDs/user IDs (e.g. `B012ABC,U034DEF`). Unset drops bot events as before; empty or invalid values stop startup. Own messages are always dropped. See [Bot message delivery](#bot-message-delivery). |
 | `SLACK_PATH_UPLOADS` | no | Explicit JSON path policy: `{"mode":"restricted","directories":["/absolute/reports"]}` or `{"mode":"unrestricted"}`, either with an optional `maxBytes` (default 5 MiB, at most 1 GiB) for path uploads only. Unset keeps inline-only uploads; a local draft's `SLACK_ALLOW_FILE_PATHS` stops startup. Restricted mode needs Python 3.9+ and Linux/macOS descriptor-path support, pins roots and refuses below-root symlinks; unrestricted uses ordinary connector-account file access and needs no Python. See [Optional path uploads](#optional-path-uploads) |
 | `SLACK_DM_USERS` | no | Comma-separated user-ID whitelist for DMs; others' DMs are dropped |
 | `SLACK_SEND_CHANNELS` | no | Comma-separated conversation-ID allow-list for writes (send, upload, DM, edit, delete, reaction, and the host's `channels/publish`); writes elsewhere are refused before the call reaches Slack. Other conversations are registered `inbound`, `list_channels` shows `writable: false`, and the first message the agent gets from one, addressed or not, carries a read-only note. A mention there still reaches the agent; whether it wakes is the host's policy. `send_dm` is refused before a DM is opened, and not offered, unless the list names a DM. Set but empty is refused at startup; the effective list is logged |
@@ -503,6 +504,29 @@ Boolean switches take `true`/`false` (also `1`/`0`, `yes`/`no`); any other value
 | `SLACK_ACCESS_POLICY` | no | Explicit JSON policy: `readJoinedChannels`, `writeChannels`, `dmUsers`, optional `groupDms` and `historyMembershipFallbackChannels`. Omit to retain legacy controls. See the access-policy section above. |
 | `SLACK_RECIPIENT_ROUTING` | no | Opt-in JSON containing absolute private `stateFile`, installation `namespace`, optional `expectedBotUserId`. Requires explicit access policy, Node 24+ on POSIX, and a compatible recipient-aware MCPL host. |
 | `SLACK_DISABLED_TOOLS` | no | Comma-separated known tool names to hide and refuse, including direct invocation. For example, operators may disable subscription editing while retaining joined-channel ambient reads. |
+
+## Bot message delivery
+
+`SLACK_BOT_MESSAGES=all` admits other bots' live messages without recipient
+routing or a recipient-aware host. For narrower admission, use an allow-list
+such as `SLACK_BOT_MESSAGES=B012ABC,U034DEF`: either the event's bot ID or its
+author user ID must match. A bot event without a user ID uses its bot ID as
+author. Startup requires both authenticated self IDs so messages from this
+connector are dropped by user ID **or** bot ID, even if explicitly allowed.
+
+Admitted messages carry `chat:from-bot` (not `chat:from-human`) and a
+`[Slack source: bot]` text marker. Existing subscriptions, mention/DM wake
+policy, and conversation access controls still apply: this option does not
+subscribe to channels or grant access. For ambient channel delivery, subscribe
+to the channel or enable `SLACK_SUBSCRIBE_MEMBER_CHANNELS`.
+
+**Loop risk:** self-filtering prevents reacting to this connector's own
+messages, not cycles between different bots. A bot mentioning another bot, or
+sending it a DM, can trigger a reply loop under the host's wake policy. Prefer
+an allow-list and configure host-side bot wake restrictions/rate limits before
+enabling this option. Unset it to disable ordinary bot delivery. This option
+does not change history reads. Optional recipient routing retains its own
+bot/context and wake rules; it does not need this setting.
 
 ## Optional recipient-aware mode
 
