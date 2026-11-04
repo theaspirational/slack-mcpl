@@ -362,6 +362,8 @@ export async function resolveSlackUserNames(
 /** The fields of a conversations.history message the server reads —
  * structurally satisfied by @slack/web-api's MessageElement. */
 export interface SlackHistoryMessage {
+  attachments?: unknown;
+  blocks?: unknown;
   ts?: string;
   user?: string;
   username?: string;
