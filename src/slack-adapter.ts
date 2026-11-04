@@ -1811,7 +1811,7 @@ export class SlackAdapter {
       authorId: msg.user,
       ...(msg.bot_id ? { authorBotId: msg.bot_id } : {}),
       authorName: msg.user ? (this.userNameCache.get(msg.user) ?? msg.user) : (msg.username ?? 'bot'),
-      content: formatSlackText(renderMessageText(msg), this.userNameCache),
+      content: formatSlackText(renderMessageText(msg, this.userNameCache), this.userNameCache),
       threadTs: msg.thread_ts && msg.thread_ts !== msg.ts ? msg.thread_ts : undefined,
       rootTs: reported ?? id,
       // Missing means unknown, not none.
@@ -1903,9 +1903,9 @@ export class SlackAdapter {
     }
 
     // Resolve author + mentioned users before formatting.
-    const text = renderMessageText(event);
-    const mentionIds = extractSlackUserIds(text);
+    const mentionIds = extractSlackUserIds(renderMessageText(event));
     await this.resolveUserNames([event.user, ...mentionIds]);
+    const text = renderMessageText(event, this.userNameCache);
     const authorName = this.userNameCache.get(authorId) ?? authorId;
     const senderKind: SenderKind = fromBot || this.botUsers.has(authorId)
       ? 'bot' : this.humanUsers.has(authorId) || !this.routing ? 'human' : 'unknown';
