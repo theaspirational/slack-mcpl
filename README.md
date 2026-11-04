@@ -621,7 +621,8 @@ rich channel elements carry labels from original text. Dedup is independent of
 the name cache; names are resolved for display afterward. The `Notification`
 placeholder never suppresses a distinct body.
 
-Only original Slack text creates mentions, addressing, wake or auto-subscription.
+Only original Slack text creates mentions (including recipient-routing mentions),
+addressing, wake or auto-subscription.
 Quoted/shared/block mentions are display content only. Live `metadata.rawContent`
 remains original Slack text; `content`/`cleanContent` include supplemental text.
 History `textContains` searches rendered content (with the documented user-ID
@@ -633,4 +634,6 @@ matches a URL in original text, including Slack `<url|label>` forms.
 The supplemental suffix is capped at 16,384 UTF-16 units including separator
 and a single final `[…truncated]` marker when any length, traversal (2,000
 nodes) or rich nesting (12 levels) bound cuts content. Cuts preserve code points;
-original text is never truncated. Existing live bot/edit filtering is unchanged.
+original text is never truncated. Fork pinned-history membership fallbacks,
+file-reference shaping and backscroll use this same renderer. Existing
+`SLACK_BOT_MESSAGES` admission, self-message dropping and edit filtering are unchanged.
