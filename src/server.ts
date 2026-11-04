@@ -1919,7 +1919,7 @@ export class SlackMcplServer {
       thread_ts: msg.threadTs,
       channel_type: msg.channelType,
       team: msg.teamId,
-      rawContent: msg.content,
+      rawContent: msg.rawContent ?? msg.content,
       botUserId: this.slack.botUserId ?? undefined,
       ...(msg.attachments.length > 0 ? { attachments: msg.attachments } : {}),
     };

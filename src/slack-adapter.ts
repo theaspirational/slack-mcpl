@@ -322,7 +322,9 @@ export interface SlackMessageData {
   authorBotId?: string;
   /** Recipient routing's receipt for this message (SLACK_RECIPIENT_ROUTING). */
   routing?: RoutingReceipt;
-  /** Raw mrkdwn text as received. */
+  /** Original Slack text (before supplemental payload rendering). */
+  rawContent?: string;
+  /** Rendered mrkdwn content. */
   content: string;
   /** Mentions resolved to @name (uid:U…), links/broadcasts unescaped. */
   cleanContent: string;
@@ -1794,13 +1796,14 @@ export class SlackAdapter {
   private async shapeHistory(messages: SlackHistoryMessage[]): Promise<HistoryMessage[]> {
     // Pre-resolve author + mentioned user names in one pass.
     const ids = new Set<string>();
-    for (const msg of messages) {
+    const texts = messages.map(msg => renderMessageText(msg));
+    for (const [index, msg] of messages.entries()) {
       if (msg.user) ids.add(msg.user);
-      for (const id of extractSlackUserIds(renderMessageText(msg))) ids.add(id);
+      for (const id of extractSlackUserIds(texts[index])) ids.add(id);
     }
     await this.resolveUserNames(Array.from(ids));
 
-    return messages.map((msg) => {
+    return messages.map((msg, index) => {
       const id = String(msg.ts ?? '');
       // The thread a message belongs to: the one its parent's ts names, as
       // Slack reports it, or the message's own.
@@ -1811,7 +1814,7 @@ export class SlackAdapter {
       authorId: msg.user,
       ...(msg.bot_id ? { authorBotId: msg.bot_id } : {}),
       authorName: msg.user ? (this.userNameCache.get(msg.user) ?? msg.user) : (msg.username ?? 'bot'),
-      content: formatSlackText(renderMessageText(msg, this.userNameCache), this.userNameCache),
+      content: formatSlackText(texts[index], this.userNameCache),
       threadTs: msg.thread_ts && msg.thread_ts !== msg.ts ? msg.thread_ts : undefined,
       rootTs: reported ?? id,
       // Missing means unknown, not none.
@@ -1903,9 +1906,9 @@ export class SlackAdapter {
     }
 
     // Resolve author + mentioned users before formatting.
-    const mentionIds = extractSlackUserIds(renderMessageText(event));
-    await this.resolveUserNames([event.user, ...mentionIds]);
-    const text = renderMessageText(event, this.userNameCache);
+    const text = renderMessageText(event);
+    const mentionIds = extractSlackUserIds(event.text ?? '');
+    await this.resolveUserNames([event.user, ...extractSlackUserIds(text)]);
     const authorName = this.userNameCache.get(authorId) ?? authorId;
     const senderKind: SenderKind = fromBot || this.botUsers.has(authorId)
       ? 'bot' : this.humanUsers.has(authorId) || !this.routing ? 'human' : 'unknown';
@@ -1942,6 +1945,7 @@ export class SlackAdapter {
         ...(event.bot_id ? {authorBotId: event.bot_id} : {})} : {}),
       ...(!routing && this.botMessages && senderKind === 'bot' ? {isBot: true, senderKind,
         ...(event.bot_id ? {authorBotId: event.bot_id} : {})} : {}),
+      ...(text !== (event.text ?? '') ? { rawContent: event.text ?? '' } : {}),
       content: text,
       cleanContent: formatSlackText(text, this.userNameCache),
       mentionIds,
